@@ -1,0 +1,20 @@
+{
+  "name": "sqrt4web",
+  "version": "0.0.1",
+  "description": "A website and API for SQRT4.eu",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sqrt4",
+    "education"
+  ],
+  "author": "jake",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.5"
+  }
+}
