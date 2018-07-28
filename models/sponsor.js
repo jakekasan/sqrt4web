@@ -1,4 +1,4 @@
-class Student {
+class Sponsor {
     constructor(){
         this.id;
         this.name;
