@@ -14,6 +14,6 @@ class Workshop {
             students: this.students,
             resources: this.resources,
             author: this.author
-        }
+        };
     }
 }
