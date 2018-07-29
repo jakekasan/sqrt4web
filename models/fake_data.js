@@ -135,8 +135,8 @@ let records = [
         title:"Programming a Web Server",
         students:[4,5],
         resources:[],
-        projects:[],
-        sponsors:[],
+        projects:[25],
+        sponsors:[20],
         author:[9]
     },
     {
@@ -153,29 +153,29 @@ let records = [
         id:20,
         type:"SPONSOR",
         name:"Google",
-        addr:"Mountain View",
-        sponsored:[]
+        address:"Mountain View",
+        sponsored:[25]
     },
     {
         id:21,
         type:"SPONSOR",
         name:"Prusa",
-        addr:"Prague",
-        sponsored:[]
+        address:"Prague",
+        sponsored:[12,13,14,26],
     },
     {
         id:22,
         type:"SPONSOR",
         name:"Raspberry Pi Foundation",
-        addr:"England",
-        sponsored:[]
+        address:"England",
+        sponsored:[26]
     },
     {
         id:23,
         type:"SPONSOR",
         name:"BMW",
-        addr:"Bavaria",
-        sponsored:[]
+        address:"Bavaria",
+        sponsored:[24]
     },
     {
         id:24,
@@ -183,14 +183,23 @@ let records = [
         name:"Working 3D Engine",
         description:"",
         sponsor:[23],
-        participants:[]
+        participants:[1,2,3]
     },
     {
         id:25,
         type:"PROJECT",
         name:"NodeJS Web Server",
         description:"",
-        sponsor:[20]
+        sponsor:[20],
+        participants:[4,5]
+    },
+    {
+        id:26,
+        type:"PROJECT",
+        name:"RPi Prusa Controller",
+        description:"",
+        sponsors:[21,22],
+        participants:[6]
     }
 
 
