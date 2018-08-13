@@ -8,7 +8,10 @@ const pageLoader = function(data){
         console.log(ind["Type"]);
 
         let cardContainer = document.createElement("div");
-        cardContainer.className = "card";
+        cardContainer.className = "col s12 m6 l4 xl2";
+
+        let card = document.createElement("div");
+        card.className = "card";
 
         let cardContent = document.createElement("div");
         cardContent.className = "card-content";
@@ -17,12 +20,22 @@ const pageLoader = function(data){
         cardTitle.className = "card-title";
         cardTitle.innerText = ind["type"];
 
+        let cardImage = document.createElement("img");
+        //cardImage.className = "";
+        cardImage.src = "img/homer.png";
+
+        let cardImageContainer = document.createElement("div");
+        cardImageContainer.className = "card-image";
+        cardImageContainer.appendChild(cardImage);
+        cardImageContainer.appendChild(cardTitle);
+
         let cardText = document.createElement("p");
         cardText.innerText = JSON.stringify(ind);
 
-        cardContent.appendChild(cardTitle);
+        cardContent.appendChild(cardImageContainer);
         cardContent.appendChild(cardText);
-        cardContainer.appendChild(cardContent);
+        card.appendChild(cardContent);
+        cardContainer.appendChild(card);
         searchResults.appendChild(cardContainer);
     }
 }
