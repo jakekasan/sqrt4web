@@ -1,12 +1,14 @@
 let records = [
     {
         id:0,
+        type:"STUDENT",
         name:"Bart Simpson",
         address:"Springfield",
         projects:[]
     },
     {
         id:1,
+        type:"STUDENT",
         name:"Ned Flanders",
         address:"Springfield",
         projects:[]

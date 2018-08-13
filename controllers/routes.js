@@ -7,7 +7,7 @@ module.exports = function(app,db){
         console.log(req.query);
         const q = req.query["q"].split("+").map(x => x.toLowerCase());
         console.log(q);
-        console.log(db.get(object => {
+        let result = JSON.stringify(db.get(object => {
             for (let key in object) {
                 if (object.hasOwnProperty(key)) {
                     let val = object[key];
@@ -29,7 +29,7 @@ module.exports = function(app,db){
             }
             return false;
         }));
-        res.send(req.query);
+        res.send(result);
     })
 
     app.get("/api/data/students",(req,res) => {
