@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/materialize.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
-    <script src="js/index.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/search.js"></script>
     <script src="js/materialize.js"></script>
 </head>
 <body>
@@ -25,15 +26,17 @@
         </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="input-field">
-                    <input id="search" type="text" class="validate">
-                </div>
+    <div class="nav-wrapper">
+        <form>
+            <div class="input-field">
+                <input id="search" type="search" placeholder="Type keywords..." required>
+                <label class="label-icon" for="search"><i class="material-icons"> search </i></label>
+                <i class="material-icons">close</i>
             </div>
-        </div>
+        </form>
     </div>
-    
-    
+    </div>
+    <div class="row" id="searchResults">
+    </div>
 </body>
 </html>
