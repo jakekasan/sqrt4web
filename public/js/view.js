@@ -8,7 +8,8 @@ function loadData(data){
 
     let title = document.createElement("div");
     title.className = "card-title";
-    title.innerText = data["name"];
+    let titleString = data["name"].charAt(0).toUpperCase() + data["name"].slice(1);
+    title.innerText = titleString;
 
     let p = document.createElement("p");
     p.innerText = data["description"];
@@ -26,53 +27,94 @@ function loadData(data){
             
             let element = data[key];
 
-            // container for the card
-            let cardContainer = document.createElement("div");
-            cardContainer.className = "col s12 m6 l4 xl2";
+            ;
 
-            // card
-            let card = document.createElement("div");
-            card.className = "card blue-grey";
+            // append list of the inner content
 
+            let promises = [];
 
-            let cardContent = document.createElement("div");
-            cardContent.className = "card-content";
-
-            let cardTitle = document.createElement("span");
-            cardTitle.className = "card-title";
-            cardTitle.innerText = key;
-
-            //let cardImage = document.createElement("img");
-            //cardImage.className = "";
-            //cardImage.src = "img/homer.png";
-
-            //let cardImageContainer = document.createElement("div");
-            //cardImageContainer.className = "card-image";
-            //cardImageContainer.appendChild(cardImage);
-            //cardImageContainer.appendChild(cardTitle);
-
-            let cardText = document.createElement("p");
-            cardText.innerText = JSON.stringify(element);
-
-            //cardContent.appendChild(cardImageContainer);
-            cardContent.appendChild(cardTitle);
-            cardContent.appendChild(cardText);
-            card.appendChild(cardContent);
-            cardContainer.appendChild(card);
-            mainCardData.appendChild(cardContainer);
-            
-            if (key == "id"){
-                console.log(`id is ${data[key]}`);
-            } else if (key == "description"){
-                console.log(`description is ${data[key]}`)
-            } else {
-                console.log(`${key} : ${element}`);
+            for (let elem of element) {
+                let url = new URL("http://localhost:8080/api/data");
+                url.search = new URLSearchParams({
+                    id:elem
+                });
+                promises.push(fetch(url).then(data => data.json()));
             }
+
+            Promise.all(promises).then(data => {
+
+                let mainCardContent = document.getElementById("card-content");
+
+                let cardText = document.createElement("div");
+                cardText.className = "collection";
+
+                
+
+                for (let obj of data){
+
+                    console.log(obj);
+                    // list item element
+                    // let li = document.createElement("li");
+                    // li.className = "collection-item avatar";
+
+                    let a = document.createElement("a");
+                    a.className = "collection-item";
+                    a.href = "#!";
+                    a.innerText = obj["name"];
+
+                    // icon for list item (will be an http request)
+                    // let i = document.createElement("i");
+                    // i.className = "material-icons";
+                    // i.innerText = "search";
+
+                    // let span = document.createElement("span");
+                    // span.className = "title";
+                    // span.innerText = obj["name"];
+
+                    // let p = document.createElement("p");
+                    // p.innerText = obj["description"];
+
+                    // li.appendChild(span).appendChild(p);
+                    // cardText.appendChild(li);
+
+                    cardText.appendChild(a);
+                }
+
+                // container for the card
+                let cardContainer = document.createElement("div");
+                cardContainer.className = "col s12 m6 l4 xl2";
+
+                // card
+                let card = document.createElement("div");
+                card.className = "card blue-grey";
+
+                let cardContent = document.createElement("div");
+                cardContent.className = "card-content";
+
+                let cardTitle = document.createElement("span");
+                cardTitle.className = "card-title";
+                let titleString = key.charAt(0).toUpperCase() + key.substring(1);
+                cardTitle.innerText = titleString;
+
+                cardContent.appendChild(cardTitle);
+                cardContent.appendChild(cardText);
+                card.appendChild(cardContent);
+                cardContainer.appendChild(card);
+                mainCardData.appendChild(cardContainer);
+
+                mainCardContent.appendChild(mainCardData);
+            });
+
+            //cardText.innerText = JSON.stringify(element);
+
+            // append all elements together
             
         }
     }
 
-    mainCardContent.appendChild(mainCardData);
+    // all cards to the main view
+
+    
 
     
     
