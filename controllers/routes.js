@@ -30,7 +30,12 @@ module.exports = function(app,db){
             return false;
         }));
         res.send(result);
-    })
+    });
+
+    app.get("/api/data",(req,res) => {
+        console.log(req.query);
+        res.send(JSON.stringify(db.getById(req.query["id"])))
+    });
 
     app.get("/api/data/students",(req,res) => {
         res.send(JSON.stringify(db.get(x => x.type == "STUDENT")));

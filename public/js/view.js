@@ -3,14 +3,24 @@ window.onload = function(){
 
     let mainCardContent = document.getElementById("dataAttribute");
 
+    let url = new URL("http://localhost:8080/api/data");
+    url.search = new URLSearchParams({
+        id:0
+    });
+
+    let data = fetch(url);
+
     
 }
+
+
+// data is the json of the record one wishes to view
 
 function loadData(data){
     // select card content
     let mainCardContent = document.getElementById("dataAttribute");
 
-    let attrs = data["data"];
+    let attrs = ;
 
     for (let attr of attrs){
         // for each attribute,add a card with the elements

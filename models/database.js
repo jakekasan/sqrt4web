@@ -14,6 +14,10 @@ class Database {
     get(func){
         return this.records.filter(x => func(x));
     }
+
+    getById(id){
+        return this.records.filter(x => (x.id == id))[0];
+    }
 }
 
 module.exports = Database;
