@@ -1,30 +1,58 @@
-window.onload = function(){
-    console.log("window loaded!");
-
-    let mainCardContent = document.getElementById("dataAttribute");
-
-    let url = new URL("http://localhost:8080/api/data");
-    url.search = new URLSearchParams({
-        id:0
-    });
-
-    fetch(url)
-        .then(data => data.json())
-        .then(data => loadData(data));
-}
-
-
-// data is the json of the record one wishes to view
-
 function loadData(data){
     // select card content
-    let mainCardContent = document.getElementById("dataAttribute");
+    let mainCardData = document.getElementById("dataAttribute");
 
-    let essentials = ["id","name","description"]
+    let mainCardContent = document.getElementById("card-content");
+
+    mainCardContent.innerHTML = "";
+
+    let title = document.createElement("div");
+
+    let essentials = ["id","name","description","type"];
 
     for (const key in data) {
+        if (essentials.includes(key)) {
+            continue
+            console.log("Wrong!");
+        }
         if (data.hasOwnProperty(key)) {
-            const element = data[key];
+            
+            let element = data[key];
+
+            // container for the card
+            let cardContainer = document.createElement("div");
+            cardContainer.className = "col s12 m6 l4 xl2";
+
+            // card
+            let card = document.createElement("div");
+            card.className = "card";
+
+
+            let cardContent = document.createElement("div");
+            cardContent.className = "card-content";
+
+            let cardTitle = document.createElement("span");
+            cardTitle.className = "card-title";
+            cardTitle.innerText = key;
+
+            let cardImage = document.createElement("img");
+            //cardImage.className = "";
+            cardImage.src = "img/homer.png";
+
+            let cardImageContainer = document.createElement("div");
+            cardImageContainer.className = "card-image";
+            cardImageContainer.appendChild(cardImage);
+            cardImageContainer.appendChild(cardTitle);
+
+            let cardText = document.createElement("p");
+            cardText.innerText = JSON.stringify(element);
+
+            cardContent.appendChild(cardImageContainer);
+            cardContent.appendChild(cardText);
+            card.appendChild(cardContent);
+            cardContainer.appendChild(card);
+            mainCardData.appendChild(cardContainer);
+            
             if (key == "id"){
                 console.log(`id is ${data[key]}`);
             } else if (key == "description"){
@@ -35,7 +63,34 @@ function loadData(data){
             
         }
     }
+
+    mainCardContent.appendChild(mainCardData);
+
     
+    
+}
+
+
+window.onload = function(){
+    console.log("window loaded!");
+
+    let mainCardContent = document.getElementById("dataAttribute");
+
+    let url = new URL("http://localhost:8080/api/data");
+    url.search = new URLSearchParams({
+        id:17
+    });
+
+    fetch(url)
+        .then(data => data.json())
+        .then(data => loadData(data));
+}
+
+
+// spare code
+
+/*
+
     for (let attr of attrs){
         // for each attribute,add a card with the elements
 
@@ -91,5 +146,5 @@ function loadData(data){
             
 
     }
-    
-}
+
+    */
