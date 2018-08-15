@@ -3,88 +3,89 @@ let records = [
         id:0,
         type:"STUDENT",
         name:"Bart Simpson",
-        address:"Springfield",
+        description:"",
+        description:"Springfield",
         projects:[]
     },
     {
         id:1,
         type:"STUDENT",
         name:"Ned Flanders",
-        address:"Springfield",
+        description:"Springfield",
         projects:[]
     },
     {
         id:2,
         type:"STUDENT",
         name:"Homer Simpson",
-        address:"Springfield",
+        description:"Springfield",
         projects:[]
     },
     {
         id:3,
         type:"STUDENT",
         name:"Lisa Simpson",
-        address:"Springfield",
+        description:"Springfield",
         projects:[]
     },
     {
         id:4,
         type:"STUDENT",
         name: "Gob Bluth",
-        address:"Orange County",
+        description:"Orange County",
         projects:[]
     },
     {
         id:5,
         type:"STUDENT",
         name: "George Michael Bluth",
-        address:"Orange County",
+        description:"Orange County",
         projects:[]
     },
     {
         id:6,
         type:"STUDENT",
         name: "Darth Vader",
-        address:"Death Star",
+        description:"Death Star",
         projects:[]
     },
     {
         id:7,
         type:"STUDENT",
         name: "Luke Skywalker",
-        address: "Tatooine",
+        description: "Tatooine",
         projects:[]
     },
     {
         id:8,
         type:"EDUCATOR",
         name: "Dominik Schreier",
-        address: "Prostejov"
+        description: "Prostejov"
     },
     {
         id:9,
         type:"EDUCATOR",
         name:"Jakub Kasan",
-        address:"Scotland"
+        description:"Scotland"
     },
     {
         id:10,
         type:"COURSE",
-        title:"3D Printing",
+        name:"3D Printing",
         authors:[8],
         workshops:[12,13,14]
     },
     {
         id:11,
         type:"COURSE",
-        title:"Programming",
+        name:"Programming",
         authors:[9],
         workshops:[15,16,17,18]
     },
     {
         id:12,
         type:"WORKSHOP",
-        title:"3D Printer Basics",
+        name:"3D Printer Basics",
         students:[1,2,3],
         resources:[],
         projects:[],
@@ -94,7 +95,7 @@ let records = [
     {
         id:13,
         type:"WORKSHOP",
-        title:"3D Printer Advanced",
+        name:"3D Printer Advanced",
         students:[1,2,3],
         resources:[],
         projects:[],
@@ -104,7 +105,7 @@ let records = [
     {
         id:14,
         type:"WORKSHOP",
-        title:"Making 3D Engines",
+        name:"Making 3D Engines",
         students:[1,2,3],
         resources:[],
         projects:[24],
@@ -114,7 +115,7 @@ let records = [
     {
         id:15,
         type:"WORKSHOP",
-        title:"Programming Basics",
+        name:"Programming Basics",
         students:[4,5],
         resources:[],
         projects:[],
@@ -124,7 +125,7 @@ let records = [
     {
         id:16,
         type:"WORKSHOP",
-        title:"Programming Advanced",
+        name:"Programming Advanced",
         students:[4,5],
         resources:[],
         projects:[],
@@ -134,7 +135,8 @@ let records = [
     {
         id:17,
         type:"WORKSHOP",
-        title:"Programming a Web Server",
+        name:"Programming a Web Server",
+        description:"",
         students:[4,5],
         resources:[],
         projects:[25],
@@ -144,7 +146,8 @@ let records = [
     {
         id:18,
         type:"WORKSHOP",
-        title:"Using a Raspberry Pi to control a Prusa Mk3",
+        name:"Using a Raspberry Pi to control a Prusa Mk3",
+        description:"",
         students:[6,7],
         resources:[],
         projects:[],
@@ -155,28 +158,28 @@ let records = [
         id:20,
         type:"SPONSOR",
         name:"Google",
-        address:"Mountain View",
+        description:"Mountain View",
         sponsored:[25]
     },
     {
         id:21,
         type:"SPONSOR",
         name:"Prusa",
-        address:"Prague",
+        description:"Prague",
         sponsored:[12,13,14,26],
     },
     {
         id:22,
         type:"SPONSOR",
         name:"Raspberry Pi Foundation",
-        address:"England",
+        description:"England",
         sponsored:[26]
     },
     {
         id:23,
         type:"SPONSOR",
         name:"BMW",
-        address:"Bavaria",
+        description:"Bavaria",
         sponsored:[24]
     },
     {
