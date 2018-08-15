@@ -16,7 +16,19 @@ class Database {
     }
 
     getById(id){
-        return this.records.filter(x => (x.id == id))[0];
+        console.log("getById");
+        let object = this.records.filter(x => {
+            return (x["id"] == id)
+        })[0];
+        
+        for (const key in object) {
+            if (object.hasOwnProperty(key)) {
+                const element = object[key];
+                console.log(`${key} : ${element} `);
+            }
+        }
+        
+        return object;
     }
 }
 

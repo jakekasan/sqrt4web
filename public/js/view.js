@@ -8,9 +8,9 @@ window.onload = function(){
         id:0
     });
 
-    let data = fetch(url);
-
-    
+    fetch(url)
+        .then(data => data.json())
+        .then(data => loadData(data));
 }
 
 
@@ -20,8 +20,22 @@ function loadData(data){
     // select card content
     let mainCardContent = document.getElementById("dataAttribute");
 
-    let attrs = ;
+    let essentials = ["id","name","description"]
 
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+            const element = data[key];
+            if (key == "id"){
+                console.log(`id is ${data[key]}`);
+            } else if (key == "description"){
+                console.log(`description is ${data[key]}`)
+            } else {
+                console.log(`${key} : ${element}`);
+            }
+            
+        }
+    }
+    
     for (let attr of attrs){
         // for each attribute,add a card with the elements
 
@@ -74,6 +88,8 @@ function loadData(data){
             }
         }
 
+            
 
     }
+    
 }

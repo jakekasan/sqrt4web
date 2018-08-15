@@ -1,7 +1,5 @@
 module.exports = function(app,db){
-    app.get("/api/data",(req,res) => {
-        res.send(JSON.stringify(db.get(x => true)));
-    });
+    
 
     app.get("/api/data/search",(req,res) => {
         console.log(req.query);
