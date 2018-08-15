@@ -7,6 +7,13 @@ function loadData(data){
     mainCardContent.innerHTML = "";
 
     let title = document.createElement("div");
+    title.className = "card-title";
+    title.innerText = data["name"];
+
+    let p = document.createElement("p");
+    p.innerText = data["description"];
+
+    mainCardContent.appendChild(title).appendChild(p);
 
     let essentials = ["id","name","description","type"];
 
@@ -25,7 +32,7 @@ function loadData(data){
 
             // card
             let card = document.createElement("div");
-            card.className = "card";
+            card.className = "card blue-grey";
 
 
             let cardContent = document.createElement("div");
@@ -35,19 +42,20 @@ function loadData(data){
             cardTitle.className = "card-title";
             cardTitle.innerText = key;
 
-            let cardImage = document.createElement("img");
+            //let cardImage = document.createElement("img");
             //cardImage.className = "";
-            cardImage.src = "img/homer.png";
+            //cardImage.src = "img/homer.png";
 
-            let cardImageContainer = document.createElement("div");
-            cardImageContainer.className = "card-image";
-            cardImageContainer.appendChild(cardImage);
-            cardImageContainer.appendChild(cardTitle);
+            //let cardImageContainer = document.createElement("div");
+            //cardImageContainer.className = "card-image";
+            //cardImageContainer.appendChild(cardImage);
+            //cardImageContainer.appendChild(cardTitle);
 
             let cardText = document.createElement("p");
             cardText.innerText = JSON.stringify(element);
 
-            cardContent.appendChild(cardImageContainer);
+            //cardContent.appendChild(cardImageContainer);
+            cardContent.appendChild(cardTitle);
             cardContent.appendChild(cardText);
             card.appendChild(cardContent);
             cardContainer.appendChild(card);
@@ -73,8 +81,6 @@ function loadData(data){
 
 window.onload = function(){
     console.log("window loaded!");
-
-    let mainCardContent = document.getElementById("dataAttribute");
 
     let url = new URL("http://localhost:8080/api/data");
     url.search = new URLSearchParams({
