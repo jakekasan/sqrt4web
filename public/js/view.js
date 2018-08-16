@@ -4,11 +4,12 @@ function loadData(data){
 
     let mainCardContent = document.getElementById("card-content");
 
+    mainCardData.innerHTML = "";
     mainCardContent.innerHTML = "";
 
     let title = document.createElement("div");
     title.className = "card-title";
-    let titleString = data["name"].charAt(0).toUpperCase() + data["name"].slice(1);
+    let titleString = data["type"] + " : " + data["name"].charAt(0).toUpperCase() + data["name"].slice(1);
     title.innerText = titleString;
 
     let p = document.createElement("p");
@@ -54,8 +55,6 @@ function loadData(data){
                 let cardText = document.createElement("div");
                 cardText.className = "collection";
 
-                
-
                 for (let obj of data){
 
                     console.log(obj);
@@ -67,6 +66,15 @@ function loadData(data){
                     a.className = "collection-item";
                     a.href = "#!";
                     a.innerText = obj["name"];
+                    a.addEventListener("click",() => {
+                        let url = new URL("http://localhost:8080/api/data");
+                        url.search = new URLSearchParams({
+                            id:obj["id"]
+                        });
+                        fetch(url)
+                            .then(data => data.json())
+                            .then(data => loadData(data));
+                    });
                     cardText.appendChild(a);
                 }
 
@@ -74,13 +82,15 @@ function loadData(data){
                 let cardContainer = document.createElement("div");
                 cardContainer.className = "col s12 m6 l4 xl2";
 
-                // card
+                // card container
                 let card = document.createElement("div");
                 card.className = "card blue-grey small";
 
+                // container for the card content
                 let cardContent = document.createElement("div");
                 cardContent.className = "card-content";
 
+                // title for the card
                 let cardTitle = document.createElement("span");
                 cardTitle.className = "card-title";
                 let titleString = key.charAt(0).toUpperCase() + key.substring(1);
@@ -93,16 +103,10 @@ function loadData(data){
                 mainCardData.appendChild(cardContainer);
 
                 mainCardContent.appendChild(mainCardData);
-            });
-
-            //cardText.innerText = JSON.stringify(element);
-
-            // append all elements together
-            
+            });            
         }
     }
 
-    // all cards to the main view
 
     
 
