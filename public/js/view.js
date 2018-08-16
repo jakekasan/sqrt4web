@@ -14,7 +14,8 @@ function loadData(data){
     let p = document.createElement("p");
     p.innerText = data["description"];
 
-    mainCardContent.appendChild(title).appendChild(p);
+    mainCardContent.appendChild(title);
+    mainCardContent.appendChild(p);
 
     let essentials = ["id","name","description","type"];
 
@@ -49,7 +50,7 @@ function loadData(data){
                 if (data.length < 1){
                     return
                 }
-                
+
                 let cardText = document.createElement("div");
                 cardText.className = "collection";
 
@@ -115,7 +116,7 @@ window.onload = function(){
 
     let url = new URL("http://localhost:8080/api/data");
     url.search = new URLSearchParams({
-        id:17
+        id:11
     });
 
     fetch(url)
