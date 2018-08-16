@@ -11,9 +11,45 @@ class Database {
         this.records = fake_data;
     }
 
-    get(func){
-        return this.records.filter(x => func(x));
+    get(parameters){
+        let results = this.records.filter(record => {
+            for (let parameter in parameters){
+                if (record.hasOwnProperty(parameter)){
+                    if (record[parameter] != parameters[parameter]){
+                        return false
+                    }
+                } else {
+                    return false
+                }
+            }
+            return true
+        });
+        return results
     }
+
+    // old get function, where the query item could be any parameter
+    getKeywords(qs){
+        let results = [];
+
+        for (let obj of this.records){
+            for (let parameter in obj){
+                if (obj.hasOwnProperty(parameter)){
+                    for (let q of qs){
+                        if ((new RegExp(String(q).toLowerCase())).exec(String(obj[parameter]).toLowerCase())){
+                            // we have a match!
+                            results.push(obj);
+                        }
+                    }
+                }
+            }
+        }
+        return results
+    }
+
+    // old get
+    // get(func){
+    //     return this.records.filter(x => func(x));
+    // }
 
     getById(id){
         console.log("getById");
