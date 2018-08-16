@@ -4,28 +4,30 @@ module.exports = function(app,db){
         console.log(req.query);
         const q = req.query["q"].split("+").map(x => x.toLowerCase());
         console.log(q);
-        let result = JSON.stringify(db.get(object => {
-            for (let key in object) {
-                if (object.hasOwnProperty(key)) {
-                    let val = object[key];
-                    if (true){
-                        val = new String(val);
-                        val = val.toLowerCase();
 
-                        console.log(`The q is ${q}`);
+        let result = JSON.stringify(db.getKeywords(q));
+        // let result = JSON.stringify(db.get(object => {
+        //     for (let key in object) {
+        //         if (object.hasOwnProperty(key)) {
+        //             let val = object[key];
+        //             if (true){
+        //                 val = new String(val);
+        //                 val = val.toLowerCase();
+
+        //                 console.log(`The q is ${q}`);
                         
-                        for (let param of q){
-                            console.log(`${param} == ${val}`);
-                            if ((new RegExp(param)).exec(val)){
-                                console.log("Value found!");
-                                return true;
-                            }
-                        }    
-                    }
-                }
-            }
-            return false;
-        }));
+        //                 for (let param of q){
+        //                     console.log(`${param} == ${val}`);
+        //                     if ((new RegExp(param)).exec(val)){
+        //                         console.log("Value found!");
+        //                         return true;
+        //                     }
+        //                 }    
+        //             }
+        //         }
+        //     }
+        //     return false;
+        // }));
         res.send(result);
     });
 
