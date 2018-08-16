@@ -20,19 +20,20 @@ function loadData(data){
 
     for (const key in data) {
         if (essentials.includes(key)) {
+            // elements which we don't want to enumerate
             continue
-            console.log("Wrong!");
         }
         if (data.hasOwnProperty(key)) {
             
             let element = data[key];
 
-            ;
-
-            // append list of the inner content
+            if (element == []){
+                continue
+            }
 
             let promises = [];
 
+            // generate promises for each data object ID
             for (let elem of element) {
                 let url = new URL("http://localhost:8080/api/data");
                 url.search = new URLSearchParams({
@@ -45,6 +46,10 @@ function loadData(data){
 
                 let mainCardContent = document.getElementById("card-content");
 
+                if (data.length < 1){
+                    return
+                }
+                
                 let cardText = document.createElement("div");
                 cardText.className = "collection";
 
@@ -61,22 +66,6 @@ function loadData(data){
                     a.className = "collection-item";
                     a.href = "#!";
                     a.innerText = obj["name"];
-
-                    // icon for list item (will be an http request)
-                    // let i = document.createElement("i");
-                    // i.className = "material-icons";
-                    // i.innerText = "search";
-
-                    // let span = document.createElement("span");
-                    // span.className = "title";
-                    // span.innerText = obj["name"];
-
-                    // let p = document.createElement("p");
-                    // p.innerText = obj["description"];
-
-                    // li.appendChild(span).appendChild(p);
-                    // cardText.appendChild(li);
-
                     cardText.appendChild(a);
                 }
 
@@ -86,7 +75,7 @@ function loadData(data){
 
                 // card
                 let card = document.createElement("div");
-                card.className = "card blue-grey";
+                card.className = "card blue-grey small";
 
                 let cardContent = document.createElement("div");
                 cardContent.className = "card-content";
