@@ -26,13 +26,14 @@ const pageLoader = function(data){
 
         let cardImageContainer = document.createElement("div");
         cardImageContainer.className = "card-image";
-        cardImageContainer.appendChild(cardImage);
-        cardImageContainer.appendChild(cardTitle);
+        //cardImageContainer.appendChild(cardImage);
+        //cardImageContainer.appendChild(cardTitle);
 
         let cardText = document.createElement("p");
         cardText.innerText = JSON.stringify(ind);
 
-        cardContent.appendChild(cardImageContainer);
+        //cardContent.appendChild(cardImageContainer);
+        cardContent.appendChild(cardTitle);
         cardContent.appendChild(cardText);
         card.appendChild(cardContent);
         cardContainer.appendChild(card);
