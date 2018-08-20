@@ -1,5 +1,10 @@
 module.exports = function(app,db){
 
+    app.get("/view",(req,res) => {
+        let data = db.getById(req.query.id);
+        res.render("view",{data: data});
+    })
+
     app.get("/api/data/search",(req,res) => {
         console.log(req.query);
         const q = req.query["q"].split("+").map(x => x.toLowerCase());

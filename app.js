@@ -4,7 +4,7 @@ const Database = require("./models/database");
 const router = require("./controllers/routes");
 const db = new Database();
 
-app.use("view engine","ejs");
+app.set("view engine","ejs");
 
 app.use(express.static("./public"));
 
