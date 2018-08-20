@@ -73,7 +73,7 @@ function loadData(data){
                         });
                         fetch(url)
                             .then(data => data.json())
-                            .then(data => loadData(data));
+                            .then(data => loadData(data[0]));
                     });
                     cardText.appendChild(a);
                 }
@@ -125,7 +125,7 @@ window.onload = function(){
 
     fetch(url)
         .then(data => data.json())
-        .then(data => loadData(data));
+        .then(data => loadData(data[0]));
 }
 
 

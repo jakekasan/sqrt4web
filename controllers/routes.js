@@ -1,8 +1,22 @@
 module.exports = function(app,db){
 
     app.get("/view",(req,res) => {
-        let data = db.getById(req.query.id);
-        res.render("view",{data: data});
+        let rawData = db.getById(req.query.id);
+        let nonLists = ["id","name","type","description"];
+        console.log(rawData);
+        processedData = {};
+        for (let key in rawData){
+            if (rawData.hasOwnProperty(key)){
+                if (nonLists.includes(key)){
+                    processedData[key] = rawData[key];
+                } else {
+                    processedData[key] = rawData[key].map(elem => {
+                        return db.getById(elem);
+                    });
+                }
+            }
+        }
+        res.render("view",{data: processedData});
     })
 
     app.get("/api/data/search",(req,res) => {

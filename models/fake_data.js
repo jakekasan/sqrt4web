@@ -153,7 +153,7 @@ let records = [
         name:"Using a Raspberry Pi to control a Prusa Mk3",
         description:"This workshop teaches students how to control a Prusa Mk3 printer with a raspberry pi. ",
         students:[6,7],
-        resources:[],
+        resources:[27,28],
         projects:[],
         sponsors:[],
         author:[8,9]
