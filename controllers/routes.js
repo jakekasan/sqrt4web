@@ -21,7 +21,11 @@ module.exports = function(app,db){
             }
         }
         res.render("view",{data: processedData});
-    })
+    });
+
+    app.get("/search",(req,res) => {
+        res.render("search");
+    });
 
     app.get("/api/data/search",(req,res) => {
         console.log(req.query);
