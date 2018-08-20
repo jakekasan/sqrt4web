@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-title">
+        <!-- Type and name of data -->
+        <%= data.type %>: <%= data.name %>
+    </div>
+    <p>
+        <!-- Description -->
+        <%= data.description %>
+    </p>
+
+    <div class="row">
+    
+    <%
+        let nonDisplay = ["id","name","description","type"]
+
+        for (let key in data){
+            if (data.hasOwnProperty(key)){
+                if (!nonDisplay.includes(key)) { 
+                    let element = data[key];
+                    %>
+
+                    <div class="col s12 m6 l4 xl1">
+                        <div class="card blue-grey small lighten-3">
+                            <div class="card-content">
+                                <span class="card-title text-bold"> <%= %> </span>
+                                <div class="collection">
+
+                                    <% element.forEach(item => { %>
+                                        <a class="collection-item" href="#"> <%= item.name %> </a>
+                                    <% }); %>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+
+    <%          }
+            }
+        } %>
+
+    </div>
+</div>

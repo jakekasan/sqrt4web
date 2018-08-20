@@ -84,7 +84,7 @@ function loadData(data){
 
                 // card container
                 let card = document.createElement("div");
-                card.className = "card blue-grey small";
+                card.className = "card blue-grey small lighten-3";
 
                 // container for the card content
                 let cardContent = document.createElement("div");
@@ -92,7 +92,7 @@ function loadData(data){
 
                 // title for the card
                 let cardTitle = document.createElement("span");
-                cardTitle.className = "card-title";
+                cardTitle.className = "card-title text-bold";
                 let titleString = key.charAt(0).toUpperCase() + key.substring(1);
                 cardTitle.innerText = titleString;
 
