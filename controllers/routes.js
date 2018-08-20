@@ -1,5 +1,9 @@
 module.exports = function(app,db){
 
+    app.get("/home",(req,res) => {
+        res.render("home");
+    });
+
     app.get("/view",(req,res) => {
         let rawData = db.getById(req.query.id);
         let nonLists = ["id","name","type","description"];
