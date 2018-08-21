@@ -14,7 +14,7 @@ class Database {
     get(parameters){
         let results = this.records.filter(record => {
             for (let parameter in parameters){
-                if (record.hasOwnProperty(parameter)){
+                if ((record.hasOwnProperty(parameter)) && (parameter != "single")){
                     if (record[parameter] != parameters[parameter]){
                         return false
                     }
@@ -24,7 +24,12 @@ class Database {
             }
             return true
         });
-        return results
+        if (Object.keys(parameters).includes("single")){
+            if (parameters.single == false){
+                return results
+            }
+        }
+        return results[0]
     }
 
     // old get function, where the query item could be any parameter
@@ -52,7 +57,7 @@ class Database {
     // }
 
     getById(id){
-        console.log("getById");
+        //console.log("getById");
         let object = this.records.filter(x => {
             return (x["id"] == id)
         })[0];
@@ -60,7 +65,7 @@ class Database {
         for (const key in object) {
             if (object.hasOwnProperty(key)) {
                 const element = object[key];
-                console.log(`${key} : ${element} `);
+                //console.log(`${key} : ${element} `);
             }
         }
         if (object == undefined){
