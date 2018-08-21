@@ -63,8 +63,10 @@ class Database {
                 console.log(`${key} : ${element} `);
             }
         }
-        
-        return object;
+        if (object == undefined){
+            return false
+        }
+        return object
     }
 }
 

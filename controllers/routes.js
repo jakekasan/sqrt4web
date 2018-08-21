@@ -23,6 +23,15 @@ module.exports = function(app,db){
         res.render("view",{data: processedData});
     });
 
+    app.get("/edit",(req,res) => {
+        let rawData = db.getById(req.query.id);
+        if (rawData == false){
+            res.send("Not found!");
+        } else {
+            res.render("edit",{data:rawData});
+        }
+    });
+
     app.get("/search",(req,res) => {
         res.render("search");
     });
