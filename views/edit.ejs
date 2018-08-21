@@ -19,27 +19,16 @@
                                                     <span class="card-title"> <%= key %>  </span>
                                                     <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
                                                     <p>
-                                                        <ul>
+                                                        <ul class="collection">
                                                         <%  let element = data[key];
                                                             if (element instanceof Array){
-                                                                let promises = element.map((item) => {
-                                                                    let url = new URL("localhost:8080/api/data");
-                                                                    url.search = new URLSearchParams({
-                                                                        id:element
-                                                                    });
-                                                                    return fetch(url).then(data => data.json());
-                                                                    Promise.all(promises).then(values => {
-                                                                        for (let obj of values){ %>
-                                                                            <li><%= JSON.stringify(obj) %></li>
+                                                                for (let item of element){
+                                                                %>
+                                                                    <li class="collection-item"><%= JSON.stringify(item) %></li>
                                                                     <%
-                                                                        }
-                                                                    });
-                                                                    %>
-                                                                    <li><%= `api/data?id=${item}` %></li>
-                                                                    <%
-                                                                });
+                                                                }
                                                             } %>
-                                                        <%= JSON.stringify(data[key]) %>
+                                                        <!-- <%= JSON.stringify(data[key]) %> -->
                                                         </ul>
                                                     </p>
                                                     
