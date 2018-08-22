@@ -100,9 +100,64 @@
             let savedValue = (element.children[0]).value;
             console.log(element);
 
+            // outer modal element
             let modal = document.createElement("div");
             modal.id = "modal1";
             modal.className = "modal";
+            
+            // input container
+
+            let inputContainer = document.createElement("div");
+            inputContainer.className = "container";
+
+            // nav-wrapper
+
+            let navWrapper = document.createElement("div");
+            navWrapper.className = "nav-wrapper";
+
+            // input form
+
+            let inputForm = document.createElement("form");
+
+            // search elements
+            let inputField = document.createElement("input-field");
+            inputField.className = "input-field";
+
+            let inputElement = document.createElement("input");
+            inputElement.type = "search";
+            inputElement.id = "search";
+            inputElement.placeholder = "Type keywords...";
+            inputElement.required = true;
+            inputElement.addEventListener("keyup",() => {
+                let query = inputElement.value;
+
+                console.log(query);
+            });
+
+            let inputLabel = document.createElement("label");
+            inputLabel.className = "label-icon";
+            inputLabel.for = "search";
+
+            let searchIcon = document.createElement("i");
+            searchIcon.className = "material-icons";
+            searchIcon.innerText = "search";
+
+            //inputLabel.appendChild(searchIcon);
+
+            let closeIcon = document.createElement("i");
+            closeIcon.className = "material-icons";
+            closeIcon.innerText = "close";
+
+            inputField.appendChild(inputElement);
+            inputField.appendChild(inputLabel);
+            //inputField.appendChild(closeIcon);
+
+            inputForm.appendChild(inputField);
+
+            navWrapper.appendChild(inputForm);
+
+            inputContainer.appendChild(navWrapper);
+
 
             let modalP = document.createElement("p");
             let modalH4 = document.createElement("h4");
@@ -114,10 +169,10 @@
 
             let modalFooterA = document.createElement("a");
             modalFooterA.className = "modal-close waves-effect waves-green btn-flat";
-            modalFooterA.innerText = "Agree";
+            modalFooterA.innerText = "Close";
 
-            modalContent.appendChild(modalP);
-            modalContent.appendChild(modalH4);
+            modalContent.appendChild(inputContainer);
+            
             modalFooter.appendChild(modalFooterA);
 
             modal.appendChild(modalContent);
