@@ -96,8 +96,9 @@
             //console.log(data);
         };
 
-        function editLi(element){
-            let savedValue = (element.children[0]).value;
+        async function editLi(element){
+
+            let selectedItemID = (element.children[0]).value;
             console.log(element);
 
             // outer modal element
@@ -123,6 +124,20 @@
             let inputField = document.createElement("input-field");
             inputField.className = "input-field";
 
+            let url = new URL("http://localhost:8080/api/data");
+            url.search = new URLSearchParams({
+                id:selectedItemID
+            });
+
+            const chosenType = await fetch(url)
+                                        .then(data => data.json())
+                                        .then(data => {
+                                            return data["type"]
+                                        })
+                                        .catch(e => {
+                                            return ""
+                                        })
+
             let inputElement = document.createElement("input");
             inputElement.type = "search";
             inputElement.id = "search";
@@ -131,6 +146,22 @@
             inputElement.addEventListener("keyup",() => {
                 let query = inputElement.value;
 
+                query = query.split(" ");
+
+                let url = new URL("http://localhost:8080/api/data/search");
+                url.search = new URLSearchParams({
+                    q:query
+                });
+                
+                // fetch results from
+                fetch(url)
+                    .then(data => data.json())
+                    .then(data => {
+                        let resultUl = document.getElementById("search-results");
+                        for (let item of data){
+                            let li = document.createElement("li");
+                        }
+                    });
                 console.log(query);
             });
 
