@@ -48,6 +48,17 @@ class Database {
                 }
             }
         }
+
+        // now filter these results to avoid duplicates
+        results = results.reduce((acc,elem) => {
+            for (let item of acc){
+                if (item.id == elem.id){
+                    return acc;
+                }
+            }
+            acc.push(elem);
+            return acc;
+        },[]);
         return results
     }
 
