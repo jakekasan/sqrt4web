@@ -8,46 +8,61 @@ module.exports = function(app,db){
 
     app.get("/home/teacher",(req,res) => {
         // for now, lets load the first educator
-        let teacher = db.get({type:"EDUCATOR"});
+        let teacher;
+        if (req.query.id){
+            teacher = db.get({id:req.query.id});
+        } else if (req.query.name) {
+            teacher = db.get({name:req.query.name});
+        } else {
+            teacher = db.get({type:"EDUCATOR"});
+        }
         
         // get courses that teacher is associated with
         teacher.courses = db.getFn((item) => {
             if (Object.keys(item).includes("authors")){
                 return item["authors"].includes(teacher.id);
             } else {
-                return false;
+                return false
             }
         });
 
-        res.render("teacher-dash",{teacher:teacher});
-        return
-        let url = new URL("http://localhost:8080/api/data/fn");
-        url.search = new URLSearchParams({
-            fn:(item) => {
-                return item["authors"].includes(teacher.id);
-            }
-        });
-        fetch(url)
-            .then(data => data.json())
-            .then(data => {
-                teacher.courses = data;
-                res.render("teacher-dash",{teacher:teacher});
-            })
-            .catch(e => {
-                console.log(e);
-                res.render("teacher-dash",{teacher:{
-                    name:"Nobody",
-                    courses:[{
-                        name:"nothing"
-                    },
-                    {
-                        name:"to"
-                    },
-                    {
-                        name:"teach"
-                    }]
-                }});
+        console.log(teacher.courses);
+
+        let coursePromises = teacher.courses.map(item => {
+            let promises = item.workshops.map(workshop => {
+                if (workshop instanceof Object){
+                    return new Promise((resolve,reject) => {
+                        resolve(workshop);
+                    })
+                }
+                let url = new URL("http://localhost:8080/api/data");
+                url.search = new URLSearchParams({
+                    id:String(workshop)
+                });
+                return fetch(url)
+                            .then(data => data.json())
+                            .catch(e => {
+                                console.log(e);
+                                return {
+                                    id:"none",
+                                    name:"error",
+                                    description:"failed to load the data"
+                                }
+                            })
             });
+            return Promise.all(promises)
+                            .then(values => {
+                                item.workshops = values;
+                                return item
+                            })
+                            .catch(e => console.log(e));
+        });
+
+        Promise.all(coursePromises)
+                .then(values => {
+                    teacher.courses = values;
+                    res.render("teacher-dash",{teacher:teacher});            
+                });
     });
 
     app.get("/view",(req,res) => {
