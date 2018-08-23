@@ -164,6 +164,7 @@
                 fetch(url)
                     .then(data => data.json())
                     .then(data => {
+                        console.log(data);
                         let resultUl = document.getElementById("searchResults");
                         resultUl.innerHTML = "";
                         for (let item of data){
@@ -236,6 +237,7 @@
             console.log(instances);
 
             instances[0].open();
+            inputElement.focus();
             
         }
 
@@ -250,8 +252,7 @@
                 if (child.tagName == "P"){
                     alert(child);
                 }
-            }
-            //alert("Button clicked! - " + p);
+            }        
         }
     </script>
 </body>
