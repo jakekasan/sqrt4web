@@ -43,7 +43,6 @@ module.exports = function(app,db){
         fetch(url)
             .then(data => data.json())
             .then(data => {
-                console.log(Object.keys(data));
                 let iterables = Object
                                     .keys(data)
                                     .map(key => { return data[key] })
@@ -56,9 +55,7 @@ module.exports = function(app,db){
                                         return obj
                                     })
                                     .filter(item => { return !(Object.values(item)[0] instanceof Array) });
-                console.log("Iterables and nonIterables");
-                console.log(iterables);
-                console.log(nonIterables);
+                
                 let promises = iterables
                                 .filter(item => { return (item.length > 0) })
                                 .map(item => {
@@ -86,9 +83,7 @@ module.exports = function(app,db){
                                     for (let value of values) {
                                         finalObj[value[0]["type"]] = value;
                                     }
-
-                                    //res.send("success!");
-                                    console.log(finalObj);
+    
                                     res.render("edit",{data:finalObj})
                                 })
                                 .catch(e => {
@@ -103,8 +98,11 @@ module.exports = function(app,db){
     });
 
     app.get("/api/data/search",(req,res) => {
+        
         const q = req.query["q"].split("+").map(x => x.toLowerCase());
+        
         let result = JSON.stringify(db.getKeywords(q));
+        
         res.send(result);
     });
 
