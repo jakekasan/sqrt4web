@@ -6,6 +6,50 @@ module.exports = function(app,db){
         res.render("home");
     });
 
+    app.get("/home/teacher",(req,res) => {
+        // for now, lets load the first educator
+        let teacher = db.get({type:"EDUCATOR"});
+        
+        // get courses that teacher is associated with
+        teacher.courses = db.getFn((item) => {
+            if (Object.keys(item).includes("authors")){
+                return item["authors"].includes(teacher.id);
+            } else {
+                return false;
+            }
+        });
+
+        res.render("teacher-dash",{teacher:teacher});
+        return
+        let url = new URL("http://localhost:8080/api/data/fn");
+        url.search = new URLSearchParams({
+            fn:(item) => {
+                return item["authors"].includes(teacher.id);
+            }
+        });
+        fetch(url)
+            .then(data => data.json())
+            .then(data => {
+                teacher.courses = data;
+                res.render("teacher-dash",{teacher:teacher});
+            })
+            .catch(e => {
+                console.log(e);
+                res.render("teacher-dash",{teacher:{
+                    name:"Nobody",
+                    courses:[{
+                        name:"nothing"
+                    },
+                    {
+                        name:"to"
+                    },
+                    {
+                        name:"teach"
+                    }]
+                }});
+            });
+    });
+
     app.get("/view",(req,res) => {
         let url = new URL("http://localhost:8080/api/data");
         url.search = new URLSearchParams({
@@ -114,12 +158,16 @@ module.exports = function(app,db){
         } else {
             res.send("");
         }
-        
     });
 
     app.get("/api/data/id",(req,res) => {
         res.send(JSON.stringify(db.getById(req.query.id)));
-    })
+    });
+
+    app.get("/api/data/fn",(req,res) => {
+        let result = db.getFn(req.params.fn);
+        res.send(result);
+    });
 
     
 }

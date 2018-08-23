@@ -32,6 +32,10 @@ class Database {
         return results[0]
     }
 
+    getFn(fn){
+        return this.records.filter(item => fn(item));
+    }
+
     // old get function, where the query item could be any parameter
     getKeywords(qs){
         let results = [];
