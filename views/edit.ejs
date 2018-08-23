@@ -146,20 +146,36 @@
             inputElement.addEventListener("keyup",() => {
                 let query = inputElement.value;
 
+                if (query == ""){
+                    (document.getElementById("searchResults")).innerHTML = "";
+                    return
+                }
+
                 query = query.split(" ");
 
                 let url = new URL("http://localhost:8080/api/data/search");
                 url.search = new URLSearchParams({
                     q:query
                 });
+
+                
                 
                 // fetch results from
                 fetch(url)
                     .then(data => data.json())
                     .then(data => {
-                        let resultUl = document.getElementById("search-results");
+                        let resultUl = document.getElementById("searchResults");
+                        resultUl.innerHTML = "";
                         for (let item of data){
+                            if (item.type != chosenType){
+                                continue
+                            }
                             let li = document.createElement("li");
+                            li.className = "collection-item";
+                            let a = document.createElement("a");
+                            a.innerText = item.name;
+                            li.appendChild(a);
+                            resultUl.appendChild(li);
                         }
                     });
                 console.log(query);
@@ -189,9 +205,10 @@
 
             inputContainer.appendChild(navWrapper);
 
+            searchResults = document.createElement("ul");
+            searchResults.id = "searchResults";
+            searchResults.className = "collection";
 
-            let modalP = document.createElement("p");
-            let modalH4 = document.createElement("h4");
             let modalContent = document.createElement("div");
             modalContent.className = "modal-content";
 
@@ -203,6 +220,7 @@
             modalFooterA.innerText = "Close";
 
             modalContent.appendChild(inputContainer);
+            modalContent.appendChild(searchResults);
             
             modalFooter.appendChild(modalFooterA);
 
