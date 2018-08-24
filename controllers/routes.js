@@ -33,7 +33,7 @@ module.exports = function(app,db){
                 if (workshop instanceof Object){
                     return new Promise((resolve,reject) => {
                         resolve(workshop);
-                    })
+                    });
                 }
                 let url = new URL("http://localhost:8080/api/data");
                 url.search = new URLSearchParams({
@@ -61,9 +61,13 @@ module.exports = function(app,db){
         Promise.all(coursePromises)
                 .then(values => {
                     teacher.courses = values;
-                    res.render("teacher-dash",{teacher:teacher});            
+                    res.render("teacher/home",{teacher:teacher});            
                 });
     });
+
+    app.get("/home/student",(req,res) => {
+        res.render("student/home");
+    })
 
     app.get("/view",(req,res) => {
         let url = new URL("http://localhost:8080/api/data");
