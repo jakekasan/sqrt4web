@@ -2,6 +2,10 @@ const fetch = require("node-fetch");
 
 module.exports = function(app,db){
 
+    app.get("/",(req,res) => {
+        res.render("home");
+    })
+
     app.get("/home",(req,res) => {
         res.render("home");
     });
@@ -99,10 +103,12 @@ module.exports = function(app,db){
     app.get("/edit",(req,res) => {
         const rawData = db.getById(req.query.id);
         let url = new URL("http://localhost:8080/api/data");
-        console.log(`Fetching /edit for id ${req.query.id}`)
+        console.log(`Fetching /edit for id ${req.query.id}`);
+
         url.search = new URLSearchParams({
             id:req.query.id
         });
+
         fetch(url)
             .then(data => data.json())
             .then(data => {
