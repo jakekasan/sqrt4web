@@ -229,3 +229,108 @@ let records = [
 ]
 
 module.exports = records;
+
+
+// new fake data
+
+let course = {
+    name:"Zero to Hero: 3D Printing",
+    description:"A 4-module course designed to take you from zero to hero in 3D Printing. Sponsored by Prusa!",
+    lessons:[],
+    teachers:[],
+    students:[]
+}
+
+let lessons = [
+    {
+        name:"3D Printing 101",
+        description:"The basics of 3D Printing",
+        plan:[
+            {
+                order:1,
+                name:"Introduction",
+                description:"Welcome to the class!"
+            },
+            {
+                order:2,
+                name:"Assembling the printer",
+                description:"",
+                tasks:[
+                    {
+                        order:1,
+                        text:"Build the first part"
+                    },
+                    {
+                        order:2,
+                        text:"Build the second part"
+                    },
+                    {
+                        order:3,
+                        text:"Build the last part"
+                    }
+                ]
+            },
+            {
+                order:3,
+                name:"Configuring the printer",
+                description:"A run-down of the steps we need to do before printing",
+                tasks:[
+                    {
+                        order:1,
+                        text:"Selecting the correct filiment"
+                    },
+                    {
+                        order:2,
+                        text:"Making sure the printer is plugged in"
+                    },
+                    {
+                        order:3,
+                        text:"Installing the filiment"
+                    },
+                    {
+                        order:4,
+                        text:"Running the self-diagnostic"
+                    }
+                ]
+            },
+            {
+                order:4,
+                name:"Using the interface",
+                description:"How to use the screen of the printer to control it",
+                tasks:[
+                    {
+                        order:1,
+                        text:"Using the buttons"
+                    },
+                    {
+                        order:2,
+                        text:"Adding and removing the SD card"
+                    },
+                    {
+                        order:3,
+                        text:"Selecting a file to print"
+                    }
+                ]
+            },
+            {
+                order:5,
+                name:"Printing the stuff",
+                description:"",
+                tasks:[
+                    {
+                        order:1,
+                        text:""
+                    },
+                    {
+                        order:2,
+                        text:""
+                    },
+                    {
+                        order:3,
+                        text:""
+                    }
+                ]
+            }
+        ]
+    }
+]
