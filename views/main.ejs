@@ -1,0 +1,48 @@
+<% include header %>
+
+<div>
+    <div id="monday">
+            Card:
+        <button onclick="selectRecipe(this)">Monday</button>
+    </div>
+    <div id="tuesday">
+            Card:
+        <button onclick="selectRecipe(this)">Tuesday</button>
+    </div>
+    <div id="wednesday">
+            Card:
+        <button onclick="selectRecipe(this)">Wednesday</button>
+    </div>
+    <div id="thursday">
+            Card:
+        <button onclick="selectRecipe(this)">Thursday</button>
+    </div>
+    <div id="friday">
+            Card:
+        <button onclick="selectRecipe(this)">Friday</button>
+    </div>
+    <div id="saturday">
+            Card:
+        <button onclick="selectRecipe(this)">Saturday</button>
+    </div>
+    <div id="sunday">
+            Card:
+        <button onclick="selectRecipe(this)">Sunday</button>
+    </div>
+</div>
+
+<script>
+    let recipes = ["eggs","steak","pasta"];
+    function selectRecipe(element){
+        let parent = element.parentElement;
+        let ul = document.createElement("ul");
+        for (let recipe of recipes){
+            let li = document.createElement("li");
+            li.innerText = recipe;
+            ul.appendChild(li);
+        }
+        parent.appendChild(ul);
+    }
+</script>
+
+<% include footer %>
