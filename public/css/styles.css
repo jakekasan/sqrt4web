@@ -1,0 +1,21 @@
+body {
+    margin: 5px;
+    padding: 5px;
+}
+
+.navbar {
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-item {
+    display: block;
+    height: auto;
+    width: 100px;
+    align-self: flex-start;
+}
+
+.right {
+    align-self: flex-end;
+}
