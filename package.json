@@ -4,7 +4,7 @@
   "description": "a re-worked web",
   "main": "app.js",
   "scripts": {
-    "test": "mocha ./test/**/*.spec.js"
+    "test": "mocha ./tests/**/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "mocha": "^5.2.0",
     "mongoose": "^5.2.10",
     "nock": "^10.0.0",
-    "sqlite3": "^4.0.2"
+    "sqlite3": "^4.0.2",
+    "underscore": "^1.9.1"
   }
 }
