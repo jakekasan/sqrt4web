@@ -7,5 +7,9 @@ module.exports = mongoose.Schema({
     modules:[{
         order: Number,
         timeToComplete: Number // amount of minutes to complete
+    }],
+    participants:[{
+        id:Number,
+        type:String
     }]
 })
