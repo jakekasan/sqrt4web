@@ -29,7 +29,9 @@ describe("Home Controller",() => {
 
         it("run should be a function", () => {
             hc.run.should.be.a("function");
-        })
+        });
+
+        
 
     })
 })
