@@ -1,5 +1,5 @@
 const BaseModel = require("./base.model");
-const userSchema = require("./schemas/user.schema");
+const userSchema = require("./schemas/users.schema");
 
 class UsersModel extends BaseModel {
 
@@ -8,3 +8,5 @@ class UsersModel extends BaseModel {
         super(model)
     }
 }
+
+module.exports = UsersModel;
