@@ -1,16 +1,22 @@
 class BaseModel {
-    constructor(){
+    constructor(model){
         // set schemas?
+        this.model = model;
     }
 
     create(objectToCreate,callback){
-        // create object
+        /*
+        * 
+        *
+        */
+
+        this.model.create(objectToCreate,(error,data) => callback(error,data))
         callback(null,null)
     }
 
     retrieve(objectToCreate,callback){
         // create object
-        callback(null,null)
+        this.model.find(objectToRetrieve,(error,data) => callback(error,data));
     }
 
     update(objectToUpdate,updatedObject,callback){
@@ -23,3 +29,5 @@ class BaseModel {
         callback(null,null)
     }
 }
+
+module.exports = BaseModel;
