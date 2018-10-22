@@ -10,12 +10,17 @@
 
 const _ = require("underscore");
 
-module.exports = function(){
-    return
-}
+class baseController {
+    constructor(name){
+        this.name = name;
+    }
 
-module.exports.prototype = {
-    extends: function(object){
-        return _.extend({},this,object)
+    run(req,res,next){
+        if (!req | !res | !next) {
+            throw new Error("Parameters are wrong")
+        }
+        return next()
     }
 }
+
+module.exports = baseController;
