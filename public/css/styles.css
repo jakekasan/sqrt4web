@@ -1,21 +1,92 @@
 body {
-    margin: 5px;
-    padding: 5px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .navbar {
     width:100%;
+    height: auto;
+    padding: 10px 0 10px 0;
     display: flex;
     justify-content: flex-end;
+    background-color: rgb(49, 238, 238);
 }
 
 .nav-item {
     display: block;
     height: auto;
     width: 100px;
-    align-self: flex-start;
+    padding: 5px;
+    border-style: double;
+    border: 2px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.right {
-    align-self: flex-end;
+.nav-item:hover {
+    background-color: rgb(50, 6, 247);
+    color: white;
+    font-weight: bold;
+}
+
+.page-content {
+    background-color:red;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+.centered-heading {
+    background-color: blue;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    align-content: center;
+    text-align: center;
+    font-size: 25px;
+}
+
+.centered-media-content {
+    background-color: yellow;
+    width: 80%;
+    height: auto;
+    margin: 20px auto;
+    align-content: center;
+}
+
+.youtube-video {
+    margin: 25px auto;
+    padding: 100px;
+    width: 150px;
+    height: 100px;
+    background-color: green;
+}
+
+.centered-content {
+    height: min(100px,auto);
+    width: 80%;
+    margin: auto;
+    align-content: center;
+}
+
+.two-columns {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.column {
+    width: 45%;
+    height:inherit;
+    background-color: yellow;
+    padding: 10px;
+}
+
+.column.left {
+    margin: 0 auto 0 0;
+}
+
+.column.right {
+    margin: 0 0 0 auto;
 }
