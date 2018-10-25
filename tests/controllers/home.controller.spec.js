@@ -31,7 +31,27 @@ describe("Home Controller",() => {
             hc.run.should.be.a("function");
         });
 
-        
+    })
+
+    describe("Functionality", () => {
+
+        var hc;
+
+        beforeEach(() => {
+            hc = new (require("./../../controllers/home.controller"))();
+        });
+
+        it("should have a checkLoggedStatus property",() => {
+            hc.should.have.property("checkLoggedStatus");
+        });
+
+        it("checkLoggedStatus should be a function", () => {
+            hc.checkLoggedStatus.should.be.a("function");
+        });
+
+        it("TEMPORARY - checkLoggedStatus should return true", () => {
+            (hc.checkLoggedStatus()).should.equal(true);
+        });
 
     })
 })
