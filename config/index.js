@@ -6,9 +6,9 @@ let config = {
         },
         db:{
             mongodb:{
-                address:"LINK TO MLABS",
-                user:"admin",
-                password:"pwd"
+                user:"test",
+                password:"password1",
+                address:`mongodb://test:password1@ds235302.mlab.com:35302/sqrt4`
             }
         }
     },
