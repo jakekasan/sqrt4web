@@ -6,7 +6,8 @@ app.set("view engine","ejs");
 
 app.use(Express.static("public"));
 
-routes(app);
+//routes(app);
+
 
 app.listen(8080,() => {
     console.log("App is running");
