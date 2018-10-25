@@ -1,48 +1,54 @@
 <% include header %>
 
-<div>
-    <div id="monday">
-            Card:
-        <button onclick="selectRecipe(this)">Monday</button>
+<div class="page-content">
+        <!-- Here is where page content will go -->
+        <br>
+        <br>
+        <div class="centered-heading">
+            Welcome to the Prusa Educator!
+        </div>
+        <br>
+        <div class="centered-media-content">
+            <div class="youtube-video"></div>
+        </div>
+        <div class="centered-content">
+            <div class="two-columns">
+                <div class="column left">
+                    <p>
+                        Some information as to how to user the Prusa Educator
+                    </p>
+                    <p>
+                        Finished Courses
+                    </p>
+                    <p>
+                        Courses available for teaching in schools
+                    </p>
+                    <p>
+                        Important Chapter
+                    </p>
+                    <p>
+                        Advanced Chapter
+                    </p>
+                </div>
+                <div class="column right">
+                    <p>
+                        Close window/course
+                    </p>
+                    <p>
+                        Fullscreen
+                    </p>
+                    <p>
+                        Next
+                    </p>
+                    <p>
+                        Back
+                    </p>
+                    <p>
+                        Comments
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="tuesday">
-            Card:
-        <button onclick="selectRecipe(this)">Tuesday</button>
-    </div>
-    <div id="wednesday">
-            Card:
-        <button onclick="selectRecipe(this)">Wednesday</button>
-    </div>
-    <div id="thursday">
-            Card:
-        <button onclick="selectRecipe(this)">Thursday</button>
-    </div>
-    <div id="friday">
-            Card:
-        <button onclick="selectRecipe(this)">Friday</button>
-    </div>
-    <div id="saturday">
-            Card:
-        <button onclick="selectRecipe(this)">Saturday</button>
-    </div>
-    <div id="sunday">
-            Card:
-        <button onclick="selectRecipe(this)">Sunday</button>
-    </div>
-</div>
-
-<script>
-    let recipes = ["eggs","steak","pasta"];
-    function selectRecipe(element){
-        let parent = element.parentElement;
-        let ul = document.createElement("ul");
-        for (let recipe of recipes){
-            let li = document.createElement("li");
-            li.innerText = recipe;
-            ul.appendChild(li);
-        }
-        parent.appendChild(ul);
-    }
-</script>
 
 <% include footer %>
