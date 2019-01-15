@@ -10,7 +10,8 @@ let config = {
                 password:"password1",
                 address:`mongodb://test:password1@ds235302.mlab.com:35302/sqrt4`
             }
-        }
+        },
+        debug:true
     },
     production:{
         server:
@@ -24,7 +25,8 @@ let config = {
                 user:"",
                 password:""
             }
-        }
+        },
+        debug:false
     }
 }
 
