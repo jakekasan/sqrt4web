@@ -1,6 +1,17 @@
 body {
     margin: 0px;
     padding: 0px;
+    background-color: aliceblue;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.5s;
+    background-color: white;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .navbar {
@@ -9,7 +20,8 @@ body {
     padding: 10px 0 10px 0;
     display: flex;
     justify-content: flex-end;
-    background-color: rgb(49, 238, 238);
+    background-color: blue;
+    /* background-color: rgb(49, 238, 238); */
 }
 
 .nav-item {
@@ -24,13 +36,21 @@ body {
 }
 
 .nav-item:hover {
-    background-color: rgb(50, 6, 247);
+    /* background-color: rgb(50, 6, 247); */
     color: white;
     font-weight: bold;
 }
 
+.nav-item > a {
+    color: white;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
 .page-content {
-    background-color:red;
+    /* background-color:red; */
     width: 80%;
     height: 100%;
     margin: auto;
@@ -38,7 +58,7 @@ body {
 }
 
 .centered-heading {
-    background-color: blue;
+    /* background-color: blue; */
     width: 80%;
     height: auto;
     margin: 0 auto;
@@ -60,7 +80,7 @@ body {
     padding: 100px;
     width: 150px;
     height: 100px;
-    background-color: green;
+    /* background-color: green; */
 }
 
 .centered-content {
@@ -79,7 +99,7 @@ body {
 .column {
     width: 45%;
     height:inherit;
-    background-color: yellow;
+    /* background-color: yellow; */
     padding: 10px;
 }
 
