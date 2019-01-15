@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 // Controllers
 const HomeController = require("./controllers/home.controller");
+const CoursesController = require("./controllers/courses.controller");
 
 // Models
 const UsersModel = require("./models/users.model");
@@ -21,6 +22,7 @@ app.use(Express.static("public"));
 
 mongoose.connect(config.db.mongodb.address,(err,conn) => {
     var hc = new HomeController(true);
+    var cc = new CoursesController(true);
 
     function databaseMiddleware(req,res,next){
         req.mongo = conn;
@@ -35,6 +37,11 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
         // return
         console.log(hc);
         hc.run(req,res,next);
+    });
+
+    app.all("/courses/",(req,res,next) => {
+        console.log("Req to '/courses/'");
+        cc.run(req,res,next);
     });
 
     app.listen(8080,() => {
