@@ -4,6 +4,8 @@ body {
     background-color: aliceblue;
 }
 
+/* card stuff */
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.5s;
@@ -13,6 +15,71 @@ body {
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+
+/* Filter Bar */
+
+.filter-bar {
+    width:100%;
+    height:45px;
+    padding: 5px 0 5px 0;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-column-gap: auto;
+    background-color: lightblue;
+    overflow-y: auto;
+}
+
+.filter-bar > .item {
+    padding: 0%;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.item > h1 {
+    margin: 0% 10% 0% 10%;
+    padding: auto;
+}
+
+/* Tag List */
+
+.tag-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,130px);
+    grid-column-gap: auto;
+    overflow-y: scroll;
+}
+
+.tag-list > .item {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 2%;
+    margin: 0px;
+    height: auto;
+    font-size: 10px;
+}
+
+
+/* Filter Results */
+
+.filter-container {
+    margin: 1%;
+    height: 270px;
+    overflow-x: auto;
+    display: block;
+}
+
+.filter-results {
+    display:grid;
+    grid-template-columns: repeat(auto-fill,250px);
+    grid-column-gap: 10px;
+    grid-row-gap: 25px;
+    overflow-x:scroll;
+}
+
+.filter-results > .item {
+    height:250px;
+}
+
+
+/* Nav Bar */
 
 .navbar {
     width:100%;
@@ -48,6 +115,9 @@ body {
 a:link, a:visited {
     text-decoration: none;
 }
+
+
+/* Basic Formatting */
 
 .page-content {
     /* background-color:red; */
@@ -110,3 +180,24 @@ a:link, a:visited {
 .column.right {
     margin: 0 0 0 auto;
 }
+
+.segment {
+    margin: 0 1% 0 1%;
+    padding: 1%;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.horizontal-split {
+    display:grid;
+    grid-template-rows: 30% 70%;
+    grid-row-gap: 5px;
+    width: inherit;
+}
+
+.split-item {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    margin: auto 2px auto 2px;
+    height: auto;
+}
+
