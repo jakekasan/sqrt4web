@@ -10,6 +10,7 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.5s;
     background-color: white;
+    padding: 10px;
 }
 
 .card:hover {
@@ -21,37 +22,45 @@ body {
 .filter-bar {
     width:100%;
     height:45px;
-    padding: 5px 0 5px 0;
+    margin: 5px 2px 5px 2px;
+    padding: 0px 0px 0px 0px;
     display: grid;
     grid-template-columns: 20% 60% 20%;
     grid-column-gap: auto;
+    grid-row-gap: 5px;
     background-color: lightblue;
-    overflow-y: auto;
 }
 
 .filter-bar > .item {
     padding: 0%;
+    margin: 2px 0 2px 0;
+    align-content: center;
+    overflow-y:auto;
     border: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 .item > h1 {
-    margin: 0% 10% 0% 10%;
-    padding: auto;
+    margin: auto;
+    padding: 1px;
 }
+
 
 /* Tag List */
 
 .tag-list {
     display: grid;
+    height:inherit;
     grid-template-columns: repeat(auto-fill,130px);
-    grid-column-gap: auto;
+    grid-column-gap: 2px;
+    grid-row-gap: 5px;
     overflow-y: scroll;
+    margin: 2px 0 2px 0;
 }
 
 .tag-list > .item {
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 2%;
-    margin: 0px;
+    padding: 0%;
+    /* margin: 2%; */
     height: auto;
     font-size: 10px;
 }
@@ -62,22 +71,66 @@ body {
 .filter-container {
     margin: 1%;
     height: 270px;
-    overflow-x: auto;
     display: block;
 }
 
 .filter-results {
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(auto-fill,250px);
     grid-column-gap: 10px;
     grid-row-gap: 25px;
-    overflow-x:scroll;
 }
 
 .filter-results > .item {
     height:250px;
 }
 
+
+/* Browser Grid (EXPERIMENTAL) */
+
+.grid-container {
+    display: grid;
+    margin: auto auto auto auto;
+    padding: 1%;
+    grid-template-columns: repeat(auto-fill,25px);
+    grid-template-rows: repeat(8,25px);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    height: auto;
+    overflow-y: scroll;
+}
+
+.grid-container > .item {
+    grid-column-start: span 4;
+    grid-row-start: span 4;
+    /* transition: background-color 3s; */
+    /* transition: grid-column-start 1s, grid-row-start 1s; */
+}
+
+.grid-container > .item > .card-content {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0s;
+}
+
+.grid-container > .item:hover {
+    grid-column-start: span 6;
+    grid-row-start: span 8;
+    /* background-color: red; */
+}
+
+.grid-container > .selected {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: -1;
+}
+
+.grid-container > .item:hover > .card-content {
+    transition: visibility 2s, opacity 2s;
+    visibility: visible;
+    opacity: 1;
+}
 
 /* Nav Bar */
 
@@ -87,7 +140,7 @@ body {
     padding: 10px 0 10px 0;
     display: flex;
     justify-content: flex-end;
-    background-color: blue;
+    background-color: rgba(0, 0, 0, 0.8);
     /* background-color: rgb(49, 238, 238); */
 }
 
@@ -137,6 +190,10 @@ a:link, a:visited {
     font-size: 25px;
 }
 
+.centered-heading > h1 {
+    margin: 0;
+}
+
 .centered-media-content {
     background-color: yellow;
     width: 80%;
@@ -154,7 +211,7 @@ a:link, a:visited {
 }
 
 .centered-content {
-    height: min(100px,auto);
+    height: minmax(100px,auto);
     width: 80%;
     margin: auto;
     align-content: center;
@@ -201,3 +258,19 @@ a:link, a:visited {
     height: auto;
 }
 
+.container {
+    margin: 2% 2% 2% 2%;
+    overflow-y: auto;
+}
+
+.full-content {
+    /* visibility: hidden; */
+    width: 80%;
+    height: 70%;
+    position: absolute;
+    display: block;
+}
+
+.container .full-content .selected {
+    visibility: visible;
+}
