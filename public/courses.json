@@ -1,0 +1,167 @@
+{
+    "id":0,
+    "title":"Uvod do 3D Tisku",
+    "chapters":[
+        {
+            "title":"Technologie 3D tisku",
+            "minutes":5
+        },
+        {
+            "title":"Prusa i3 Mk3",
+            "minutes":5
+        },
+        {
+            "title":"Pouzivani Mk3",
+            "minutes":3
+        },
+        {
+            "title":"Modely a modelovani, materialy",
+            "minutes":5
+        },
+        {
+            "title":"Slic3r",
+            "minutes":7
+        },
+        {
+            "title":"3D tisk",
+            "minutes":5
+        },
+        {
+            "title":"Troubleshooting Mk3",
+            "minutes":5
+        }
+    ]
+},
+{
+    "id":1,
+    "title":"Model a Materialy",
+    "chapters":[
+        {
+            "title":"Technologie 3D tisku",
+            "minutes":5,
+            "segments":[
+
+            ]
+        },
+        {
+            "title":"Prusa i3 Mk3",
+            "minutes":5
+        },
+        {
+            "title":"Pouzivani Mk3",
+            "minutes":3
+        },
+        {
+            "title":"Modely a modelovani, materialy",
+            "minutes":5
+        },
+        {
+            "title":"Slic3r",
+            "minutes":7
+        },
+        {
+            "title":"3D tisk",
+            "minutes":5
+        },
+        {
+            "title":"Troubleshooting Mk3",
+            "minutes":5
+        }
+    ]
+},
+{
+    "id":2,
+    "title":"Slic3r",
+    "chapters":[
+        {
+            "title":"Technologie 3D tisku",
+            "minutes":5,
+            "segments":[
+
+            ]
+        },
+        {
+            "title":"Prusa i3 Mk3",
+            "minutes":5
+        },
+        {
+            "title":"Pouzivani Mk3",
+            "minutes":3
+        },
+        {
+            "title":"Modely a modelovani, materialy",
+            "minutes":5
+        },
+        {
+            "title":"Slic3r",
+            "minutes":7
+        },
+        {
+            "title":"3D tisk",
+            "minutes":5
+        },
+        {
+            "title":"Troubleshooting Mk3",
+            "minutes":5
+        }
+    ]
+},
+{
+    "id":3,
+    "title":"3D Tisk",
+    "chapters":[
+        {
+            "title":"Technologie 3D tisku",
+            "minutes":5,
+            "segments":[
+
+            ]
+        },
+        {
+            "title":"Prusa i3 Mk3",
+            "minutes":5
+        },
+        {
+            "title":"Pouzivani Mk3",
+            "minutes":3
+        },
+        {
+            "title":"Modely a modelovani, materialy",
+            "minutes":5
+        },
+        {
+            "title":"Slic3r",
+            "minutes":7
+        },
+        {
+            "title":"3D tisk",
+            "minutes":5
+        },
+        {
+            "title":"Troubleshooting Mk3",
+            "minutes":5
+        }
+    ]
+},
+{
+    "id":4,
+    "title":"Troubleshooting",
+    "chapters":[
+        {
+            "title":"Problem",
+            "minutes":5
+        },
+        {
+            "title":"Another Problem",
+            "minutes":3
+        },
+        {
+            "title":"Still not working!",
+            "minutes":5
+        },
+        {
+            "title":"Giving up...",
+            "minutes":7
+        }
+    ]
+},
