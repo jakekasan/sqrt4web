@@ -1,4 +1,4 @@
-{
+[{
     "id":0,
     "title":"Uvod do 3D Tisku",
     "chapters":[
@@ -38,10 +38,7 @@
     "chapters":[
         {
             "title":"Technologie 3D tisku",
-            "minutes":5,
-            "segments":[
-
-            ]
+            "minutes":5
         },
         {
             "title":"Prusa i3 Mk3",
@@ -75,10 +72,7 @@
     "chapters":[
         {
             "title":"Technologie 3D tisku",
-            "minutes":5,
-            "segments":[
-
-            ]
+            "minutes":5
         },
         {
             "title":"Prusa i3 Mk3",
@@ -112,10 +106,7 @@
     "chapters":[
         {
             "title":"Technologie 3D tisku",
-            "minutes":5,
-            "segments":[
-
-            ]
+            "minutes":5
         },
         {
             "title":"Prusa i3 Mk3",
@@ -164,4 +155,5 @@
             "minutes":7
         }
     ]
-},
+}
+]
