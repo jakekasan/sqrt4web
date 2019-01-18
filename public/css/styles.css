@@ -16,23 +16,26 @@ body {
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
+/* ########## */
 /* Filter Bar */
+/* ########## */
+
 
 .filter-bar {
     width:100%;
     height:45px;
-    margin: 5px 2px 5px 2px;
-    padding: 0px 0px 0px 0px;
+    padding: 2px 5px 2px 5px;
+    margin: 0px 0px 0px 0px;
     display: grid;
-    grid-template-columns: 20% 60% 20%;
-    grid-column-gap: auto;
+    grid-template-columns: 15% 60% 20%;
+    grid-column-gap: 5px;
     grid-row-gap: 5px;
     background-color: lightblue;
+    overflow-x:hidden;
 }
 
 .filter-bar > .item {
-    padding: 0%;
+    padding: auto;
     margin: 2px 0 2px 0;
     align-content: center;
     overflow-y:auto;
@@ -44,25 +47,50 @@ body {
     padding: 1px;
 }
 
+.item > .tag-input {
+    height: auto;
+    display: grid;
+    position: relative;
+    /* height: 80%;
+    width: 90%; */
+    padding: 5px;
+    margin: auto;
+    overflow: hidden;
+    /* position: relative; */
+}
 
+.tag-input > input {
+    /* position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%); */
+    font-size: 15px;
+    border:none;
+    background-color:inherit;
+}
+
+
+/* ######## */
 /* Tag List */
+/* ######## */
 
 .tag-list {
     display: grid;
     height:inherit;
     grid-template-columns: repeat(auto-fill,130px);
-    grid-column-gap: 2px;
-    grid-row-gap: 5px;
+    grid-column-gap: 2%;
+    grid-row-gap: 2px; /* was 5px */
     overflow-y: scroll;
-    margin: 2px 0 2px 0;
+    padding: 2px 2% 2px 2%;
+    margin: 0px 0 0px 0;
 }
 
 .tag-list > .item {
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 0%;
+    padding: 1%;
     /* margin: 2%; */
     height: auto;
-    font-size: 10px;
+    font-size: 9px;
 }
 
 
@@ -132,7 +160,10 @@ body {
     opacity: 1;
 }
 
+/* ####### */
 /* Nav Bar */
+/* ####### */
+
 
 .navbar {
     width:100%;
@@ -140,7 +171,7 @@ body {
     padding: 10px 0 10px 0;
     display: flex;
     justify-content: flex-end;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(38, 85, 214, 0.8);
     /* background-color: rgb(49, 238, 238); */
 }
 
@@ -259,8 +290,10 @@ a:link, a:visited {
 }
 
 .container {
-    margin: 2% 2% 2% 2%;
+    padding: 2% 2% 2% 2%;
+    margin:auto;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .full-content {
