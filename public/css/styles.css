@@ -1,8 +1,66 @@
-body {
+/* ###### */
+/* Basics */
+/* ###### */
+
+html, body {
     margin: 0px;
     padding: 0px;
+    height: 100%;
     background-color: aliceblue;
 }
+
+.page-content {
+    /* background-color:red; */
+    width: 80%;
+    min-height: 100%;
+    margin: auto;
+    /* margin-bottom: 50px; */
+    padding: 0;
+}
+
+/* ####### */
+/* Nav Bar */
+/* ####### */
+
+.navbar {
+    width:100%;
+    /* position:fixed; */
+    height: auto;
+    padding: 10px 0 10px 0;
+    /* margin-bottom: 100px; */
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba(38, 85, 214, 0.8);
+    /* background-color: rgb(49, 238, 238); */
+}
+
+.nav-item {
+    display: block;
+    height: auto;
+    width: min(100px,auto);
+    padding: 5px;
+    border-style: double;
+    border: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.nav-item:hover > a {
+    /* background-color: rgb(50, 6, 247); */
+    color: pink;
+}
+
+.nav-item > a {
+    color: aliceblue;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+
+
+
 
 /* card stuff */
 
@@ -30,7 +88,7 @@ body {
     grid-template-columns: 15% 60% 20%;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    background-color: lightblue;
+    background-color: rgba(38, 85, 214, 0.8);
     overflow-x:hidden;
 }
 
@@ -160,56 +218,9 @@ body {
     opacity: 1;
 }
 
-/* ####### */
-/* Nav Bar */
-/* ####### */
-
-
-.navbar {
-    width:100%;
-    height: auto;
-    padding: 10px 0 10px 0;
-    display: flex;
-    justify-content: flex-end;
-    background-color: rgba(38, 85, 214, 0.8);
-    /* background-color: rgb(49, 238, 238); */
-}
-
-.nav-item {
-    display: block;
-    height: auto;
-    width: min(100px,auto);
-    padding: 5px;
-    border-style: double;
-    border: 2px;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.nav-item:hover {
-    /* background-color: rgb(50, 6, 247); */
-    color: white;
-    font-weight: bold;
-}
-
-.nav-item > a {
-    color: white;
-}
-
-a:link, a:visited {
-    text-decoration: none;
-}
-
-
 /* Basic Formatting */
 
-.page-content {
-    /* background-color:red; */
-    width: 80%;
-    height: 100%;
-    margin: auto;
-    padding: 20px;
-}
+
 
 .centered-heading {
     /* background-color: blue; */
@@ -291,19 +302,32 @@ a:link, a:visited {
 
 .container {
     padding: 2% 2% 2% 2%;
-    margin:auto;
-    overflow-y: auto;
-    overflow-x: hidden;
+    margin: auto;
+    /* overflow-y: auto;
+    overflow-x: hidden; */
 }
 
 .full-content {
     /* visibility: hidden; */
+    height:auto;
     width: 80%;
-    height: 70%;
-    position: absolute;
-    display: block;
 }
 
 .container .full-content .selected {
     visibility: visible;
+}
+
+
+
+/* ###### */
+/* Footer */
+/* ###### */
+
+.footer {
+    /* position: absolute; */
+    width: 100%;
+    height: 250px;
+    bottom:0;
+    background-color: rgba(38, 85, 214, 0.8);
+    color: aliceblue;
 }
