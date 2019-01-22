@@ -7,6 +7,8 @@ html, body {
     padding: 0px;
     height: 100%;
     background-color: aliceblue;
+    font-family: 'Franklin Gothic Medium';
+    
 }
 
 .page-content {
@@ -30,9 +32,11 @@ html, body {
     /* margin-bottom: 100px; */
     display: flex;
     justify-content: flex-end;
-    background-color: rgba(48, 22, 190, 0.9);
+    background-color: teal;
+    /* background-color: rgba(48, 22, 190, 0.9); */
     /* background-color: rgba(38, 85, 214, 0.8); */
     /* background-color: rgb(49, 238, 238); */
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
 }
 
 .nav-item {
@@ -60,9 +64,6 @@ a:link, a:visited {
 }
 
 
-
-
-
 /* card stuff */
 
 .card {
@@ -82,25 +83,36 @@ a:link, a:visited {
 
 .filter-bar {
     width:100%;
-    height:45px;
+    height:90px;
     padding: 2px 5px 2px 5px;
     margin: 0px 0px 0px 0px;
     display: grid;
     grid-template-columns: 15% 60% 20%;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    background-color: rgba(48, 22, 190, 0.9);
+    background-color: teal;
+    /* background-color: rgba(48, 22, 190, 0.9); */
     color: aliceblue;
     /* background-color: rgba(38, 85, 214, 0.8); */
     overflow-x:hidden;
+    overflow-y:hidden;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-
+/* 
 .filter-bar > .item {
     padding: auto;
     margin: 2px 0 2px 0;
     align-content: center;
     overflow-y:auto;
     /* border: 1px solid rgba(0, 0, 0, 0.8); */
+} */
+
+.filter-bar > .item {
+    display:grid;
+    grid-template-rows: repeat(1,auto-fill);
+    align-content: center;
+    margin:auto;
+    overflow-y: auto;
 }
 
 .item > h1 {
@@ -137,21 +149,37 @@ a:link, a:visited {
 
 .tag-list {
     display: grid;
-    height:inherit;
+    height:100%;
     grid-template-columns: repeat(auto-fill,130px);
     grid-column-gap: 2%;
-    grid-row-gap: 2px; /* was 5px */
+    grid-row-gap: 2%; /* was 5px */
     overflow-y: scroll;
     padding: 2px 2% 2px 2%;
     margin: 0px 0 0px 0;
 }
 
 .tag-list > .item {
-    /* border: 1px solid rgba(0, 0, 0, 0.8); */
-    padding: 1%;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 2%;
     /* margin: 2%; */
     height: auto;
     font-size: 9px;
+    background-color:darkred;
+}
+
+.tag-list > .tag {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 2%;
+    /* margin: 2%; */
+    height: auto;
+    font-size: 9px;
+    background-color:darkred;
+}
+
+.tag > .content {
+
 }
 
 
@@ -174,8 +202,9 @@ a:link, a:visited {
     height:250px;
 }
 
-
+/* ########################### */
 /* Browser Grid (EXPERIMENTAL) */
+/* ########################### */
 
 .grid-container {
     display: grid;
@@ -187,6 +216,21 @@ a:link, a:visited {
     grid-row-gap: 15px;
     height: auto;
     overflow-y: scroll;
+}
+
+.grid-container .detailed-browse > .item {
+    grid-column-start: span 4;
+    grid-row-start: span 4;
+}
+
+/* When a child in .grid-container is selected, color it in organze */
+
+.grid-container > .selected {
+    background-color: orange;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: -1;
 }
 
 .grid-container > .item {
@@ -205,21 +249,51 @@ a:link, a:visited {
 .grid-container > .item:hover {
     grid-column-start: span 6;
     grid-row-start: span 8;
+    background-color: pink;
     /* background-color: red; */
 }
 
-.grid-container > .selected {
-    grid-column-start: 1;
-    grid-column-end: -1;
-    grid-row-start: 1;
-    grid-row-end: -1;
+.grid-container .detailed-browse > .item:hover {
+    grid-column-start: span 4;
+    grid-row-start: span 4;
 }
+
+.grid-container .detailed-browse > .selected {
+    background-color: yellow;
+}
+
+
 
 .grid-container > .item:hover > .card-content {
     transition: visibility 2s, opacity 2s;
     visibility: visible;
     opacity: 1;
 }
+
+.detailed-view {
+    background-color: blue;
+    width:auto;
+    margin:auto;
+    min-height: 60%;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-row-gap: 20px;
+}
+
+.detailed-title {
+    background-color
+}
+
+.detailed-content {
+    background-color:red;
+}
+
+.invisible {
+    display: none;
+}
+
+
+
 
 /* Basic Formatting */
 
@@ -332,7 +406,8 @@ a:link, a:visited {
     width: 100%;
     height: auto;
     bottom:0;
-    background-color: rgba(48, 22, 190, 0.9);
+    background-color: teal;
+    /* background-color: rgba(48, 22, 190, 0.9); */
     /* background-color: rgba(38, 85, 214, 0.8); */
     color: aliceblue;
 }
