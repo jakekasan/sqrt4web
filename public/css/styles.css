@@ -276,17 +276,66 @@ a:link, a:visited {
     margin:auto;
     min-height: 60%;
     display: grid;
-    grid-template-rows: 30% 70%;
-    grid-row-gap: 20px;
+    grid-template-rows: 20% 70%;
+    grid-row-gap: auto;
 }
 
 .detailed-title {
-    background-color
+    background-color:yellow;
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+.detailed-title > h4 {
+    background-color:orange;
+    width: 80%;
+    height: 50%;
+    align-content: center;
+    margin: auto;
 }
 
 .detailed-content {
     background-color:red;
+    width: 90%;
+    height: 90%;
+    margin: auto auto;
 }
+
+.detailed-content > .detailed-list {
+    background-color:pink;
+    display:grid;
+    grid-template-rows: repeat(auto-fill,50px);
+}
+
+.detailed-list > .detailed-list-item {
+    background-color:blue;
+    display:grid;
+    grid-template-columns: 10% 80% 10%;
+}
+
+.detailed-list-item > .icon {
+    background-color: yellow;
+}
+
+.detailed-list-item > .content {
+    background-color: green;
+}
+
+.detailed-list-item > .content > .title {
+    background-color: green;
+}
+
+.detailed-list-item > .content > .info-list {
+    background-color: green;
+    display:grid;
+    grid-template-rows: repeat(auto-fill);
+}
+
+.info-list > .info-list-item {
+    background-color:salmon;
+}
+
 
 .invisible {
     display: none;
