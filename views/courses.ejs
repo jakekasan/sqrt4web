@@ -83,33 +83,42 @@
                         </div>
                         <div class="detailed-content">
                             <div class="detailed-list">
+                                <%
+                                    //let n = Math.floor(Math.random()*10)
+                                    let n = 10;
+                                    for(let i = 0; i < n; i++) {
+                                %>
                                 <div class="detailed-list-item">
-                                    <div class="list-icon-container">
-                                        ICON
+                                    <div class="list-item-icon-container">
+                                        <div class="content">
+                                            ICON
+                                        </div>
                                     </div>
-                                    <div class="list-content-container">
+                                    <div class="list-item-content-container">
                                         <div class="title">
                                             TITLE
                                         </div>
                                         <div class="info-list">
+                                            <%
+                                                let m = Math.floor(Math.random()*6) + 1;
+                                                for(let j = 0; j < m; j++) {
+                                            %>
                                             <div class="info-list-item">
-                                                <a>Item 1</a>
+                                                <a>Item <%= j %></a>
                                             </div>
-                                            <div class="info-list-item">
-                                                <a>Item 1</a>
-                                            </div>
-                                            <div class="info-list-item">
-                                                <a>Item 1</a>
-                                            </div>
-                                            <div class="info-list-item">
-                                                <a>Item 1</a>
-                                            </div>
+                                            <%
+                                                }
+                                            %>
+                                            
                                         </div>
                                     </div>
-                                    <div class="list-time-container">
-                                        <a>20 Mins</a>
+                                    <div class="list-item-time-container">
+                                        <div class="content">
+                                            20 Mins
+                                        </div>
                                     </div>
                                 </div>
+                                <% }; %>
                             </div>
                         </div>        
                     </div>
