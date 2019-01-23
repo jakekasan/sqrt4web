@@ -275,9 +275,12 @@ a:link, a:visited {
     width:auto;
     margin:auto;
     min-height: 60%;
-    display: grid;
-    grid-template-rows: 20% 70%;
-    grid-row-gap: auto;
+    height:auto;
+    display:grid;
+    grid-template-rows: 20% 60%;
+    grid-row-gap: 0;
+    padding:10% 0 25% 0;
+    /* overflow:auto; */
 }
 
 .detailed-title {
@@ -293,13 +296,16 @@ a:link, a:visited {
     height: 50%;
     align-content: center;
     margin: auto;
+    padding-top:10%;
 }
 
 .detailed-content {
     background-color:red;
     width: 90%;
-    height: 90%;
-    margin: auto auto;
+    min-height: 90%;
+    height: auto;
+    margin: auto;
+    overflow:auto;
 }
 
 .detailed-content > .detailed-list {
@@ -314,8 +320,10 @@ a:link, a:visited {
     grid-template-columns: 10% 80% 10%;
 }
 
-.detailed-list-item > .list-icon-container {
+.detailed-list-item > .list-item-icon-container {
     background-color: yellow;
+    width:100%;
+    margin:auto 0;
 }
 
 .detailed-list-item > .list-item-content-container {
@@ -334,11 +342,15 @@ a:link, a:visited {
     margin: auto 0;
 }
 
-.detailed-list-item > .list-time-container {
+.detailed-list-item > .list-item-time-container {
     background-color:white;
-    width: auto;
-    margin: auto 0;
     align-content: center;
+    width:100%;
+    margin: auto 0;
+}
+
+.list-item-time-container > .content {
+    background-color: blueviolet;
 }
 
 .time > a {
