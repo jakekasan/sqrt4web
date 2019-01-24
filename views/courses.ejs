@@ -50,8 +50,23 @@
             </div>
             <div class="container">
                 <div class="grid-container">
+                    <% for (let elem of data.courses){ %>
                     <div class="item card">
-                        <h1>Uvod do 3D tisku</h1>
+                        <h4>
+                            <%= elem.title %>
+                        </h4>
+                        <div class="card-content">
+                            <h4>Components:</h4>
+                            <ul>
+                                <% for (let component of elem.components){ %>
+                                    <li><%= component.title %></li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                    <% } %>
+                    <div class="item card">
+                        <h4>Uvod do 3D tisku</h4>
                         <div class="card-content">
                             <h4>Stuff:</h4>
                             <ul>
