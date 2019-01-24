@@ -33,9 +33,6 @@ html, body {
     display: flex;
     justify-content: flex-end;
     background-color: teal;
-    /* background-color: rgba(48, 22, 190, 0.9); */
-    /* background-color: rgba(38, 85, 214, 0.8); */
-    /* background-color: rgb(49, 238, 238); */
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
 }
 
@@ -196,12 +193,13 @@ a:link, a:visited {
     /* margin: 2%; */
     /* height: auto; */
     font-size: 9px;
-    background-color:darkred;
+    background-color:lightgreen;
     grid-column: span 3;
 }
 
 .tag > .content {
     font-size:6px;
+    outline: 2px;
 }
 
 
