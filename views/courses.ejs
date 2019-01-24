@@ -10,36 +10,22 @@
 
             <div class="container">
                 <div class="filter-bar">
-                    <div class="item">
-                        <h1>Filter:</h1>
+                    <div class="filter-title">
+                        Filter:
                     </div>
-                    <div class="item">
+                    <div class="filter-filters">
                         <div class="tag-list">
-                            <div class="item">
-                                One
-                            </div>
-                            <div class="item">
-                                Two
-                            </div>
-                            <div class="item">
-                                Three
-                            </div>
-                            <div class="item">
-                                Four
-                            </div>
-                            <div class="item">
-                                Five
-                            </div>
-                            <div class="item">
-                                Six
-                            </div>
-                            <div class="item">
-                                Seven
-                            </div>
+                            <% for (let i = 0; i < 7; i++){ %>
+                                    <div class="tag">
+                                        <div class="content">
+                                            Tag <%= i %>
+                                        </div>
+                                    </div>
+                            <% } %>
                         </div>
                         
                     </div>
-                    <div class="item">
+                    <div class="filter-input">
                         <div class="tag-input">
                             <input type="text" name="tag" id="tagInput">
                         </div>
@@ -58,36 +44,13 @@
                         <div class="card-content">
                             <h4>Components:</h4>
                             <ul>
-                                <% for (let component of elem.components){ %>
-                                    <li><%= component.title %></li>
+                                <% for (let module of elem.modules){ %>
+                                    <li><%= module.title %></li>
                                 <% } %>
                             </ul>
                         </div>
                     </div>
                     <% } %>
-                    <div class="item card">
-                        <h4>Uvod do 3D tisku</h4>
-                        <div class="card-content">
-                            <h4>Stuff:</h4>
-                            <ul>
-                                <li>First thing</li>
-                                <li>Second thing</li>
-                                <li>etc...</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item card">
-                        <h1>Model a Material</h1>
-                    </div>
-                    <div class="item card">
-                        <h1>Slic3r</h1>
-                    </div>
-                    <div class="item card">
-                        <h1>3D Tisk</h1>
-                    </div>
-                    <div class="item card">
-                        <h1>Troubleshooting</h1>
-                    </div>
                 </div>
             </div>
             <div class="container">
