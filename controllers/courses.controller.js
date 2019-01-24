@@ -1,11 +1,13 @@
 const BaseController = require("./base.controller");
 const BaseView = require("./../views/base.view");
+const CoursesModel = require("./../models/courses.model");
 
 class CoursesController extends BaseController {
 
     constructor(debug){
         super("Courses Controller");
         this.debug = debug;
+        self.coursesModel = new CoursesModel();
     }
 
     run(req,res,next){
@@ -42,9 +44,11 @@ class CoursesController extends BaseController {
     getContent(self){
         console.log("In get content");
         // temporary data
-        let data = {
-            title:"Welcome to SQRT4"
-        }
+        // let data = {
+        //     title:"Welcome to SQRT4"
+        // }
+
+        let data = self.coursesModel.getData();
 
         // get data and render template
         let view = new BaseView("courses",self.res)
