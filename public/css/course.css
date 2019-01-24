@@ -1,0 +1,25 @@
+/* /view/course specific styling */
+
+.course-data {
+    display: grid;
+    grid-template-areas:
+        "title title"
+        "description description"
+        "colA colB";
+}
+
+.course-title {
+    grid-area: title;
+}
+
+.course-description {
+    grid-area: description;
+}
+
+.course-left-col {
+    grid-area: colA;
+}
+
+.course-right-col {
+    grid-area: colB;
+}
