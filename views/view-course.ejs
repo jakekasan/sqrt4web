@@ -2,9 +2,37 @@
     <body>
 
         <% include header %>
-
+        <link rel="stylesheet" href="/css/course.css">
         <div class="page-content">
             <h1>Specific view</h1>
+            <p>
+                <%= JSON.stringify(data.course) %>
+            </p>
+            <div class="course-data">
+                <div class="course-title">
+                    <%= data.course.title %>
+                </div>
+
+                <div class="course-description">
+                    <%
+                        if (data.course.description) {
+                    %>
+                    <%= data.course.description %>
+                    <%
+                        } else {
+                    %>
+                    <%= "No description given..." %>
+                    <%
+                        }
+                    %>
+                </div>
+                <div class="course-left-col">
+                    This is the left column.
+                </div>
+                <div class="course-right-col">
+                    This is the right column.
+                </div>
+            </div>
         </div>
 
         <% include footer %>
