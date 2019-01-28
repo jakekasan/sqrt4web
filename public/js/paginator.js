@@ -62,3 +62,23 @@ function fetchData(){
 document.addEventListener("DOMContentLoaded",() => {
     fetchData();
 })
+
+class Paginator {
+    constructor(){
+        this.pages = {};
+        this.data = [];
+        this.currentPage = 0;
+    }
+
+    renderPage(pageNumber){
+        // select the necessary elements
+
+        let pagination = document.querySelector(".pagination");
+        let leftArrow = document.querySelector("#pagination-left");
+        let rightArrow = document.querySelector("#pagination-right");
+
+        let validPages = Object.keys(this.pages);
+    }
+
+
+}
