@@ -249,21 +249,73 @@ a:link, a:visited {
 }
 
 .grid-container > .item {
-    grid-column-start: span 6;
+    grid-column-start: span 4;
     grid-row-start: span 4;
+    display: grid;
+    grid-auto-rows: 100%;
+    grid-auto-columns: 100%;
     /* transition: background-color 3s; */
     /* transition: grid-column-start 1s, grid-row-start 1s; */
 }
 
-.grid-container > .item > .card-content {
+/* ######################### */
+/* New and improved styling! */
+/* ######################### */
+
+.card-content {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(5,1fr);
+    /* grid-template-areas:
+        "title title title title"
+        "title title title title"
+        ". description description ."
+        ". description description ."
+        ". description description ."
+        ". description description ."
+        ". . . time"; */
+}
+
+.card-content > .title {
+    /* grid-area: title; */
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 0;
+    grid-row-end:2;
+    font-size:12px;
+}
+
+.card-content > .description {
+    /* grid-area: description; */
+    grid-column-start: 2;
+    grid-column-end: -1;
+    grid-row-start:2;
+    grid-row-end:-1;
+    font-style: italic;
+    font-size:8px;
+}
+
+.card-content > .time {
+    /* grid-area: time; */
+    grid-column-start:-2;
+    grid-column-end:-1;
+    grid-row-start: -1;
+    grid-row-end: auto;
+}
+
+
+
+
+/* .grid-container > .item > .card-content {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0s;
-}
+} */
 
 .grid-container > .item:hover {
-    grid-column-start: span 6;
-    grid-row-start: span 8;
+    /* grid-column-start: span 6; */
+    /* grid-row-start: span 8; */
     background-color: pink;
     /* background-color: red; */
 }
@@ -279,11 +331,11 @@ a:link, a:visited {
 
 
 
-.grid-container > .item:hover > .card-content {
+/* .grid-container > .item:hover > .card-content {
     transition: visibility 2s, opacity 2s;
     visibility: visible;
     opacity: 1;
-}
+} */
 
 .detailed-view {
     background-color: blue;
@@ -531,6 +583,51 @@ a:link, a:visited {
     display:block;
 }
 
+/* ##### */
+/* Modal */
+/* ##### */
+
+.modal {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width:24rem;
+    border-radius: 0.5rem;
+}
+
+.modal-close {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+    transition: background-color 0.5s;
+}
+
+.show-modal {
+    opacity:1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
 
 
 /* ###### */
