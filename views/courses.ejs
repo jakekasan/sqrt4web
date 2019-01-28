@@ -36,24 +36,7 @@
             </div>
             <div class="container">
                 <div class="grid-container">
-                    <% for (let elem of data.courses){ %>
-                    <div class="item card">
-                        <h4>
-                            <%= elem.title %>
-                        </h4>
-                        <div class="card-content">
-                            <h4>Components:</h4>
-                            <ul>
-                                <% for (let module of elem.modules){ %>
-                                    <li><%= module.title %></li>
-                                <% } %>
-                            </ul>
-                        </div>
-                        <div class="card-bottom">
-                            
-                        </div>
-                    </div>
-                    <% } %>
+                    
                 </div>
             </div>
             <div class="container">
@@ -125,7 +108,28 @@
             </div>
         </div>
 
+        <!-- Lifted from grid-container -->
+        <% for (let elem of data.courses){ %>
+            <div class="item card">
+                <h4>
+                    <%= elem.title %>
+                </h4>
+                <div class="card-content">
+                    <h4>Components:</h4>
+                    <ul>
+                        <% for (let module of elem.modules){ %>
+                            <li><%= module.title %></li>
+                        <% } %>
+                    </ul>
+                </div>
+                <div class="card-bottom">
+                    
+                </div>
+            </div>
+            <% } %>
+
         <script src="/js/modal.js"></script>
+        <script src="/js/paginator.js"></script>
 
         <% include footer %>
 
