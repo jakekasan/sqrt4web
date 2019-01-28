@@ -1,8 +1,11 @@
 var BaseController = require("./base.controller");
 
+var tempData = require("./../public/courses.json");
+
 class APIController extends BaseController {
-    constructor(){
-        //
+    constructor(debug){
+        super("API Controller")
+        this.debug = debug;
     }
 
     run(req,res,next){
@@ -27,3 +30,5 @@ const validPaths = {
         }
     }
 }
+
+module.exports = APIController;
