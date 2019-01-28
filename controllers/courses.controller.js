@@ -7,21 +7,30 @@ class CoursesController extends BaseController {
     constructor(debug){
         super("Courses Controller");
         this.debug = debug;
-        self.coursesModel = new CoursesModel();
+        this.coursesModel = new CoursesModel();
     }
 
     run(req,res,next){
         if (this.debug) {
-            console.log(`${(new Date(Date.now()))} : ${req.method} request to  recieved`);
+            console.log(`${(new Date(Date.now()))} : ${req.method} request to ${req.path} recieved`);
         }
+        
         var self = this; // for scope
+
         console.log("Set self");
+
         self.req = req;
         self.res = res;
         self.next = next;
         self.mongo = self.req.mongo;
 
-        this.getContent(self);
+        if (req.path == "/courses") {
+            this.browseCourses(self);
+        }
+
+        if (req.path == "/view/course") {
+            this.singleCourse(self);
+        }
 
 
         // if (self.checkLoggedStatus(self)){
@@ -41,19 +50,43 @@ class CoursesController extends BaseController {
        return true // for now...
     }
 
-    getContent(self){
+    browseCourses(self){
         console.log("In get content");
         // temporary data
         // let data = {
         //     title:"Welcome to SQRT4"
         // }
 
-        let data = self.coursesModel.getData();
+        let data = {};
+
+        data.courses = self.coursesModel.getData();
 
         // get data and render template
         let view = new BaseView("courses",self.res)
         self.content = data;
         return view.render(self.content);
+    }
+
+    singleCourse(self){
+        // gets course by id
+
+        let id = 0;
+        let courses = self.coursesModel.getData();
+
+        let course = courses.filter(item => item.id == id)[0];
+
+        let data = {};
+
+        data.course = course;
+
+        self.content = data;
+
+        let view = new BaseView("view-course",self.res);
+
+        return view.render(self.content)
+
+        
+
     }
 
 
