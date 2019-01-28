@@ -2,18 +2,55 @@
 
 .course-data {
     display: grid;
-    grid-template-areas:
-        "title title"
-        "description description"
-        "colA colB";
+    grid-template-rows: repeat(20,1fr);
+    grid-template-columns: repeat(10,1fr);
+}
+
+.course-module {
+    grid-row-start: span 2;
+    grid-column-start: span 10;
+    display:grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(4,1fr);
+}
+
+.module-icon {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2; 
+}
+
+.module-title {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 8; 
+}
+
+.module-description {
+    grid-row-start: 3;
+    grid-row-end: -1;
+    grid-column-start: 4;
+    grid-column-end: 8; 
+}
+
+.module-time {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: -2;
+    grid-column-end: -1; 
 }
 
 .course-title {
-    grid-area: title;
+    grid-row-start: span 1;
+    grid-column-start: span 10;
 }
 
 .course-description {
-    grid-area: description;
+    grid-row-start: span 2;
+    grid-column-start: 1;
+    grid-column-end: -1;
 }
 
 .course-left-col {
