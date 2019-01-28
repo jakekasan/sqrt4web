@@ -10,7 +10,7 @@ function addGridCard(record){
 
     let desc = (record.desc) ? record.desc : "No description has been given for this data"
 
-    let time = (record.time) ? record.time : 0;
+    let time = (record.modules) ? record.modules.reduce((acc,ele) => { return acc+ele.minutes },0) : 0;
 
     // parent card element
     let card = document.createElement("div");
@@ -28,12 +28,12 @@ function addGridCard(record){
     // description element
     let cardDescription = document.createElement("div");
     cardDescription.className = "description";
-    cardDescription = desc;
+    cardDescription.innerText = desc;
 
     // time element
     let cardTime = document.createElement("div");
     cardTime.className = "time";
-    cardTime.innetText = time;
+    cardTime.innerText = time;
 
     // append EVERYTHING!!!!
     cardContent.appendChild(cardTitle);
@@ -50,7 +50,7 @@ function fetchData(){
         .then(data => data.json())
         .then(data => {
             data.forEach(element => {
-                _cachedData.append(element);
+                _cachedData.push(element);
                 addGridCard(element);
             });
         })
@@ -58,3 +58,7 @@ function fetchData(){
             console.log(err);
         })
 }
+
+document.addEventListener("DOMContentLoaded",() => {
+    fetchData();
+})
