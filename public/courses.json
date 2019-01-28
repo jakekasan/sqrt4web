@@ -1,7 +1,7 @@
 [{
     "id":0,
     "title":"Uvod do 3D Tisku",
-    "chapters":[
+    "modules":[
         {
             "title":"Technologie 3D tisku",
             "minutes":5
@@ -35,7 +35,7 @@
 {
     "id":1,
     "title":"Model a Materialy",
-    "chapters":[
+    "modules":[
         {
             "title":"Technologie 3D tisku",
             "minutes":5
@@ -69,7 +69,7 @@
 {
     "id":2,
     "title":"Slic3r",
-    "chapters":[
+    "modules":[
         {
             "title":"Technologie 3D tisku",
             "minutes":5
@@ -103,7 +103,7 @@
 {
     "id":3,
     "title":"3D Tisk",
-    "chapters":[
+    "modules":[
         {
             "title":"Technologie 3D tisku",
             "minutes":5
@@ -137,7 +137,7 @@
 {
     "id":4,
     "title":"Troubleshooting",
-    "chapters":[
+    "modules":[
         {
             "title":"Problem",
             "minutes":5
@@ -155,5 +155,118 @@
             "minutes":7
         }
     ]
-}
-]
+},
+{
+    "id":5,
+    "title":"Entrenpreneurship",
+    "modules":[
+        {
+            "title":"The Goal",
+            "minutes":5
+        },
+        {
+            "title":"The Market",
+            "minutes":3
+        },
+        {
+            "title":"The Customer",
+            "minutes":5
+        },
+        {
+            "title":"Business Plan",
+            "minutes":7
+        },
+        {
+            "title":"SWOT Analysis",
+            "minutes":5
+        }
+    ]
+},
+{
+    "id":6,
+    "title":"Intro to Web Development",
+    "modules":[
+        {
+            "title":"HTML Basics",
+            "minutes":5
+        },
+        {
+            "title":"CSS Basics",
+            "minutes":3
+        },
+        {
+            "title":"Styling Divs",
+            "minutes":5
+        },
+        {
+            "title":"Running a server",
+            "minutes":7
+        }
+    ]
+},
+{
+    "id":7,
+    "title":"Advanced Web Development",
+    "modules":[
+        {
+            "title":"Javascript Basics",
+            "minutes":5
+        },
+        {
+            "title":"Frameworks",
+            "minutes":3
+        },
+        {
+            "title":"Microservices",
+            "minutes":5
+        },
+        {
+            "title":"Containerization",
+            "minutes":7
+        }
+    ]
+},
+{
+    "id":8,
+    "title":"Intro to Javscript",
+    "modules":[
+        {
+            "title":"Getting started",
+            "minutes":5
+        },
+        {
+            "title":"Variables",
+            "minutes":3
+        },
+        {
+            "title":"Variable Scope",
+            "minutes":5
+        },
+        {
+            "title":"Functions",
+            "minutes":7
+        }
+    ]
+},
+{
+    "id":9,
+    "title":"Advanced Javascript",
+    "modules":[
+        {
+            "title":"Problem",
+            "minutes":5
+        },
+        {
+            "title":"Another Problem",
+            "minutes":3
+        },
+        {
+            "title":"Still not working!",
+            "minutes":5
+        },
+        {
+            "title":"Giving up...",
+            "minutes":7
+        }
+    ]
+}]
