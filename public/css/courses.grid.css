@@ -1,0 +1,129 @@
+/*
+
+    Separate CSS for grid stuff
+
+*/
+
+/* ########################### */
+/* Browser Grid (EXPERIMENTAL) */
+/* ########################### */
+
+.grid-container {
+    display: grid;
+    width: 90%;
+    margin: 20px auto;
+    padding: 0;
+    grid-template-columns: repeat(18,1fr);
+    grid-template-rows: repeat(20,25px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: auto;
+}
+
+/* When a child in .grid-container is selected, color it in organze */
+
+.grid-container > .selected {
+    background-color: orange;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: -1;
+}
+
+.grid-container > .item {
+    grid-column-start: span 4;
+    grid-row-start: span 4;
+    display: grid;
+    grid-auto-rows: 100%;
+    grid-auto-columns: 100%;
+    /* transition: background-color 3s; */
+    /* transition: grid-column-start 1s, grid-row-start 1s; */
+}
+
+/* ######################### */
+/* New and improved styling! */
+/* ######################### */
+
+.card-content {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(5,1fr);
+    /* grid-template-areas:
+        "title title title title"
+        "title title title title"
+        ". description description ."
+        ". description description ."
+        ". description description ."
+        ". description description ."
+        ". . . time"; */
+}
+
+.card-content > .title {
+    /* grid-area: title; */
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 0;
+    grid-row-end:2;
+    font-size:12px;
+}
+
+.card-content > .description {
+    /* grid-area: description; */
+    grid-column-start: 2;
+    grid-column-end: -1;
+    grid-row-start:2;
+    grid-row-end:-1;
+    font-style: italic;
+    font-size:8px;
+}
+
+.card-content > .time {
+    /* grid-area: time; */
+    grid-column-start:-2;
+    grid-column-end:-1;
+    grid-row-start: -1;
+    grid-row-end: auto;
+}
+
+
+.grid-container > .item:hover {
+    /* grid-column-start: span 6; */
+    /* grid-row-start: span 8; */
+    background-color: pink;
+    /* background-color: red; */
+}
+
+
+/* 
+
+    Pagination Stuff
+
+*/
+
+.pagination {
+    display: grid;
+    grid-template-areas:
+        "left content content content content right"
+        "left content content content content right"
+        "left content content content content right"
+        "left content content content content right"
+        "left content content content content right"
+        "left content content content content right"
+        "left content content content content right"
+        "number number number number number number"
+    /* grid-template-columns: 20% 80% 20%; */
+}
+
+.pagination-arrow {
+    background-color:lightgreen;
+}
+
+.pagination-arrow .null {
+    background-color:grey;
+}
+
+.pagination-number {
+    background-color:
+}
+
