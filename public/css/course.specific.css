@@ -1,0 +1,36 @@
+.course-details {
+    display:grid;
+    min-height:100vh;
+    width:100%;
+    background-color:grey;
+    grid-template-areas:
+        "title title title title"
+        "picture description description description"
+        "picture description description description"
+        "picture description description description"
+        "module module module module"
+        "module module module module"
+        "module module module module"
+        "module module module module"
+        "module module module module";
+}
+
+.title {
+    grid-area: title;
+    background-color: lightblue;
+}
+
+.picture {
+    grid-area: picture;
+    background-color: lightyellow;
+}
+
+.description {
+    grid-area: description;
+    background-color: lightgreen;
+}
+
+.module {
+    grid-area: module;
+    background-color: lightpink;
+}
