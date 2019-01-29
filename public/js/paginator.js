@@ -33,7 +33,7 @@ function addGridCard(record){
     // time element
     let cardTime = document.createElement("div");
     cardTime.className = "time";
-    cardTime.innerText = time;
+    cardTime.innerText = time + " mins";
 
     // append EVERYTHING!!!!
     cardContent.appendChild(cardTitle);
@@ -65,20 +65,39 @@ document.addEventListener("DOMContentLoaded",() => {
 
 class Paginator {
     constructor(){
+        this.itemsPerPage = 12;
         this.pages = {};
         this.data = [];
-        this.currentPage = 0;
+        this.currentPage = 1;
+        this.renderedPageNumbers;
     }
 
-    renderPage(pageNumber){
+    setPages(){
+        var pageCount = 1;
+        for (let i = 0; i < this.data.length; i++) {
+            if (!this.pages[pageCount]){
+                this.pages[pageCount] = this.data[i];
+            } else {
+                this.pages[pageCount].push(this.data[i]);
+            }
+            if (this.itemsPerPage % i == 0) {
+                pageCount++;
+            }
+        }
+    }
+
+    renderPagination(){
         // select the necessary elements
 
         let pagination = document.querySelector(".pagination");
-        let leftArrow = document.querySelector("#pagination-left");
-        let rightArrow = document.querySelector("#pagination-right");
+        let leftArrow = document.querySelector(".left");
+        let rightArrow = document.querySelector(".right");
 
         let validPages = Object.keys(this.pages);
+
     }
+
+
 
 
 }
