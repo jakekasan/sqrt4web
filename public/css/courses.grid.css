@@ -9,15 +9,40 @@
 /* ########################### */
 
 .grid-container {
+    grid-area: content;
     display: grid;
-    width: 90%;
-    margin: 20px auto;
-    padding: 0;
-    grid-template-columns: repeat(18,1fr);
-    grid-template-rows: repeat(20,25px);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    height: auto;
+    padding: 0 1vh;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: repeat(12,1fr);
+    /* grid-column-gap: 10px;
+    grid-row-gap: 10px; */
+    grid-column-gap: 1vh;
+    grid-row-gap: 1vh;
+    /* height: auto; */
+}
+
+@media screen and (min-width: 1101px){
+    .grid-container {
+        grid-template-columns: repeat(24,1fr);
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1100px){
+    .grid-container {
+        grid-template-columns: repeat(20,1fr);
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px){
+    .grid-container {
+        grid-template-columns: repeat(12,1fr);
+    }
+}
+
+@media screen and (min-width: 0) and (max-width: 600px){
+    .grid-container {
+        grid-template-columns: repeat(8,1fr);
+    }
 }
 
 /* When a child in .grid-container is selected, color it in organze */
@@ -90,7 +115,7 @@
 .grid-container > .item:hover {
     /* grid-column-start: span 6; */
     /* grid-row-start: span 8; */
-    background-color: pink;
+    background-color: lightyellow;
     /* background-color: red; */
 }
 
@@ -102,28 +127,56 @@
 */
 
 .pagination {
+    min-height: 50vh;
     display: grid;
+    margin: 20px 0;
     grid-template-areas:
         "left content content content content right"
         "left content content content content right"
         "left content content content content right"
         "left content content content content right"
         "left content content content content right"
-        "left content content content content right"
-        "left content content content content right"
-        "number number number number number number"
+        "pagenum pagenum pagenum pagenum pagenum pagenum";
     /* grid-template-columns: 20% 80% 20%; */
 }
 
 .pagination-arrow {
     background-color:lightgreen;
+    min-width: 10vh;
 }
 
 .pagination-arrow .null {
     background-color:grey;
 }
 
-.pagination-number {
-    background-color:
+.left {
+    grid-area: left;
 }
 
+.right {
+    grid-area: right;
+}
+
+.page-numbers {
+    grid-area: pagenum;
+    background-color:teal;
+    min-height:10vh;
+    display: grid; 
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-top: 1vh;
+}
+
+.page-number {
+    background-color: pink;
+    grid-column-start: span 1;
+    grid-row-start: span 1;
+}
+
+.page-number:nth-child(odd) {
+    background-color: aqua;
+}
+
+/*  */
