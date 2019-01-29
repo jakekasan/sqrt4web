@@ -37,7 +37,11 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
 
     app.all("/test",(req,res,next) => {
         res.render("test");
-    })
+    });
+
+    app.all("/test2",(req,res,next) => {
+        res.render("test2");
+    });
 
     app.all("/",(req,res,next) => {
         console.log("Req to '/'");
