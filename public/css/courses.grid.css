@@ -12,24 +12,27 @@
     grid-area: content;
     display: grid;
     padding: 0 1vh;
-    grid-template-columns: repeat(20,1fr);
-    grid-template-rows: repeat(12,1fr);
-    /* grid-column-gap: 10px;
-    grid-row-gap: 10px; */
+    grid-template-columns: repeat(16,1fr);
+    grid-template-columns: repeat(16,1fr);
     grid-column-gap: 1vh;
     grid-row-gap: 1vh;
-    /* height: auto; */
 }
-
-@media screen and (min-width: 1101px){
+/* 
+@media screen and (min-width: 1201px){
     .grid-container {
         grid-template-columns: repeat(24,1fr);
     }
 }
 
-@media screen and (min-width: 801px) and (max-width: 1100px){
+@media screen and (min-width: 1001px) and (max-width: 1200px){
     .grid-container {
         grid-template-columns: repeat(20,1fr);
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1000px){
+    .grid-container {
+        grid-template-columns: repeat(16,1fr);
     }
 }
 
@@ -43,7 +46,7 @@
     .grid-container {
         grid-template-columns: repeat(8,1fr);
     }
-}
+} */
 
 /* When a child in .grid-container is selected, color it in organze */
 
@@ -90,7 +93,7 @@
     grid-column-end: -1;
     grid-row-start: 0;
     grid-row-end:2;
-    font-size:12px;
+    font-size:1.2vw;
 }
 
 .card-content > .description {
@@ -100,7 +103,7 @@
     grid-row-start:2;
     grid-row-end:-1;
     font-style: italic;
-    font-size:8px;
+    font-size:0.8vw;
 }
 
 .card-content > .time {
@@ -109,6 +112,7 @@
     grid-column-end:-1;
     grid-row-start: -1;
     grid-row-end: auto;
+    font-size:1vw;
 }
 
 
