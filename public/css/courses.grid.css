@@ -108,7 +108,7 @@
 
 .card-content > .time {
     /* grid-area: time; */
-    grid-column-start:-2;
+    grid-column-start:-3;
     grid-column-end:-1;
     grid-row-start: -1;
     grid-row-end: auto;
@@ -135,6 +135,9 @@
     display: grid;
     margin: 20px 0;
     grid-template-areas:
+        "left content content content content right"
+        "left content content content content right"
+        "left content content content content right"
         "left content content content content right"
         "left content content content content right"
         "left content content content content right"
@@ -177,6 +180,10 @@
     background-color: pink;
     grid-column-start: span 1;
     grid-row-start: span 1;
+}
+
+.page-number .selected {
+    background-color: orange;
 }
 
 .page-number:nth-child(odd) {
