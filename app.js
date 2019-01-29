@@ -33,6 +33,12 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
 
     app.use(databaseMiddleware);
 
+    // for testing
+
+    app.all("/test",(req,res,next) => {
+        res.render("test");
+    })
+
     app.all("/",(req,res,next) => {
         console.log("Req to '/'");
         console.log(hc);
