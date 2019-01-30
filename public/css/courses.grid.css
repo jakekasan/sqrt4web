@@ -169,25 +169,49 @@
     background-color:teal;
     min-height:10vh;
     display: grid; 
-    grid-template-columns: repeat(8,1fr);
+    grid-template-columns: repeat(12,1fr);
     grid-template-rows: 1fr;
     grid-gap: 10px;
     padding: 10px;
     margin-top: 1vh;
 }
 
-.page-number {
-    background-color: pink;
+.page-numbers > * {
+    background-color: lightgray;
     grid-column-start: span 1;
     grid-row-start: span 1;
+}
+
+.page-numbers > div:hover {
+    background-color:lightyellow;
+}
+
+/* .page-number:hover {
+    background-color:lightyellow;
+} */
+
+.page-numbers-left {
+    background-color: lightgray;
+}
+
+.page-numbers-right {
+    background-color: lightgray;
 }
 
 .page-number .selected {
     background-color: orange;
 }
 
-.page-number:nth-child(odd) {
-    background-color: aqua;
+.page-number .disappeared {
+    visibility: hidden;
 }
+
+.page-number .invalid {
+    opacity: 0.5;
+}
+
+/* .page-number:nth-child(odd) {
+    background-color: aqua;
+} */
 
 /*  */
