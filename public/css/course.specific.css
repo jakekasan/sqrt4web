@@ -52,9 +52,38 @@
     grid-area: module;
     background-color: lightpink;
     grid-column: span 4;
-    grid-row: span 4;
+    grid-row: span 6;
+    display: grid;
+    grid-template-areas:
+        "mtitle mtitle mtitle mtitle mtitle"
+        "mpicture mpicture mgallery mgallery mgallery"
+        "mpicture mpicture mtext mtext mtext"
+        "mpicture mpicture mtext mtext mtext"
+        "mpicture mpicture mtext mtext mtext"
+        "mpicture mpicture mtext mtext mtext"
+        "mpicture mpicture mtext mtext mtext";
 }
 
 .module:nth-child(even) {
     background-color: aqua;
+}
+
+.module-title {
+    grid-area: mtitle;
+    background-color: beige;
+}
+
+.module-picture {
+    grid-area: mpicture;
+    background-color: darkcyan;
+}
+
+.module-text {
+    grid-area: mtext;
+    background-color: red;
+}
+
+.module-gallery {
+    grid-area: mgallery;
+    background-color: lightgreen;
 }
