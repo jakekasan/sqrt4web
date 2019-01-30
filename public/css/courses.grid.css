@@ -11,9 +11,11 @@
 .grid-container {
     grid-area: content;
     display: grid;
+    width: 100%;
     padding: 0 1vh;
+    min-height: 60vh;
     grid-template-columns: repeat(16,1fr);
-    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(2,1fr);
     grid-column-gap: 1vh;
     grid-row-gap: 1vh;
 }
@@ -50,17 +52,10 @@
 
 /* When a child in .grid-container is selected, color it in organze */
 
-.grid-container > .selected {
-    background-color: orange;
-    grid-column-start: 1;
-    grid-column-end: -1;
-    grid-row-start: 1;
-    grid-row-end: -1;
-}
 
 .grid-container > .item {
     grid-column-start: span 4;
-    grid-row-start: span 4;
+    /* grid-row-start: span 4; */
     display: grid;
     grid-auto-rows: 100%;
     grid-auto-columns: 100%;
@@ -132,6 +127,7 @@
 
 .pagination {
     min-height: 50vh;
+    width: 100%;
     display: grid;
     margin: 20px 0;
     grid-template-areas:
@@ -150,6 +146,7 @@
 .pagination-arrow {
     background-color:lightgreen;
     min-width: 10vh;
+    max-width: 10vh;
 }
 
 .pagination-arrow .null {
@@ -198,7 +195,7 @@
     background-color: lightgray;
 }
 
-.page-number .selected {
+.page-numbers > .selected {
     background-color: orange;
 }
 
