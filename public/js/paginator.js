@@ -14,7 +14,7 @@ function addGridCard(record){
 
     // parent card element
     let card = document.createElement("div");
-    card.className = "item card";
+    card.className = "item";
 
     // card content element
     let cardContent = document.createElement("div");
