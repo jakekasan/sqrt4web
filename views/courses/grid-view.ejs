@@ -5,13 +5,19 @@
         <div class="grid-container"></div>
         <div class="pagination-arrow right"></div>
         <div class="page-numbers">
+            <div class="page-numbers-left">
+                Left
+            </div>
             <%
-                for (let i = 0; i < 12; i++){
+                for (let i = 0; i < 10; i++){
             %>
             <div class="page-number"><%= i+1 %></div>
             <%
                 };
             %>
+            <div class="page-numbers-right">
+                Right
+            </div>
         </div>
     </div>
 </div>
