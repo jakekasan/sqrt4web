@@ -1,9 +1,12 @@
 <html>
     <body>
         <% include header %>
-        
-        <%- include("./courses/grid-view.ejs") %>
+        <div class="page-content">
+            <%- include("./courses/filter.ejs") %>
+            
+            <%- include("./courses/grid-view.ejs") %>
 
-        <% include footer %>
+            <% include footer %>
+        </div>
     </body>
 </html>
