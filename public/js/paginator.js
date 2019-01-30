@@ -69,7 +69,7 @@ class Paginator {
         this.pages = {};
         this.data = [];
         this.currentPage = 1;
-        this.renderedPageNumbers;
+        // this.renderedPageNumbers;
     }
 
     setPages(){
@@ -86,16 +86,46 @@ class Paginator {
         }
     }
 
-    renderPagination(){
+    renderPageNumbers(){
+        let pageNumbers = document.querySelectorAll(".page-number");
+
+        
+        // clear pageNumber selection
+        pageNumbers.forEach((element) => {
+            if (element.classList.contains("selected")){
+                element.classList.toggle("selected");
+            }
+        });
+        
+        // generate array of 0's
+        let tens = Array(100).fill(0);
+
+        // change to 10s
+        tens = tens.map((x,i) => { return (i+1)*10 });
+
+        // get the first start value that's just below the current Page
+        let start = tens.find(item => item >= this.currentPage) - 9;
+
+        for (let i = 0; i < 10; i++){
+            pageNumbers[i].innerText = start + i;
+            if (start + i == this.currentPage){
+                pageNumbers[i].classList.toggle("selected");
+            }
+        };
+    }
+
+    render(){
         // select the necessary elements
 
         let pagination = document.querySelector(".pagination");
         let leftArrow = document.querySelector(".left");
         let rightArrow = document.querySelector(".right");
-
+        
         let validPages = Object.keys(this.pages);
 
     }
+
+    gridPage
 
 
 
