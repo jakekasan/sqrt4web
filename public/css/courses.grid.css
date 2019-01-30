@@ -11,7 +11,7 @@
 .grid-container {
     grid-area: content;
     display: grid;
-    width: 100%;
+    width: auto;
     padding: 0 1vh;
     min-height: 60vh;
     grid-template-columns: repeat(16,1fr);
@@ -127,7 +127,6 @@
 
 .pagination {
     min-height: 50vh;
-    width: 100%;
     display: grid;
     margin: 20px 0;
     grid-template-areas:
@@ -146,7 +145,7 @@
 .pagination-arrow {
     background-color:lightgreen;
     min-width: 10vh;
-    max-width: 10vh;
+    /* max-width: 10vh; */
 }
 
 .pagination-arrow .null {
@@ -183,6 +182,10 @@
     background-color:lightyellow;
 }
 
+.page-numbers > .invalid:hover {
+    background-color:darkgray;
+}
+
 /* .page-number:hover {
     background-color:lightyellow;
 } */
@@ -203,8 +206,9 @@
     visibility: hidden;
 }
 
-.page-number .invalid {
+.page-numbers > .invalid {
     opacity: 0.5;
+    background-color: darkgray;
 }
 
 /* .page-number:nth-child(odd) {
