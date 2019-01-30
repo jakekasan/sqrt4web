@@ -61,7 +61,7 @@ function fetchData(){
 
 class Paginator {
     constructor(){
-        this.itemsPerPage = 6;
+        this.itemsPerPage = 8;
         this.pages = {};
         this.data = [];
         this.currentPage = 1;
@@ -84,14 +84,16 @@ class Paginator {
 
         // this.pageNumbersRender();
 
-        let leftArrow = document.querySelector(".left");
-        let rightArrow = document.querySelector(".right");
+        let leftArrow = document.querySelector(".pagination-arrow.left");
+        let rightArrow = document.querySelector(".pagination-arrow.right");
 
         leftArrow.addEventListener("click",()=> {
+            console.log("leftArrow click");
             this.gridPageLeft();
         });
 
         rightArrow.addEventListener("click",()=> {
+            console.log("rightArrow click");
             this.gridPageRight();
         });
 
@@ -179,6 +181,9 @@ class Paginator {
             if (element.classList.contains("selected")){
                 element.classList.toggle("selected");
             }
+            if (element.classList.contains("invalid")){
+                element.classList.toggle("invalid");
+            }
         });
    
         var start = (this.pageNumberStart*10)+1;
@@ -188,12 +193,20 @@ class Paginator {
             if (start + i == this.currentPage){
                 pageNumbers[i].classList.toggle("selected");
             }
+
+            if (!(Object.keys(this.pages).includes((start + i).toString()))){
+                if (!pageNumbers[i].classList.contains("invalid")) {
+                    pageNumbers[i].classList.toggle("invalid");
+                }
+            }
         };
     }
 
     changeCurrentPageNumber(pageNumber){
-        this.currentPage = pageNumber;
-        this.gridRender();
+        if (Object.keys(this.pages).includes(pageNumber)) {
+            this.currentPage = pageNumber;
+            this.gridRender();
+        }
     }
 
     gridRender(){
@@ -246,7 +259,7 @@ class Paginator {
     }
 
     gridPageLeft(){
-        if (this.currentPage < 2){
+        if (!(Object.keys(this.pages).includes((this.currentPage-1).toString()))){
             return
         } else {
             this.currentPage--;
@@ -255,7 +268,7 @@ class Paginator {
     }
 
     gridPageRight(){
-        if (this.currentPage > 99){
+        if (!(Object.keys(this.pages).includes((this.currentPage+1).toString()))){
             return
         } else {
             this.currentPage++;
