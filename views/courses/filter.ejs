@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/filter.bar.css">
+<div class="filter-bar">
+    <div class="filter-title">
+        Filter:
+    </div>
+    <div class="filter-filters">
+        <div class="tag-list">
+            <% for (let i = 0; i < 7; i++){ %>
+                    <div class="tag">
+                        <div class="content">
+                            Tag <%= i %>
+                        </div>
+                    </div>
+            <% } %>
+        </div>
+        
+    </div>
+    <div class="filter-input">
+        <div class="tag-input">
+            <input type="text" name="tag" id="tagInput">
+        </div>
+        
+        <!-- <h1>Add</h1> -->
+    </div>
+</div>
