@@ -59,44 +59,107 @@ function fetchData(){
         })
 }
 
-document.addEventListener("DOMContentLoaded",() => {
-    fetchData();
-})
-
 class Paginator {
     constructor(){
-        this.itemsPerPage = 12;
+        this.itemsPerPage = 6;
         this.pages = {};
         this.data = [];
         this.currentPage = 1;
-        // this.renderedPageNumbers;
+        this.pageNumberStart = 0;
+
+        fetch("/api/data/courses")
+            .then(data => data.json())
+            .then(data => {
+                this.data = data;
+                this.setup();
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    setup(){
+        // set the data into pages
+        this.setPages();
+
+        // this.pageNumbersRender();
+
+        let leftArrow = document.querySelector(".left");
+        let rightArrow = document.querySelector(".right");
+
+        leftArrow.addEventListener("click",()=> {
+            this.gridPageLeft();
+        });
+
+        rightArrow.addEventListener("click",()=> {
+            this.gridPageRight();
+        });
+
+        // set page number listeners
+        let pageNumbers = document.querySelectorAll(".page-number");
+
+        pageNumbers.forEach((item) => {
+            item.addEventListener("click",(event) => {
+                let newPageNumber = event.target.innerText;
+                this.changeCurrentPageNumber(newPageNumber);
+                console.log("Change page number",newPageNumber);
+            });
+        });
+
+        // set page number arrow listeners
+        let leftPageNumber = document.querySelector(".page-numbers-left");
+        let rightPageNumber = document.querySelector(".page-numbers-right");
+        
+        leftPageNumber.addEventListener("click",() => {
+            console.log("pageNumbersLeft");
+            this.pageNumbersLeft();
+        });
+
+        rightPageNumber.addEventListener("click",() => {
+            console.log("pageNumbersRight");
+            this.pageNumbersRight();
+        });
+
+        console.log("Paginator setup complete.")
+        console.log(this);
+
+        this.gridRender();
     }
 
     setPages(){
         var pageCount = 1;
         for (let i = 0; i < this.data.length; i++) {
             if (!this.pages[pageCount]){
-                this.pages[pageCount] = this.data[i];
+                this.pages[pageCount] = [this.data[i]];
             } else {
-                this.pages[pageCount].push(this.data[i]);
+                (this.pages[pageCount]).push(this.data[i]);
             }
-            if (this.itemsPerPage % i == 0) {
+            if (((i+1) % this.itemsPerPage == 0)) {
                 pageCount++;
             }
         }
     }
 
-    renderPageNumbers(){
-        let pageNumbers = document.querySelectorAll(".page-number");
+    pageNumbersLeft(){
+        if (this.pageNumberStart < 1){
+            return
+        } else {
+            this.pageNumberStart = this.pageNumberStart - 1;
+            return this.pageNumbersRender();
+        }
+    }
 
-        
-        // clear pageNumber selection
-        pageNumbers.forEach((element) => {
-            if (element.classList.contains("selected")){
-                element.classList.toggle("selected");
-            }
-        });
-        
+    pageNumbersRight(){
+        if (this.pageNumberStart > 99){
+            return
+        } else {
+            this.pageNumberStart = this.pageNumberStart + 1;
+            return this.pageNumbersRender();
+        }
+    }
+
+    calculateCurrentStartPage(){
+             
         // generate array of 0's
         let tens = Array(100).fill(0);
 
@@ -106,6 +169,20 @@ class Paginator {
         // get the first start value that's just below the current Page
         let start = tens.find(item => item >= this.currentPage) - 9;
 
+    }
+
+    pageNumbersRender(){
+        let pageNumbers = document.querySelectorAll(".page-number");
+
+        // clear pageNumber selection
+        pageNumbers.forEach((element) => {
+            if (element.classList.contains("selected")){
+                element.classList.toggle("selected");
+            }
+        });
+   
+        var start = (this.pageNumberStart*10)+1;
+
         for (let i = 0; i < 10; i++){
             pageNumbers[i].innerText = start + i;
             if (start + i == this.currentPage){
@@ -114,20 +191,84 @@ class Paginator {
         };
     }
 
-    render(){
+    changeCurrentPageNumber(pageNumber){
+        this.currentPage = pageNumber;
+        this.gridRender();
+    }
+
+    gridRender(){
+        // first render page numbers
+        this.pageNumbersRender();
+
         // select the necessary elements
 
         let pagination = document.querySelector(".pagination");
         let leftArrow = document.querySelector(".left");
         let rightArrow = document.querySelector(".right");
+
+        // check if we're on the last or first page
+
+        if (this.currentPage == 1){
+            if (!leftArrow.classList.contains("disabled")){
+                leftArrow.classList.toggle("disabled");
+            }
+        } else {
+            if (leftArrow.classList.contains("disabled")){
+                leftArrow.classList.toggle("disabled");
+            }
+        }
+
+        if (this.currentPage == 100){
+            if (!rightArrow.classList.contains("disabled")){
+                rightArrow.classList.toggle("disabled");
+            }
+        } else {
+            if (rightArrow.classList.contains("disabled")){
+                rightArrow.classList.toggle("disabled");
+            }
+        }
+
+
+        // get and clear the grid
+        let grid = document.querySelector(".grid-container");
+        grid.innerHTML = "";
         
         let validPages = Object.keys(this.pages);
 
+        // render content if we're on a page that should have data
+        // if (!validPages.includes(this.currentPage)){
+        //     return
+        // }
+
+        if(this.pages[this.currentPage]){
+            this.pages[this.currentPage].map(item => addGridCard(item));
+        }
     }
 
-    gridPage
+    gridPageLeft(){
+        if (this.currentPage < 2){
+            return
+        } else {
+            this.currentPage--;
+            this.gridRender();
+        }
+    }
+
+    gridPageRight(){
+        if (this.currentPage > 99){
+            return
+        } else {
+            this.currentPage++;
+            this.gridRender();
+        }
+    }
 
 
 
 
 }
+
+
+document.addEventListener("DOMContentLoaded",() => {
+    const paginator = new Paginator();
+})
