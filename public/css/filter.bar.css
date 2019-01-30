@@ -1,0 +1,128 @@
+/* ########## */
+/* Filter Bar */
+/* ########## */
+
+
+.filter-bar {
+    width:auto;
+    height:auto;
+    padding: 2% 2%;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(5,1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    background-color: teal;
+    color: aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+/* 
+.filter-bar > .item {
+    padding: auto;
+    margin: 2px 0 2px 0;
+    align-content: center;
+    overflow-y:auto;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+} */
+
+.filter-title {
+    grid-column-start:1;
+    grid-column-end:3;
+    grid-row-start:1;
+    grid-row-end:1;
+}
+
+.filter-filters {
+    grid-column-start:1;
+    grid-column-end:-1;
+    grid-row-start:2;
+    grid-row-end:-1;
+}
+
+.filter-input {
+    grid-column-start:-3;
+    grid-column-end:-1;
+    grid-row-start:-1;
+    grid-row-end:-1;
+}
+
+.filter-bar > .item {
+    display:grid;
+    /* grid-template-rows: repeat(1,auto-fill); */
+    /* grid-template-rows: */
+    height: 90%;
+    align-content: center;
+    margin:auto 0;
+    overflow-y: auto;
+}
+
+
+.filter-input > .tag-input {
+    height: auto;
+    display: grid;
+    position: relative;
+    /* height: 80%;
+    width: 90%; */
+    padding: 5px;
+    margin: auto;
+    overflow: hidden;
+    /* position: relative; */
+}
+
+.tag-input > input {
+    /* position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%); */
+    font-size: 15px;
+    border:none;
+    background-color:aqua;
+}
+
+
+/* ######## */
+/* Tag List */
+/* ######## */
+
+.tag-list {
+    display: grid;
+    height:100%;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(3,20px);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    /* grid-template-columns: repeat(auto-fill,25px);
+    grid-template-rows: repeat(auto-fill,25px);
+    grid-column-gap: 2%;
+    grid-row-gap: 2%; was 5px */
+    overflow-y: scroll;
+    padding: 2px 2% 2px 2%;
+    margin: 0px 0 0px 0;
+}
+
+/* .tag-list > .item {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 2%;
+    /* margin: 2%;
+    height: auto;
+    font-size: 9px;
+    background-color:darkred;
+} */
+
+.tag-list > .tag {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 2%;
+    /* margin: 2%; */
+    /* height: auto; */
+    font-size: 9px;
+    background-color:lightgreen;
+    grid-column: span 3;
+}
+
+.tag > .content {
+    font-size:6px;
+    outline: 2px;
+}
