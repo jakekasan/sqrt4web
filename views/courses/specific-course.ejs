@@ -2,19 +2,64 @@
 
 <div class="page-content">
     <div class="course-details">
-        <div class="title">Title</div>
-        <div class="picture">Picture</div>
-        <div class="description">Description</div>
+        <div class="title"><%= data.course.title %></div>
+        <div class="picture"><img src="/img/homer.png" alt=""></div>
+        <div class="description"><%= data.course.fullDesc %></div>
         
         <%
-            for (let i = 0; i < 7; i++) {
+            //for (let i = 0; i < 7; i++) {
+            for (let module of data.course.modules){
         %>
 
         <div class="module">
-            <div class="module-title">Title</div>
-            <div class="module-picture">Picture</div>
-            <div class="module-text">Text</div>
-            <div class="module-gallery">Gallery</div>
+            <div class="module-title"><%= module.title %></div>
+            <div class="module-picture">
+                <img src="/img/course/<%=module.submodules[0].pictureURL%>" alt="">
+            </div>
+            <div class="module-text">
+                <%
+                    for (let submodule of module.submodules){
+                %>
+                        <%
+                            for (let subtext of submodule.text){
+                        %>
+
+                                    <p><%= subtext %></p>
+                        <%
+                            }
+                        %>
+                <%
+                    }
+                %>
+            </div>
+            <div class="module-gallery">
+                <div class="left"></div>
+                <%
+                    for (let i = 0; i < 4; i++){
+                %>
+                    <%
+                        if (module.submodules[i]){
+                    %>
+                <div class="item">
+                    
+                    <img src="/img/course/<%=module.submodules[i].pictureURL%>" alt="">
+                    
+                </div>
+                    <%
+                        } else {
+                    %>
+                <div class="item hidden">
+
+                </div>
+                    <%
+                        }
+                    %>
+
+                <%
+                    }
+                %>
+                <div class="right"></div>
+            </div>
         </div>
 
         <%
