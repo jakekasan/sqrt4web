@@ -30,6 +30,10 @@
     grid-column-start: 1;
     grid-column-end: -1;
     grid-row: span 1;
+    font-size: 4em;
+    width: auto;
+    height: auto;
+    margin: auto;
 }
 
 .picture {
@@ -40,12 +44,19 @@
     grid-row: span 4;
 }
 
+.picture > img {
+    width:40vw;
+    height:auto;
+}
+
 .description {
     grid-area: description;
     background-color: lightgreen;
     grid-column-start:2;
     grid-column-end:-1;
     grid-row: span 4;
+    width: 80%;
+    margin: 20px auto;
 }
 
 .module {
@@ -56,12 +67,12 @@
     display: grid;
     grid-template-areas:
         "mtitle mtitle mtitle mtitle mtitle"
-        "mpicture mpicture mgallery mgallery mgallery"
-        "mpicture mpicture mtext mtext mtext"
-        "mpicture mpicture mtext mtext mtext"
-        "mpicture mpicture mtext mtext mtext"
-        "mpicture mpicture mtext mtext mtext"
-        "mpicture mpicture mtext mtext mtext";
+        "mpicture mpicture mpicture mgallery mgallery"
+        "mpicture mpicture mpicture mtext mtext"
+        "mpicture mpicture mpicture mtext mtext"
+        "mpicture mpicture mpicture mtext mtext"
+        "mpicture mpicture mpicture mtext mtext"
+        "mpicture mpicture mpicture mtext mtext";
 }
 
 .module:nth-child(even) {
@@ -71,11 +82,20 @@
 .module-title {
     grid-area: mtitle;
     background-color: beige;
+    font-size: 2em;
+    width: auto;
+    height: auto;
+    margin: auto;
 }
 
 .module-picture {
     grid-area: mpicture;
     background-color: darkcyan;
+}
+
+.module-picture > img {
+    width: 40vw;
+    height: auto;
 }
 
 .module-text {
@@ -86,4 +106,34 @@
 .module-gallery {
     grid-area: mgallery;
     background-color: lightgreen;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 5% repeat(4,1fr) 5%;
+    grid-gap: 2vh;
+    margin: auto 1vw;
+}
+
+.module-gallery > * {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    background-color: lightgrey;
+}
+
+.module-gallery > .left:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    background-color: pink;
+}
+
+.module-gallery > .right:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    background-color: pink;
+}
+
+.module-gallery > .item:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    background-color: pink;
+}
+
+.module-gallery > .item > img {
+    height: 100%;
+    width: auto;
 }
