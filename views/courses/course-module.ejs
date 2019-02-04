@@ -1,15 +1,17 @@
-<div id="<%=module.id>" class="module">
+<div id="<%=module.id%>" class="module">
     <div class="module-title"><%= module.title %></div>
     <div class="module-picture">
         <img src="" alt="">
     </div>
     <div class="module-text">
-        
+        <div class="text">
+
+        </div>
     </div>
     <div class="module-gallery">
-        <div class="left"></div>
+        <!-- <div class="left"></div> -->
         <%
-            for (let i = 0; i < 4; i++){
+            for (let i = 0; i < 3; i++){
         %>
             <%
                 if (false){
@@ -23,7 +25,7 @@
                 } else {
             %>
         <div class="item hidden">
-
+            <img src="" alt="">
         </div>
             <%
                 }
@@ -32,15 +34,21 @@
         <%
             }
         %>
-        <div class="right"></div>
+        <!-- <div class="right"></div> -->
     </div>
 </div>
 
 <script>
 
-    let data = <%- JSON.stringify(module) %>;
+    // console.log("Module template script element")
 
-    let gallery = new Gallery(data=data);
+    // console.log("<%=module.id%>");
+
+    // console.log(document.getElementById("<%=module.id%>"))
+
+    // console.log((document.getElementById("<%=module.id%>").querySelector("div")));
+    
+    (new Gallery(<%- JSON.stringify(module) %>,document.getElementById("<%=module.id%>")));
 
 </script>
 
