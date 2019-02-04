@@ -430,26 +430,3 @@
         }
     ]
 }]
-
-
-
-
-
-
-{
-    "name":"Uvod do 3D tisku",
-    "lessons":[
-        {
-            "id":0,
-            "name":"Priprav model k tisku",
-            "modules":[
-                {
-                    "name":"Software pro tiskarny",
-                    "steps":[
-                        
-                    ]
-                }
-            ]
-        }
-    ]
-}
