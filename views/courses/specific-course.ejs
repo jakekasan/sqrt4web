@@ -2,17 +2,23 @@
 <script src="/js/gallery.js"></script>
 
 <div class="page-content">
-    <div class="course-details">
+    <div class="course-details" data-id=<%=data.course.id %>>
         <div class="title"><%= data.course.title %></div>
-        <div class="picture"><img src="/img/course/3.2.png" alt=""></div>
-        <div class="description"><%= data.course.fullDesc %></div>
+        <div class="picture"><img src="/img/courses/<%= data.course.id %>/<%= data.course.modules[0].submodules[0].pictureURL %>" alt=""></div>
+        <div class="description">
+            <% if (data.course.fullDesc) { %>
+            <%= data.course.fullDesc %>
+            <% } else { %>
+                No description given...
+            <% } %>
+        </div>
         
         <%
             //for (let i = 0; i < 7; i++) {
             for (let module of data.course.modules){
         %>
 
-        <%- include("./course-module.ejs",{module:module}); %>
+        <%- include("./course-module.ejs",{module:module,course:data.course}); %>
 
         <%
             };
