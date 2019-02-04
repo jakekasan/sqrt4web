@@ -27,9 +27,13 @@ function fillModal(id){
     title.classList.add("title");
     title.innerText = data.title;
 
+    courseElement.appendChild(title);
+
     let description = document.createElement("div");
     description.classList.add("description");
     description.innerText = data.fullDesc;
+
+    courseElement.appendChild(description);
 
     data.modules.forEach((item) => {
         console.log(item);
