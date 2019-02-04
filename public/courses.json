@@ -63,7 +63,10 @@
             "title":"Software pro tiskárny Prusa",
             "submodules":[
                 {
-                    "text":["Z prusa3d.com/drivers/stáhni DRIVERS & APPS pro svůj OS.<br> Nainstaluj stažený software."],
+                    "text":[
+			"Z prusa3d.com/drivers/stáhni DRIVERS & APPS pro svůj OS.",
+			"Nainstaluj stažený software."
+			],
                     "pictureURL":"1.png"
                 }
             ],
@@ -75,20 +78,23 @@
             "submodules":[
                 {
                     "text":[
-                        "Na thingiverse.com vyhledej plochý model malých rozměrů (např. keychain nebo ring)."
-                    ],
+			"Na thingiverse.com vyhledej plochý model malých rozměrů (např. keychain nebo ring)."
+			],
                     "pictureURL":"2.1.png"
                 },
                 {
                     "text":[
-                        "Stáhni a dekomprimuj (rozbal) soubor zip.", 
-                        "(win-rar.com/start.html?&L=17)",
-                        "V rozbalené složce najdi model ve formátu .stl"
-                    ],
+			"Stáhni a dekomprimuj (rozbal) soubor zip.",
+			"(win-rar.com/start.html?&L=17)",
+			"V rozbalené složce najdi model ve formátu .stl"
+			],
                     "pictureURL":"2.2.png"
                 },
                 {
-                    "text":["Přetáhni model.stl do programu Slic3r. (Instalace krok 1)"],
+                    "text":[
+			"Přetáhni model.stl do programu Slic3r.",
+			"(Instalace krok 1)"
+			],
                     "pictureURL":"2.3.png"
                 }
             ],
@@ -99,15 +105,27 @@
             "title":"Slic3r + plochý model",
             "submodules":[
                 {
-                    "text":["Výška vrstvy 0.15mm OPTIMAL, nebo 0.20mm FAST\n Tisk zmateriálu PLA\n Tiskárna Original Prusa i3 MK3\n Plochý objekt nevyžaduje podpory, ani přidaný okraj"],
+                    "text":[
+			"Výška vrstvy 0.15mm OPTIMAL, nebo 0.20mm FAST",
+			"Tisk zmateriálu PLA",
+			"Tiskárna Original Prusa i3 MK3",
+			"Plochý objekt nevyžaduje podpory, ani přidaný okraj"
+			],
                     "pictureURL":"3.1.png"
                 },
                 {
-                    "text":["Přiblížení a oddálení pomocí kolečka myši\n Změna úhlu pohledu držením levého tlačítka myši a tažením\n Slice now vytvoří kód pro trajektorii trysky, kterou můžeš zkontrolovat v Preview\n % změna rozměrů modelu"],
+                    "text":["Přiblížení a oddálení pomocí kolečka myši",
+			"Změna úhlu pohledu držením levého tlačítka myši a tažením",
+			"Slice now vytvoří kód pro trajektorii trysky, kterou můžeš zkontrolovat v Preview",
+			"% změna rozměrů modelu"
+			],
                     "pictureURL":"3.2.png"
                 },
                 {
-                    "text":["Slice now, Export G-code\n Název souboru bez diakritiky!\n Ulož nazev_0.15mm_PLA_MK3.gcode na SD kartu.\n Po exportu G-codu se zobrazí informace."],
+                    "text":[
+			"Slice now, Export G-code\n Název souboru bez diakritiky!\n Ulož nazev_0.15mm_PLA_MK3.gcode na SD kartu.",
+			"Po exportu G-codu se zobrazí informace."
+			],
                     "pictureURL":"3.3.png"
                 }
             ],
@@ -412,3 +430,26 @@
         }
     ]
 }]
+
+
+
+
+
+
+{
+    "name":"Uvod do 3D tisku",
+    "lessons":[
+        {
+            "id":0,
+            "name":"Priprav model k tisku",
+            "modules":[
+                {
+                    "name":"Software pro tiskarny",
+                    "steps":[
+                        
+                    ]
+                }
+            ]
+        }
+    ]
+}
