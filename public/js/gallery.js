@@ -2,6 +2,9 @@ class Gallery {
     constructor(data = null){
         this.data = data;
         this.currentItem = 0;
+        this.mPaginator = new MiniPaginator(data = this.data, parent = this);
+
+        this.setup();
     }
 
     setup(){
@@ -23,6 +26,12 @@ class Gallery {
         } 
     }
 
+    renderModuleText(){
+        let moduleTextElement = document.querySelector(".module-text");
+
+        moduleTextElement.innerText = this.data[this.currentItem];
+    }
+
     changeSelection(newValue){
         if (newValue < this.data.length - 1) {
             this.currentItem = newValue;
@@ -34,7 +43,8 @@ class Gallery {
     }
 
     render(){
-
+        this.renderBigPicture();
+        this.renderModuleText();
     }
 
     
@@ -63,10 +73,6 @@ class MiniPaginator {
         this.rightElem.addEventListener("click",() => {
             this.pageRight();
         });
-    }
-
-    setup(){
-        
     }
 
     pageLeft(){
