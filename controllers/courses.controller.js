@@ -71,6 +71,7 @@ class CoursesController extends BaseController {
         // gets course by id
 
         let id = 0;
+
         let courses = self.coursesModel.getData();
 
         let course = courses.filter(item => item.id == id)[0];
@@ -81,7 +82,8 @@ class CoursesController extends BaseController {
 
         self.content = data;
 
-        let view = new BaseView("view-course",self.res);
+        // let view = new BaseView("view-course",self.res);
+        let view = new BaseView("test2",self.res);
 
         return view.render(self.content)
 
