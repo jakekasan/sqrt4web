@@ -1,5 +1,6 @@
 const Express = require("express");
 const app = Express();
+const bodyParser = require("body-parser");
 const routes = require("./routes");
 const config = require("./config/index")();
 const mongoose = require("mongoose");
@@ -18,6 +19,10 @@ const BaseView = require("./views/base.view");
 app.set("view engine","ejs");
 
 app.use(Express.static("public"));
+
+// body parser
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 //routes(app);
 
