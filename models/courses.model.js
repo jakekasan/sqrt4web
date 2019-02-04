@@ -1,7 +1,7 @@
 const BaseModel = require("./base.model");
 const coursesSchema = require("./schemas/courses.schema");
 
-const fakeData = require("./../public/data.json");
+const fakeData = require("./../public/courses.json");
 
 var fakeConnection = {
     model: function(string,schema){
@@ -23,6 +23,7 @@ class CoursesModel extends BaseModel {
     }
 
     getData(){
+        console.log(fakeData);
         return fakeData
     }
 }
