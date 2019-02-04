@@ -4,6 +4,7 @@ class Gallery {
         this.target = target;
         this.currentItem = 0;
         this.mPaginator = new MiniPaginator(this.data.submodules, this.target, this);
+        this.courseID = (document.querySelector(".course-details")).dataset.id;
 
         this.setup();
     }
@@ -21,11 +22,11 @@ class Gallery {
 
         let picture = modulePicture.getElementsByTagName("img")[0];
 
-        let pictureURL = this.data.submodules[this.currentItem]["pictureURL"];
+        let pictureURL = "/img/courses/" + this.courseID + "/" + this.data.submodules[this.currentItem]["pictureURL"];
 
         // only change if the URL is incorrect
         if (picture.src != pictureURL){
-            picture.src = "/img/course/"+pictureURL;
+            picture.src = pictureURL;
         } 
     }
 
@@ -85,6 +86,7 @@ class MiniPaginator {
         this.startingIndex = 0;
         this.data = data;
         this.parent = parent;
+        this.courseID = (document.querySelector(".course-details")).dataset.id;
 
         this.currentItems.forEach((item,i) => {
             
@@ -132,7 +134,7 @@ class MiniPaginator {
             let j = i + this.startingIndex;
 
             if (this.data[j] && this.data[j].pictureURL) {
-                img.src = "/img/course/" + this.data[j].pictureURL;
+                img.src = "/img/courses/" + this.courseID + "/" + this.data[j].pictureURL;
                 if (img.classList.contains("disabled")){
                     img.classList.toggle("disabled");
                 }
