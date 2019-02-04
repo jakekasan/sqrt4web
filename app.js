@@ -1,6 +1,6 @@
 const Express = require("express");
 const app = Express();
-const bodyParser = require("body-parser");
+var bodyParser = require("body-parser");
 const routes = require("./routes");
 const config = require("./config/index")();
 const mongoose = require("mongoose");
@@ -21,6 +21,7 @@ app.set("view engine","ejs");
 app.use(Express.static("public"));
 
 // body parser
+app.use(bodyParser());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
@@ -50,11 +51,11 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
 
     app.all("/",(req,res,next) => {
         console.log("Req to '/'");
-        console.log(hc);
+        // console.log(hc);
         hc.run(req,res,next);
     });
 
-    app.all("/courses/",(req,res,next) => {
+    app.all("/courses",(req,res,next) => {
         console.log("Req to '/courses/'");
         cc.run(req,res,next);
     });
