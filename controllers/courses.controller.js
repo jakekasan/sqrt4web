@@ -19,18 +19,22 @@ class CoursesController extends BaseController {
 
         console.log("Set self");
 
+        console.log(req.query);
+
         self.req = req;
         self.res = res;
         self.next = next;
         self.mongo = self.req.mongo;
 
-        if (req.path == "/courses") {
-            this.browseCourses(self);
+        if (req.query && req.query.id){
+            return this.singleCourse(self);
+        } else {
+            return this.browseCourses(self);
         }
 
-        if (req.path == "/view/course") {
-            this.singleCourse(self);
-        }
+        // if (req.path == "/view/course") {
+        //     this.singleCourse(self);
+        // }
 
 
         // if (self.checkLoggedStatus(self)){
@@ -62,7 +66,7 @@ class CoursesController extends BaseController {
         data.courses = self.coursesModel.getData();
 
         // get data and render template
-        let view = new BaseView("courses",self.res)
+        let view = new BaseView("test",self.res)
         self.content = data;
         return view.render(self.content);
     }
@@ -70,7 +74,7 @@ class CoursesController extends BaseController {
     singleCourse(self){
         // gets course by id
 
-        let id = 0;
+        let id = self.req.query.id;
 
         let courses = self.coursesModel.getData();
 
@@ -78,17 +82,17 @@ class CoursesController extends BaseController {
 
         let data = {};
 
-        data.course = course;
+        if (course) {
+            data.course = course;
+        } else {
+            data.course = courses[0];
+        }
 
         self.content = data;
 
-        // let view = new BaseView("view-course",self.res);
         let view = new BaseView("test2",self.res);
 
         return view.render(self.content)
-
-        
-
     }
 
 
