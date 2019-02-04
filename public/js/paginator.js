@@ -1,4 +1,4 @@
-var _cachedData = [];
+const _cachedData = [];
 
 // select grid container
 var gridContainer = document.querySelector(".grid-container");
@@ -42,6 +42,15 @@ function addGridCard(record){
 
     card.appendChild(cardContent);
 
+    card.dataset.id = record.id;
+
+    card.addEventListener("click",(event) => {
+        console.log("Card clicked!");
+        console.log(record.id);
+        fillModal(record.id);
+        toggleModal();
+    })
+
     gridContainer.appendChild(card);
 }
 
@@ -71,6 +80,7 @@ class Paginator {
             .then(data => data.json())
             .then(data => {
                 this.data = data;
+                data.forEach(item => _cachedData.push(item));
                 this.setup();
             })
             .catch(err => {
