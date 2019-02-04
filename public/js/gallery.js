@@ -1,8 +1,9 @@
 class Gallery {
-    constructor(data = null){
+    constructor(data = null,target = null){
         this.data = data;
+        this.target = target;
         this.currentItem = 0;
-        this.mPaginator = new MiniPaginator(data = this.data, parent = this);
+        this.mPaginator = new MiniPaginator(this.data.submodules, this.target, this);
 
         this.setup();
     }
@@ -11,31 +12,56 @@ class Gallery {
         this.render();
     }
 
+    
+
     renderBigPicture(){
         // makes sure that the picture in the main module viewer is the right one
 
-        let modulePicture = document.querySelector(".module-picture");
+        let modulePicture = this.target.querySelector(".module-picture");
 
         let picture = modulePicture.getElementsByTagName("img")[0];
 
-        let pictureURL = this.data[this.currentItem]["pictureURL"];
+        let pictureURL = this.data.submodules[this.currentItem]["pictureURL"];
 
         // only change if the URL is incorrect
         if (picture.src != pictureURL){
-            picture.src = pictureURL;
+            picture.src = "/img/course/"+pictureURL;
         } 
     }
 
     renderModuleText(){
-        let moduleTextElement = document.querySelector(".module-text");
+        let moduleTextElement = this.target.querySelector(".module-text");
 
-        moduleTextElement.innerText = this.data[this.currentItem];
+        let textContainer = moduleTextElement.querySelector(".text");
+
+        while(textContainer.firstChild){
+            textContainer.removeChild(textContainer.firstChild);
+        }
+
+        let texts = this.data.submodules[this.currentItem].text;
+
+        texts.map((item,i) => {
+            let newElem = document.createElement("div");
+
+            newElem.classList.toggle("text-segment");
+            newElem.innerHTML = item;
+
+            textContainer.appendChild(newElem);
+        });
     }
 
     changeSelection(newValue){
-        if (newValue < this.data.length - 1) {
+        console.log("Gallery.changeSelection",newValue);
+
+        console.log(this.data);
+
+        console.log(this.data.submodules[newValue]);
+
+        if (newValue <= this.data.submodules.length - 1) {
             this.currentItem = newValue;
         }
+
+        this.render();
     }
 
     renderGallery(){
@@ -51,31 +77,40 @@ class Gallery {
 }
 
 class MiniPaginator {
-    constructor(target = null, data = null, parent = null){
-        this.gallery = target || document.querySelector(".module-gallery");
-        this.leftElem = this.gallery.querySelector(".left");
-        this.rightElem = this.gallery.querySelector(".right");
-        this.currentItems = this.gallery.querySelectorAll(".item");
+    constructor(data, target, parent){
+        this.gallery = target;
+        //this.leftElem = target.querySelector(".left");
+        //this.rightElem = target.querySelector(".right");
+        this.currentItems = target.querySelectorAll(".item");
         this.startingIndex = 0;
         this.data = data;
         this.parent = parent;
 
-        this.currentItems.forEach((item) => {
+        this.currentItems.forEach((item,i) => {
+            
+            item.dataset.id = i;
+            
             item.addEventListener("click",(event) => {
-                this.parent.changeSelection(item.dataset.id);
+                // console.log(`ID ${event.target.dataset.id} Clicked`)
+                // console.log(event.target)
+                console.log(event.target.parentElement);
+                this.parent.changeSelection(event.target.parentElement.dataset.id);
             })
         });
 
-        this.leftElem.addEventListener("click",() => {
-            this.pageLeft();
-        });
+        // this.leftElem.addEventListener("click",() => {
+        //     this.pageLeft();
+        // });
 
-        this.rightElem.addEventListener("click",() => {
-            this.pageRight();
-        });
+        // this.rightElem.addEventListener("click",() => {
+        //     this.pageRight();
+        // });
+
+        this.render();
     }
 
     pageLeft(){
+        console.log("Page Left");
         if (this.startingIndex - this.currentItems.length > 0){
             this.startingIndex = startingIndex - this.currentItems.length;
         }
@@ -83,6 +118,7 @@ class MiniPaginator {
     }
 
     pageRight(){
+        console.log("Page Right");
         if (this.startingIndex + this.currentItems.length - 1 < this.data.length){
             this.startingIndex = startingIndex + this.currentItems.length;
         }
@@ -96,11 +132,11 @@ class MiniPaginator {
             let j = i + this.startingIndex;
 
             if (this.data[j] && this.data[j].pictureURL) {
-                img.src = this.data[j].pictureURL;
+                img.src = "/img/course/" + this.data[j].pictureURL;
                 if (img.classList.contains("disabled")){
                     img.classList.toggle("disabled");
                 }
-                img.dataset.id = this.data[j].id;
+                item.dataset.id = j;
             } else {
                 if (!img.classList.contains("disabled")){
                     img.classList.toggle("disabled");
