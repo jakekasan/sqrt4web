@@ -1,0 +1,47 @@
+<div id="<%=module.id>" class="module">
+    <div class="module-title"><%= module.title %></div>
+    <div class="module-picture">
+        <img src="" alt="">
+    </div>
+    <div class="module-text">
+        
+    </div>
+    <div class="module-gallery">
+        <div class="left"></div>
+        <%
+            for (let i = 0; i < 4; i++){
+        %>
+            <%
+                if (false){
+            %>
+        <div class="item">
+            
+            <img src="/img/course/<%=module.submodules[i].pictureURL%>" alt="">
+            
+        </div>
+            <%
+                } else {
+            %>
+        <div class="item hidden">
+
+        </div>
+            <%
+                }
+            %>
+
+        <%
+            }
+        %>
+        <div class="right"></div>
+    </div>
+</div>
+
+<script>
+
+    let data = <%- JSON.stringify(module) %>;
+
+    let gallery = new Gallery(data=data);
+
+</script>
+
+
