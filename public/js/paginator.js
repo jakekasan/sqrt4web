@@ -136,13 +136,13 @@ class Paginator {
         console.log("Paginator setup complete.")
         console.log(this);
 
-        this.gridRender();
+        this.update();
     }
 
     setPages(){
         // first get data from filter
 
-        let data = this.filter.filter(this.data);
+        let data = this.filter.filterData(this.data);
         var pageCount = 1;
 
         this.pages = {};
@@ -227,7 +227,6 @@ class Paginator {
     }
 
     gridRender(){
-        this.update();
         // first render page numbers
         this.pageNumbersRender();
 
@@ -296,11 +295,8 @@ class Paginator {
 
     update(){
         this.setPages();
+        this.gridRender();
     }
-
-
-
-
 }
 
 
