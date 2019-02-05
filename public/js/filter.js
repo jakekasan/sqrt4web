@@ -17,6 +17,7 @@ class Filter {
             if (event.keyCode === 13 && event.target.value != "") {
                 this.addNewTag(event.target);
                 event.target.value = "";
+                this.parent.update();
             }
         })
     }
@@ -28,7 +29,7 @@ class Filter {
         let tag = document.createElement("div");
         let tagContent = document.createElement("div");
 
-        tagContent.dataset.text = text;
+        tag.dataset.text = text;
         tagContent.innerText = this.processText(text);
         tagContent.classList.add("content");
 
@@ -38,7 +39,7 @@ class Filter {
 
         tag.addEventListener("click",(event) => {
             this.tagContainer.removeChild(tag);
-            this.update();
+            this.parent.update();
         })
 
         this.tagContainer.appendChild(tag);
@@ -52,11 +53,7 @@ class Filter {
         }
     }
 
-    removeTag(target){
-        // pass
-    }
-
-    filter(data){
+    filterData(data){
         return data.filter(item => this.filterCourse(item))
     }
 
@@ -67,11 +64,25 @@ class Filter {
 
         let filterTags = this.getFilterTags();
 
+        if (filterTags.length < 1) return true
+
         return filterTags
             .map(tag => {
                 courseText.contains(tag);
             })
             .contains(true);
+    }
+
+    getFilterTags(){
+        let tags = this.tagContainer.querySelector(".tag");
+
+        if (tags == null) return []
+
+        return tags
+                .map(element => {
+                    let raw = element.dataset.text;
+                    return raw.split(" ")
+                })
     }
 
     getDataText(data){
@@ -95,6 +106,4 @@ class Filter {
         }
     }
 }
-
-let filter = new Filter();
 
