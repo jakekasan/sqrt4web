@@ -12,7 +12,7 @@
             "submodules":[
                 {
                     "text":[
-                        "Stáhni <a href='https://www.prusa3d.com/drivers/'>DRIVERS & APPS</a> pro svůj OS.",
+                        "Stáhni <a target='_blank' href='https://www.prusa3d.com/drivers/'>DRIVERS & APPS</a> pro svůj OS.",
                         "Nainstaluj stažený software."
                     ],
                     "pictureURL":"1.png"
@@ -26,7 +26,7 @@
             "submodules":[
                 {
                     "text":[
-                        "Na <a href='https://www.thingiverse.com/'>Thingiverse</a> vyhledej plochý model malých rozměrů (např. keychain nebo ring)."
+                        "Na <a target='_blank' href='https://www.thingiverse.com/'>Thingiverse</a> vyhledej plochý model malých rozměrů (např. keychain nebo ring)."
                     ],
                     "pictureURL":"2.1.png"
                 },
@@ -34,7 +34,7 @@
                     "text":[
                         "Stáhni a dekomprimuj (rozbal) soubor zip.",
                         "V rozbalené složce najdi model ve formátu .stl",
-                        "Pokud nemáš program na rozbalení zip, stáhni si <a href='https://www.win-rar.com/start.html?&L=17'>WinRAR (Windows)</a>, <a href='https://itunes.apple.com/cz/app/the-unarchiver/id425424353?mt=12/'>The Unarchiver (Mac)</a> "
+                        "Pokud nemáš program na rozbalení zip, stáhni si <a target='_blank' href='https://www.win-rar.com/start.html?&L=17'>WinRAR (Windows)</a>, <a target='_blank' href='https://itunes.apple.com/cz/app/the-unarchiver/id425424353?mt=12/'>The Unarchiver (Mac)</a> "
                     ],
                     "pictureURL":"2.2.png"
                 },
@@ -95,7 +95,7 @@
             "submodules":[
                 {
                     "text":[
-                        "Stáhni si <a href='https://www.prusa3d.com/drivers/'>HANDBOOK</a>.",
+                        "Stáhni si <a target='_blank' href='https://www.prusa3d.com/drivers/'>HANDBOOK</a>.",
 			            "Seznam se s bezpečnostními pokyny."
 			        ],
                     "pictureURL":"1.1.png"
