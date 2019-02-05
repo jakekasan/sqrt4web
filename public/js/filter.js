@@ -58,35 +58,53 @@ class Filter {
     }
 
     filterCourse(course){
-        let courseText = this.getDataText(course);
+        let courseText = (this.getDataText(course)).toString().toLowerCase();
+        console.log("Course Text");
+        console.log(courseText);
 
-        courseText = courseText.split(" ")
+        // courseText = courseText.split(" ");
 
         let filterTags = this.getFilterTags();
 
         if (filterTags.length < 1) return true
 
-        return filterTags
-            .map(tag => {
-                courseText.contains(tag);
-            })
-            .contains(true);
+        for (let tag of filterTags){
+            tag = tag.toLowerCase();
+            if (courseText.includes(tag)){
+                return true
+            }
+        }
+        return false
     }
 
     getFilterTags(){
-        let tags = this.tagContainer.querySelector(".tag");
+        let tags = Array.from(this.tagContainer.querySelectorAll(".tag"));
+
+        console.log("Begin getFilterTags");
+        console.log("Tags:")
+        console.log(tags);
+        
 
         if (tags == null) return []
 
-        return tags
-                .map(element => {
-                    let raw = element.dataset.text;
-                    return raw.split(" ")
-                })
+        let tagText = tags.map(element => {
+            let raw = element.dataset.text;
+            return raw.toString();
+        });
+
+        console.log("Tag text");
+        console.log(tagText);
+
+        // tagText = tagText
+        //             .reduce((acc,elem) => {
+        //                 return acc.concat(elem)
+        //             },[])
+
+        return tagText
     }
 
     getDataText(data){
-        if (data instanceof Object){
+        if (typeof data == "object"){
             let texts = Object.keys(data)
                 .map(item => this.getDataText(data[item]))
                 .reduce((acc,ele) => {
@@ -95,15 +113,19 @@ class Filter {
 
             return texts
         }
+
         if (data instanceof Array){
             let texts = data.map(item => this.getDataText(item));
             return texts.reduce((acc,ele) => {
                 return acc + " " + ele
             },"")
         }
-        if (data instanceof String){
+
+        if (typeof data == "string" || typeof data == "number"){
             return data
         }
+
+        return [""]
     }
 }
 
