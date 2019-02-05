@@ -32,7 +32,8 @@ html, body {
     /* margin-bottom: 100px; */
     display: flex;
     justify-content: flex-end;
-    background-color: teal;
+    background-color: #273039;
+    /* background-color: teal; */
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
 }
 
@@ -373,7 +374,8 @@ a:link, a:visited {
     width: 100%;
     height: auto;
     bottom:0;
-    background-color: teal;
+    background-color: #273039;
+    /* background-color: teal; */
     /* background-color: rgba(48, 22, 190, 0.9); */
     /* background-color: rgba(38, 85, 214, 0.8); */
     color: aliceblue;
