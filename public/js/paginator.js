@@ -75,6 +75,7 @@ class Paginator {
         this.data = [];
         this.currentPage = 1;
         this.pageNumberStart = 0;
+        this.filter = new Filter(this);
 
         fetch("/api/data/courses")
             .then(data => data.json())
@@ -139,12 +140,18 @@ class Paginator {
     }
 
     setPages(){
+        // first get data from filter
+
+        let data = this.filter.filter(this.data);
         var pageCount = 1;
-        for (let i = 0; i < this.data.length; i++) {
+
+        this.pages = {};
+
+        for (let i = 0; i < data.length; i++) {
             if (!this.pages[pageCount]){
-                this.pages[pageCount] = [this.data[i]];
+                this.pages[pageCount] = [data[i]];
             } else {
-                (this.pages[pageCount]).push(this.data[i]);
+                (this.pages[pageCount]).push(data[i]);
             }
             if (((i+1) % this.itemsPerPage == 0)) {
                 pageCount++;
@@ -220,6 +227,7 @@ class Paginator {
     }
 
     gridRender(){
+        this.update();
         // first render page numbers
         this.pageNumbersRender();
 
@@ -284,6 +292,10 @@ class Paginator {
             this.currentPage++;
             this.gridRender();
         }
+    }
+
+    update(){
+        this.setPages();
     }
 
 
