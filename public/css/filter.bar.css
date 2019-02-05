@@ -13,9 +13,10 @@
     grid-template-rows: repeat(5,1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    background-color: teal;
+    background-color: #273039;
     color: aliceblue;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    font-family: 'Franklin Gothic Medium';
 }
 /* 
 .filter-bar > .item {
@@ -77,7 +78,7 @@
     transform: translate(-50%,-50%); */
     font-size: 15px;
     border:none;
-    background-color:aqua;
+    background-color:white;
 }
 
 
@@ -114,15 +115,31 @@
 .tag-list > .tag {
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 20px;
-    padding: 2%;
+    padding: 0%;
     /* margin: 2%; */
     /* height: auto; */
     font-size: 9px;
-    background-color:lightgreen;
-    grid-column: span 3;
+    background-color:whitesmoke;
+    grid-column: span auto;
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+    transition: background-color 1s;
+}
+
+.tag-list > .tag:hover {
+    cursor: pointer;
+    background-color:lightyellow;
 }
 
 .tag > .content {
-    font-size:6px;
+    font-size: minmax(2vw,10vw);
     outline: 2px;
+    color: black;
+    padding:0;
+    /* height: 70%; */
+    /* margin: auto 0; */
+    text-align: center;
+    overflow:hidden;
 }
