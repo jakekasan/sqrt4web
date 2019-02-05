@@ -18,6 +18,7 @@
     grid-template-rows: repeat(2,1fr);
     grid-column-gap: 1vh;
     grid-row-gap: 1vh;
+    font-family: 'Franklin Gothic Medium';
 }
 /* 
 @media screen and (min-width: 1201px){
