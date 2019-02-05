@@ -4,7 +4,19 @@
 <div class="page-content">
     <div class="course-details" data-id=<%=data.course.id %>>
         <div class="title"><%= data.course.title %></div>
-        <div class="picture"><img src="/img/courses/<%= data.course.id %>/<%= data.course.modules[0].submodules[0].pictureURL %>" alt=""></div>
+        <div class="picture">
+            <%
+                if (data.course.modules && data.course.modules[0].submodules){
+            %>
+            <img src="/img/courses/<%= data.course.id %>/<%= data.course.modules[0].submodules[0].pictureURL %>" alt="">
+            <%
+                } else {
+            %>
+            <img src="/img/homer.png" alt="">
+            <%
+                }
+            %>
+        </div>
         <div class="description">
             <% if (data.course.fullDesc) { %>
             <%= data.course.fullDesc %>
