@@ -58,14 +58,20 @@ function fillModal(id){
         courseElement.appendChild(moduleChoice);
     });
 
+    // button
     let buttonModuleContainer = document.createElement("div");
     buttonModuleContainer.classList.add("module-button-container");
+
 
     let buttonContainer = document.createElement("div");
     buttonContainer.classList.add("button");
 
-    let button = document.createElement("button");
-    button.type = "submit";
+    // let button = document.createElement("button");
+    // button.type = "submit";
+    // button.innerText = "SPUSTIT";
+
+    let button = document.createElement("a");
+    button.href = `/courses?id=${data.id}`;
     button.innerText = "SPUSTIT";
 
     buttonContainer.appendChild(button);
