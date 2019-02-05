@@ -434,7 +434,7 @@
     "id":2,
     "title":"Připrav model k tisku",
     "desc":"Příprava plochého modelu k tisku na tiskárně Prusa i3 MK3 v programu Slic3r.",
-    "fullDesc":"Naučíš se upravit plochý modle ve Slic3ru tak, aby se dal vytisknout.",
+    "fullDesc":"Naučíš se upravit plochý model ve Slic3ru tak, aby se dal vytisknout.",
     "author":"Bodle",
     "difficulty":"Easy",
     "modules":[
@@ -592,13 +592,6 @@
                         "Lepící tyčinka (Kores) pro lepší přilnutí výtisku"
                     ],
                     "pictureURL":"3.2.png"
-                },
-                {
-                    "text":[
-                        "Slice now, Export G-code\n Název souboru bez diakritiky!\n Ulož nazev_0.15mm_PLA_MK3.gcode na SD kartu.",
-                        "Po exportu G-codu se zobrazí informace."
-                    ],
-                    "pictureURL":"3.3.png"
                 }
             ],
             "minutes":2
@@ -632,7 +625,7 @@
                         "Teploty: +5 až 10°C",
                         "Rychlost tisku: 70%"
 			        ],
-                    "pictureURL":"3.3.png"
+                    "pictureURL":"4.3.png"
                 }
             ],
             "minutes":4
