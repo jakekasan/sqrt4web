@@ -380,3 +380,37 @@ a:link, a:visited {
     /* background-color: rgba(38, 85, 214, 0.8); */
     color: aliceblue;
 }
+
+.footer-social-media {
+    list-style-type: none;
+    display:grid;
+    height: 45px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 0;
+}
+
+.footer-social-media > a {
+    text-decoration: none;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 45px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+  
+/* Instagram */
+.fa-instagram {
+    background: #55ACEE;
+    color: white;
+}
