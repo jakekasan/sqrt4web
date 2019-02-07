@@ -41,6 +41,10 @@
     transition: background-color 0.5s;
 }
 
+.modal-close:hover {
+    background-color: gray;
+}
+
 .show-modal {
     opacity:1;
     visibility: visible;
@@ -77,6 +81,14 @@
 
 .module-icon {
     grid-column: 1 / 2;
+}
+
+.module-icon > .choice {
+    background: url("/img/icons/bullet_checked.png") no-repeat;
+}
+
+.module-icon > .selected {
+    background: url("/img/icons/selected.png") no-repeat;
 }
 
 .module-text {
