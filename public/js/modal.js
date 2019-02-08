@@ -35,6 +35,10 @@ function fillModal(id){
         iconLabel.classList.add("icon-label");
         let iconInput = document.createElement("input");
         iconInput.type = "checkbox";
+        iconInput.name = "modules";
+        iconInput.value = item.id;
+        iconInput.checked = true;
+
         let iconSpan = document.createElement("span");
         iconSpan.classList.add("icon-checkmark");
 
@@ -71,17 +75,19 @@ function fillModal(id){
 
     let buttonContainer = document.createElement("div");
     buttonContainer.classList.add("button");
-    buttonContainer.addEventListener("click",() => {
-        console.log("Button pressed!")
-        courseElement.submit();
+    // buttonContainer.addEventListener("click",() => {
+    //     console.log("Button pressed!")
+    //     courseElement.submit();
+    // });
+
+    courseElement.addEventListener("submit",(event) => {
+        event.preventDefault();
+        console.log("Form submitted!");
+        console.log(event);
     })
 
-    // let button = document.createElement("button");
-    // button.type = "submit";
-    // button.innerText = "SPUSTIT";
-
-    let button = document.createElement("a");
-    // button.href = `/courses?id=${data.id}`;
+    let button = document.createElement("button");
+    button.type = "submit";
     button.innerText = "SPUSTIT";
 
     buttonContainer.appendChild(button);
@@ -93,13 +99,13 @@ function fillModal(id){
 window.addEventListener("load",() => {
     console.log("Page loaded");
 
-    let form = document.querySelector(".course");
+    // let form = document.querySelector(".course");
 
-    form.addEventListener("submit",(event) => {
-        console.log("Form submitted!");
-        event.preventDefault();
-        console.log(event.value);
-    })
+    // form.addEventListener("submit",(event) => {
+    //     console.log("Form submitted!");
+    //     event.preventDefault();
+    //     console.log(event.value);
+    // })
 
     modal = document.querySelector(".modal");
     closeButton = document.querySelector(".modal-close");
