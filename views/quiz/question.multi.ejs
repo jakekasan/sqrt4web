@@ -1,0 +1,16 @@
+<div class="question">
+    <div class="question-text">
+        <%= question.questionText %>
+    </div>
+    <div class="question-answer">
+        <% 
+            for (let option of question.answerOptions) {
+        %>
+                <div class="option">
+                    <%= option %>
+                </div>
+        <%
+            }
+        %>
+    </div>
+</div>
