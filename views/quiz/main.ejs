@@ -1,0 +1,72 @@
+<div class="quiz-intro">
+    <h1>Quiz!</h1>
+</div>
+<%
+    const data = {
+        "title":"Quiz Time!",
+        "questions":[
+            {
+                "isMultipleChoice":true,
+                "questionText":"What is the correct answer?",
+                "answerOptions":[
+                    "A","B","C","D"
+                ]
+            },
+            {
+                "isMultipleChoice":true,
+                "questionText":"What is the correct answer?",
+                "answerOptions":[
+                    "A","B","C","D"
+                ]
+            },
+            {
+                "isMultipleChoice":true,
+                "questionText":"What is the correct answer?",
+                "answerOptions":[
+                    "A","B","C","D"
+                ]
+            },
+            {
+                "isMultipleChoice":true,
+                "questionText":"What is the correct answer?",
+                "answerOptions":[
+                    "A","B","C","D"
+                ]
+            },
+            {
+                "isMultipleChoice":true,
+                "questionText":"What is the correct answer?",
+                "answerOptions":[
+                    "A","B","C","D"
+                ]
+            },
+            {
+                "isMultipleChoice":true,
+                "questionText":"What is the correct answer?",
+                "answerOptions":[
+                    "A","B","C","D"
+                ]
+            },
+        ]
+    }
+
+%>
+
+
+<%
+    for (let question of data.questions){
+%>
+        <%
+            if (question.isMultipleChoice){
+        %>
+                <%- include("./question.multi.ejs",{question}) %>
+        <%
+            } else {
+        %>
+                <%- include("./question.text.ejs",{question}) %>
+        <%
+            }
+        %>
+<%
+    }
+%>
