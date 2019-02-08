@@ -17,20 +17,24 @@ class CoursesController extends BaseController {
         
         var self = this; // for scope
 
-        console.log("Set self");
-
-        console.log(req.query);
-
         self.req = req;
         self.res = res;
         self.next = next;
         self.mongo = self.req.mongo;
 
-        if (req.query && req.query.id){
-            return this.singleCourse(self);
+        console.log("Courses Controller");
+        console.log(this.paths["/courses"]["GET"])
+        if (this.paths[self.req.path] && this.paths[self.req.path][self.req.method]){
+            this.paths[self.req.path][self.req.method](self);
         } else {
-            return this.browseCourses(self);
+            next();
         }
+
+        // if (req.query && req.query.id){
+        //     return this.singleCourse(self);
+        // } else {
+        //     return this.browseCourses(self);
+        // }
 
         // if (req.path == "/view/course") {
         //     this.singleCourse(self);
@@ -76,6 +80,7 @@ class CoursesController extends BaseController {
 
         let id = self.req.query.id;
 
+        // replace with model lookup EVENTUALLY
         let courses = self.coursesModel.getData();
 
         let course = courses.filter(item => item.id == id)[0];
@@ -93,6 +98,25 @@ class CoursesController extends BaseController {
         let view = new BaseView("test2",self.res);
 
         return view.render(self.content)
+    }
+
+    get paths(){
+        return {
+            "/courses":{
+                "GET":(self) => {
+                    if (self.req.query && self.req.query.id){
+                        return this.singleCourse(self);
+                    } else {
+                        return this.browseCourses(self);
+                    }
+                },
+                "POST":(self) => {
+                    // process POST
+                    console.log(self.req.body);
+                    self.res.redirect("/courses");
+                }
+            }
+        }
     }
 
 
