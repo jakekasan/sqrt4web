@@ -149,7 +149,15 @@ class CoursesController extends BaseController {
     
                         return view.render(content)
                     });
-
+                }
+            },
+            "/courses/quiz":{
+                "GET":(self) => {
+                    let view = new BaseView("quiz",self.res);
+    
+                    return view.render()
+                },
+                "POST":(self) => {
 
                 }
             }
