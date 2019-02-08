@@ -1,7 +1,12 @@
 const BaseModel = require("./base.model");
 const coursesSchema = require("./schemas/courses.schema");
+const fetch = require("node-fetch");
+var fs = require("fs");
+var path = require("path");
 
-const fakeData = require("./../public/courses.json");
+
+
+let fakeData = require("./../public/courses.json");
 
 var fakeConnection = {
     model: function(string,schema){
@@ -22,9 +27,21 @@ class CoursesModel extends BaseModel {
         super(model)
     }
 
-    getData(){
-        console.log(fakeData);
-        return fakeData
+    getData(callback){
+        let dataPath = path.resolve(__dirname,"../public",'courses.json');
+        console.log(dataPath);
+        var obj = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        
+        return callback(obj)
+
+        // let fakeData = require("./../public/courses.json");
+        // for (let course of fakeData){
+        //     console.log({
+        //         id:course.id,
+        //         submodules:course.modules.length
+        //     });
+        // }
+        // return fakeData
     }
 }
 
