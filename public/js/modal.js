@@ -29,6 +29,14 @@ function fillModal(id){
 
     courseElement.appendChild(description);
 
+    // value for course ID
+    let courseID = document.createElement("input");
+    courseID.type = "hidden";
+    courseID.name = "id";
+    courseID.value = data.id;
+
+    courseElement.appendChild(courseID);
+
     data.modules.forEach((item) => {
         
         let iconLabel = document.createElement("label");
@@ -81,8 +89,8 @@ function fillModal(id){
     // });
 
     courseElement.addEventListener("submit",(event) => {
-        event.preventDefault();
-        console.log("Form submitted!");
+        // event.preventDefault();
+        // console.log("Form submitted!");
         console.log(event);
     })
 
