@@ -55,7 +55,7 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
         hc.run(req,res,next);
     });
 
-    app.all("/courses",(req,res,next) => {
+    app.all("/courses*",(req,res,next) => {
         console.log("Req to '/courses/'");
         cc.run(req,res,next);
     });
