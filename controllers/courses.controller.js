@@ -59,20 +59,22 @@ class CoursesController extends BaseController {
     }
 
     browseCourses(self){
-        console.log("In get content");
-        // temporary data
-        // let data = {
-        //     title:"Welcome to SQRT4"
-        // }
+        self.coursesModel.getData((data,err) => {
+            if (err) {
+                return console.log(err)
+            }
 
-        let data = {};
+            self.content = {};
 
-        data.courses = self.coursesModel.getData();
+            self.content.courses = data;
 
-        // get data and render template
-        let view = new BaseView("test",self.res)
-        self.content = data;
-        return view.render(self.content);
+            // get data and render template
+            let view = new BaseView("test",self.res)
+            self.content = data;
+            return view.render(self.content);
+        });
+
+        
     }
 
     singleCourse(self){
@@ -81,23 +83,25 @@ class CoursesController extends BaseController {
         let id = self.req.query.id;
 
         // replace with model lookup EVENTUALLY
-        let courses = self.coursesModel.getData();
+        self.coursesModel.getData((courses,err) => {
+            let course = courses.filter(item => item.id == id)[0];
 
-        let course = courses.filter(item => item.id == id)[0];
+            let data = {};
+    
+            if (course) {
+                data.course = course;
+            } else {
+                data.course = courses[0];
+            }
+    
+            self.content = data;
+    
+            let view = new BaseView("test2",self.res);
+    
+            return view.render(self.content)
+        });
 
-        let data = {};
-
-        if (course) {
-            data.course = course;
-        } else {
-            data.course = courses[0];
-        }
-
-        self.content = data;
-
-        let view = new BaseView("test2",self.res);
-
-        return view.render(self.content)
+        
     }
 
     get paths(){
@@ -112,8 +116,41 @@ class CoursesController extends BaseController {
                 },
                 "POST":(self) => {
                     // process POST
-                    console.log(self.req.body);
-                    self.res.redirect("/courses");
+                    // console.log(self.req.body);
+                    // self.res.redirect("/courses");
+
+                    let selectedID = self.req.body.id;
+                    let selectedModules = self.req.body.modules;
+
+                    if (self.req.body.modules instanceof Array){
+                        selectedModules = selectedModules.map(item => {
+                            return parseInt(item);
+                        });
+                    } else {
+                        selectedModules = [parseInt(selectedModules)];
+                    }
+                     
+                    
+
+                    self.coursesModel.getData((data,err) => {
+                        if (err){
+                            return console.log(err);
+                        }
+
+                        let content = {};
+
+                        content.course = data.filter(item => item.id == selectedID)[0];
+
+                        content.course.modules = content.course.modules.filter(item => {
+                            return selectedModules.includes(item.id)
+                        })
+    
+                        let view = new BaseView("test2",self.res);
+    
+                        return view.render(content)
+                    });
+
+
                 }
             }
         }
