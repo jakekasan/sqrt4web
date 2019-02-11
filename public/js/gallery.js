@@ -24,7 +24,7 @@ class Gallery {
 
         let pictureURL = "/img/courses/" + this.courseID + "/" + this.data.submodules[this.currentItem]["pictureURL"];
 
-        modulePicture.addEventListener("click",() => {
+        picture.addEventListener("click",() => {
             console.log("Picture clicked!");
             fillModalWithImage(pictureURL);
             // toggleModal();
@@ -37,6 +37,7 @@ class Gallery {
             picture.src = pictureURL;
         }
 
+        modulePicture.innerHTML = "";
         modulePicture.appendChild(picture);
     }
 
