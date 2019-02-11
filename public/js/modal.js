@@ -14,6 +14,12 @@ function fillModalWithImage(imageLink){
     image.classList.add("modal-image");
     image.src = imageLink;
 
+    let closeButton = document.createElement("span");
+    closeButton.classList.add("modal-close");
+    closeButton.innerHTML = "&times;";
+
+    modalContent.appendChild(closeButton);
+
     modalContent.appendChild(image);
 }
 
@@ -161,20 +167,6 @@ window.addEventListener("load",() => {
             modal.classList.toggle("show-modal");
         }
     });
-    
-    // modal.addEventListener("click",(event) => {
-    //     console.log("modal clicked!");
-    //     console.log(event.target);
-
-    //     let modalContent = document.querySelector(".modal-content");
-
-    //     if (!modalContent.contains(event.target) && event.target !== modalContent){
-    //         let modal = document.querySelector(".modal");
-    //         if (modal.classList.contains("show-modal")){
-    //             modal.classList.toggle("show-modal");
-    //         }
-    //     }
-    // })
 })
 
 // trigger.addEventListener("click",toggleModal);
