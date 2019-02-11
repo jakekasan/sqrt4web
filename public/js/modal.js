@@ -5,15 +5,38 @@ function toggleModal() {
     modal.classList.toggle("show-modal");
 }
 
-function fillModal(id){
+
+function fillModalWithImage(imageLink){
+    let modalContent = (document.querySelector(".modal")).querySelector(".modal-content");
+    modalContent.innerHTML = "";
+
+    let image = document.createElement("img");
+    image.classList.add("modal-image");
+    image.src = imageLink;
+
+    modalContent.appendChild(image);
+}
+
+function fillModalWithLesson(id){
 
     let data = _cachedData.filter(item => item.id == id)[0];
-    console.log(_cachedData);
-    console.log(data);
+    // console.log(_cachedData);
+    // console.log(data);
 
     if (!data) return
 
-    let courseElement = modal.querySelector(".course");
+    let modalContent = (document.querySelector(".modal")).querySelector(".modal-content");
+    modalContent.innerHTML = "";
+
+    let closeButton = document.createElement("span");
+    closeButton.classList.add("modal-close");
+    closeButton.innerHTML = "&times;";
+
+    //let courseElement = modal.querySelector(".course");
+    let courseElement = document.createElement("form");
+    courseElement.classList.add("course");
+    courseElement.method = "POST";
+    courseElement.name = "moduleSelectionForm";
 
     courseElement.innerHTML = "";
 
@@ -102,27 +125,19 @@ function fillModal(id){
     buttonModuleContainer.appendChild(buttonContainer);
 
     courseElement.appendChild(buttonModuleContainer);
+
+    modalContent.appendChild(closeButton);
+    modalContent.appendChild(courseElement);
 }
 
 window.addEventListener("load",() => {
     console.log("Page loaded");
-
-    // let form = document.querySelector(".course");
-
-    // form.addEventListener("submit",(event) => {
-    //     console.log("Form submitted!");
-    //     event.preventDefault();
-    //     console.log(event.value);
-    // })
 
     modal = document.querySelector(".modal");
     closeButton = document.querySelector(".modal-close");
 
 
     function windowOnClick(event) {
-        console.log("windowOnClick");
-        console.log(event);
-
         if (event.target === modal) {
             toggleModal();
         }
@@ -141,22 +156,25 @@ window.addEventListener("load",() => {
     });
 
     window.addEventListener("click",(event) => {
-        console.log("Window clicked!");
+        let modal = document.querySelector(".modal");
+        if (modal.classList.contains("show-modal") && event.target === modal) {
+            modal.classList.toggle("show-modal");
+        }
     });
     
-    modal.addEventListener("click",(event) => {
-        console.log("modal clicked!");
-        console.log(event.target);
+    // modal.addEventListener("click",(event) => {
+    //     console.log("modal clicked!");
+    //     console.log(event.target);
 
-        let modalContent = document.querySelector(".modal-content");
+    //     let modalContent = document.querySelector(".modal-content");
 
-        if (!modalContent.contains(event.target) && event.target !== modalContent){
-            let modal = document.querySelector(".modal");
-            if (modal.classList.contains("show-modal")){
-                modal.classList.toggle("show-modal");
-            }
-        }
-    })
+    //     if (!modalContent.contains(event.target) && event.target !== modalContent){
+    //         let modal = document.querySelector(".modal");
+    //         if (modal.classList.contains("show-modal")){
+    //             modal.classList.toggle("show-modal");
+    //         }
+    //     }
+    // })
 })
 
 // trigger.addEventListener("click",toggleModal);
