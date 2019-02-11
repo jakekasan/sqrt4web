@@ -20,14 +20,24 @@ class Gallery {
 
         let modulePicture = this.target.querySelector(".module-picture");
 
-        let picture = modulePicture.getElementsByTagName("img")[0];
+        let picture = document.createElement("img");
 
         let pictureURL = "/img/courses/" + this.courseID + "/" + this.data.submodules[this.currentItem]["pictureURL"];
+
+        modulePicture.addEventListener("click",() => {
+            console.log("Picture clicked!");
+            fillModalWithImage(pictureURL);
+            // toggleModal();
+            let modal = document.querySelector(".modal");
+            modal.classList.toggle("show-modal");
+        })
 
         // only change if the URL is incorrect
         if (picture.src != pictureURL){
             picture.src = pictureURL;
-        } 
+        }
+
+        modulePicture.appendChild(picture);
     }
 
     renderModuleText(){
