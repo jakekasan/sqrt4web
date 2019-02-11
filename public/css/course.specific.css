@@ -118,6 +118,12 @@
     max-width: 90%;
     margin: 0 auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.5s;
+}
+
+.module-picture > img:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    transition: box-shadow 0.5s;
 }
 
 .module-text {
@@ -201,10 +207,12 @@
 
     width: auto;
     max-width: 100%;
+    transition: box-shadow 0.5s;
 }
 
 .module-gallery > .item:hover > img {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.5s;
 }
 
 .module-gallery > .disabled {
