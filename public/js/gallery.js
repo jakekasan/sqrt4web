@@ -44,12 +44,14 @@ class Gallery {
         if (this.data.submodules[this.currentItem].title){
             let subtitleText = this.data.submodules[this.currentItem].title;
 
-            let h4 = document.createElement("h4");
+            let h4 = document.createElement("div");
+            h4.classList.add("text-segment");
+            h4.classList.add("subtitle-segment");
             h4.innerText = subtitleText;
 
             textContainer.appendChild(h4);
         }
-        
+
         texts.map((item,i) => {
             let newElem = document.createElement("div");
 
