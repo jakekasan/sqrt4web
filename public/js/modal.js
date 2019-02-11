@@ -99,7 +99,7 @@ function fillModalWithLesson(id){
 
         let minutes = document.createElement("div");
         minutes.classList.add("module-minutes");
-        minutes.innerText = item.minutes;
+        minutes.innerText = item.minutes + (item.minutes == 1) ? " minute": " minutes";
 
         let moduleChoice = document.createElement("div");
         moduleChoice.classList.add("module-choice");
