@@ -112,7 +112,9 @@
 
 .module-picture > img {
     width: 90%;
+    max-width: 100vh;
     height: auto;
+    max-height: 90%;
     margin: 0 auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
