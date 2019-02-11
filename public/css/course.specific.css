@@ -146,6 +146,7 @@
 .subtitle-segment {
     font-size: 120%;
     font-weight: 600;
+    margin-bottom: 15px;
 }
 
 .module-gallery {
