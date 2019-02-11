@@ -17,6 +17,9 @@ function fillModalWithImage(imageLink){
     let closeButton = document.createElement("span");
     closeButton.classList.add("modal-close");
     closeButton.innerHTML = "&times;";
+    closeButton.addEventListener("click",() => {
+        toggleModal();
+    });
 
     modalContent.appendChild(closeButton);
 
@@ -37,6 +40,9 @@ function fillModalWithLesson(id){
     let closeButton = document.createElement("span");
     closeButton.classList.add("modal-close");
     closeButton.innerHTML = "&times;";
+    closeButton.addEventListener("click",() => {
+        toggleModal();
+    });
 
     //let courseElement = modal.querySelector(".course");
     let courseElement = document.createElement("form");
@@ -112,10 +118,10 @@ function fillModalWithLesson(id){
 
     let buttonContainer = document.createElement("div");
     buttonContainer.classList.add("button");
-    // buttonContainer.addEventListener("click",() => {
-    //     console.log("Button pressed!")
-    //     courseElement.submit();
-    // });
+    buttonContainer.addEventListener("click",() => {
+        console.log("Button pressed!")
+        courseElement.submit();
+    });
 
     courseElement.addEventListener("submit",(event) => {
         // event.preventDefault();
@@ -123,7 +129,7 @@ function fillModalWithLesson(id){
         console.log(event);
     })
 
-    let button = document.createElement("button");
+    let button = document.createElement("div");
     button.type = "submit";
     button.innerText = "SPUSTIT";
 
