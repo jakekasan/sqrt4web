@@ -47,7 +47,7 @@ function addGridCard(record){
     card.addEventListener("click",(event) => {
         console.log("Card clicked!");
         console.log(record.id);
-        fillModal(record.id);
+        fillModalWithLesson(record.id);
         toggleModal();
     })
 
