@@ -2,8 +2,8 @@ const BaseController = require("./base.controller");
 const BaseView = require("./../views/base.view");
 const CoursesModel = require("./../models/courses.model");
 
-class CoursesController extends BaseController {
 
+class CoursesController extends BaseController {
     constructor(debug){
         super("Courses Controller");
         this.debug = debug;
@@ -116,7 +116,7 @@ class CoursesController extends BaseController {
                 },
                 "POST":(self) => {
                     // process POST
-                    // console.log(self.req.body);
+                    console.log(self.req.body);
                     // self.res.redirect("/courses");
 
                     let selectedID = self.req.body.id;
@@ -127,10 +127,20 @@ class CoursesController extends BaseController {
                             return parseInt(item);
                         });
                     } else {
-                        selectedModules = [parseInt(selectedModules)];
+                        if (self.req.body.modules instanceof Number){
+                            selectedModules = [parseInt(selectedModules)];
+                        } else {
+                            let generator = function* (){
+                                let i = 0
+                                while (true){
+                                    yield i
+                                    i++
+                                }
+                            }
+                            let gen = generator();
+                            selectedModules = Array(100).fill(0).map(() => { return gen.next().value });
+                        }
                     }
-                     
-                    
 
                     self.coursesModel.getData((data,err) => {
                         if (err){
