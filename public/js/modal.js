@@ -29,6 +29,8 @@ function fillModalWithImage(imageLink){
 function fillModalWithLesson(id){
 
     let data = _cachedData.filter(item => item.id == id)[0];
+
+    console.log(data);
     // console.log(_cachedData);
     // console.log(data);
 
@@ -157,7 +159,6 @@ window.addEventListener("load",() => {
 
     modal = document.querySelector(".modal");
     closeButton = document.querySelector(".modal-close");
-
 
     function windowOnClick(event) {
         if (event.target === modal) {
