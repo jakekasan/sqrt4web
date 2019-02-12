@@ -28,7 +28,7 @@ html, body {
     width:100%;
     /* position:fixed; */
     height: auto;
-    padding: 10px 0 10px 0;
+    padding: 10px 0px 10px 0px;
     /* margin-bottom: 100px; */
     display: flex;
     justify-content: flex-end;
@@ -42,6 +42,7 @@ html, body {
     height: auto;
     width: min(100px,auto);
     padding: 5px;
+    margin: 0 10px;
     /* border-style: double;
     border: 2px; */
     text-align: center;
@@ -412,5 +413,11 @@ a:link, a:visited {
 /* Instagram */
 .fa-instagram {
     background: #55ACEE;
+    color: white;
+}
+
+/* Youtube */
+.fa-youtube {
+    background: red;
     color: white;
 }
