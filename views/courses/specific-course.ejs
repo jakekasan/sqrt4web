@@ -7,7 +7,7 @@
         <div class="title"><%= data.course.title %></div>
         <div class="picture">
             <%
-                if (data.course.modules && data.course.modules[0].submodules){
+                if (data.course.titlePicture){
             %>
             <img src="/img/courses/<%= data.course.id %>/<%= data.course.titlePicture %>" alt="">
             <%
