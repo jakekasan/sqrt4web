@@ -1,13 +1,15 @@
 <div class="question">
     <div class="question-text">
-        <%= question.questionText %>
+        <%= question.text %>
     </div>
     <div class="question-answer" name="<%= question.id %>">
         <% 
-            for (let option of question.answerOptions) {
+            for (let option of question.options) {
         %>
-            <div class="option" value="<%= option %>">
-                <%= option %>
+            <div class="option" value="<%= option.text %>">
+                <div class="option-text">
+                    <%= option.text %>
+                </div>
             </div>
         <%
             }
