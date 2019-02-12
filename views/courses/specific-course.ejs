@@ -9,7 +9,7 @@
             <%
                 if (data.course.modules && data.course.modules[0].submodules){
             %>
-            <img src="/img/courses/<%= data.course.id %>/<%= data.course.modules[0].submodules[0].pictureURL %>" alt="">
+            <img src="/img/courses/<%= data.course.id %>/<%= data.course.titlePicture %>" alt="">
             <%
                 } else {
             %>
@@ -19,11 +19,13 @@
             %>
         </div>
         <div class="description">
-            <% if (data.course.desc) { %>
-            <%= data.course.desc %>
-            <% } else { %>
-                No description given...
-            <% } %>
+            <div class="description-text">
+                <% if (data.course.desc) { %>
+                <%= data.course.desc %>
+                <% } else { %>
+                    No description given...
+                <% } %>
+            </div>
         </div>
         
         <%
