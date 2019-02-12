@@ -22,7 +22,14 @@ class Gallery {
 
         let picture = document.createElement("img");
 
-        let pictureURL = "/img/courses/" + this.courseID + "/" + this.data.submodules[this.currentItem]["pictureURL"];
+        let pictureURL;
+        
+        if (this.data.submodules[this.currentItem]["pictureURL"]){
+            pictureURL = "/img/courses/" + this.courseID + "/" + this.data.submodules[this.currentItem]["pictureURL"];
+        } else {
+            pictureURL = "/img/homer.png";
+        }
+        
 
         picture.addEventListener("click",() => {
             console.log("Picture clicked!");
@@ -33,7 +40,7 @@ class Gallery {
         })
 
         // only change if the URL is incorrect
-        if (picture.src != pictureURL){
+        if (picture.src != pictureURL) {
             picture.src = pictureURL;
         }
 
@@ -155,8 +162,13 @@ class MiniPaginator {
 
             let j = i + this.startingIndex;
 
-            if (this.data[j] && this.data[j].pictureURL) {
-                img.src = "/img/courses/" + this.courseID + "/" + this.data[j].pictureURL;
+            if (this.data[j]) {
+                if (this.data[j].pictureURL){
+                    img.src = "/img/courses/" + this.courseID + "/" + this.data[j].pictureURL;
+                } else {
+                    img.src = "/img/homer.png";
+                }
+                
                 if (img.classList.contains("disabled")){
                     img.classList.toggle("disabled");
                 }
