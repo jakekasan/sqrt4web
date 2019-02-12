@@ -60,7 +60,7 @@ function fillModalWithLesson(id){
 
     let description = document.createElement("div");
     description.classList.add("description");
-    description.innerText = data.fullDesc;
+    description.innerText = data.desc;
 
     courseElement.appendChild(description);
 
@@ -99,7 +99,7 @@ function fillModalWithLesson(id){
 
         let minutes = document.createElement("div");
         minutes.classList.add("module-minutes");
-        minutes.innerText = item.minutes + (item.minutes == 1) ? " minute": " minutes";
+        minutes.innerText = (item.minutes == 1) ? `${item.minutes} minute`: `${item.minutes} minutes`;
 
         let moduleChoice = document.createElement("div");
         moduleChoice.classList.add("module-choice");
@@ -129,14 +129,24 @@ function fillModalWithLesson(id){
         console.log(event);
     })
 
-    let button = document.createElement("div");
-    button.type = "submit";
-    button.innerText = "SPUSTIT";
+    // let button = document.createElement("div");
+    // button.type = "submit";
+    // button.innerText = "SPUSTIT";
 
-    buttonContainer.appendChild(button);
+    let aTag = document.createElement("a");
+    aTag.innerText = "SPUSTIT";
+
+    // button.appendChild(aTag);
+
+    // buttonContainer.appendChild(button);
+    buttonContainer.appendChild(aTag);
     buttonModuleContainer.appendChild(buttonContainer);
 
-    courseElement.appendChild(buttonModuleContainer);
+    let moduleChoice = document.createElement("div");
+    moduleChoice.classList.add("module-choice");
+    moduleChoice.appendChild(buttonModuleContainer);
+
+    courseElement.appendChild(moduleChoice);
 
     modalContent.appendChild(closeButton);
     modalContent.appendChild(courseElement);
