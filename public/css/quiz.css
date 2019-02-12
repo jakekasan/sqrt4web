@@ -12,11 +12,18 @@
     margin: 30px 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     padding: 0px 0px;
+    transition: height 0.5s;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 550px){
     .question {
-        height: 500px;
+        height: 400px;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .question {
+        height: 130px;
     }
 }
 
@@ -41,7 +48,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     .question-answer {
         grid-template-columns:repeat(2, 1fr);
         grid-template-rows: repeat(4, 1fr);
