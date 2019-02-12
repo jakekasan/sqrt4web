@@ -14,6 +14,12 @@
     padding: 0px 0px;
 }
 
+@media screen and (max-width: 500px){
+    .question {
+        height: 50vh;
+    }
+}
+
 .question-text {
     padding: 20px;
     font-size: 110%;
@@ -25,6 +31,21 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(2,1fr);
+    grid-gap: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+    .question-answer {
+        grid-template-columns:repeat(8, 1fr);
+        grid-template-rows: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .question-answer {
+        grid-template-columns:repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
 }
 
 .option {
@@ -43,6 +64,7 @@
 .option:hover {
     background-color: lightyellow;
 }
+
 
 .option-text {
     position: relative;
