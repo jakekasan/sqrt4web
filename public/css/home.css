@@ -1,0 +1,40 @@
+.home-splash {
+    width: 100%;
+    height: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.home-splash-logo {
+    font-size: 1200%;
+    
+}
+
+.home-splash-motto {
+    font-size: 600%;
+}
+
+.home-splash-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0;
+}
+
+.home-splash-button {
+    width: 200px;
+    height: 50px;
+    background-color: #273039;
+    color: aliceblue;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    transition: background-color 0.75s;
+    cursor: pointer;
+}
+
+.home-splash-button:hover {
+    background-color: lightslategray;
+}
+
