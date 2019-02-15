@@ -1,0 +1,34 @@
+<div class="courses">
+    <%
+        const user = {
+            name: "Jake"
+        }
+    %>
+    <%
+        if (user){
+    %>
+    <div class="message">
+
+        Welcome, <%= user.name %>.
+
+        Select a new course to do here.
+
+    </div>
+
+    <%
+        } else {
+    %>
+
+    <div class="message">
+
+        You're not logged it an the moment.
+
+        You can browse courses, but if you want to attend or start a project, you must create an account.
+
+    </div>
+
+
+    <%
+        }
+    %>
+</div>
