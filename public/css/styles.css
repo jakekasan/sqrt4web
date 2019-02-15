@@ -20,48 +20,6 @@ html, body {
     padding: 0;
 }
 
-/* ####### */
-/* Nav Bar */
-/* ####### */
-
-.navbar {
-    width:100%;
-    /* position:fixed; */
-    height: auto;
-    padding: 10px 0px 10px 0px;
-    /* margin-bottom: 100px; */
-    display: flex;
-    justify-content: flex-end;
-    background-color: #273039;
-    /* background-color: teal; */
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-}
-
-.nav-item {
-    display: block;
-    height: auto;
-    width: min(100px,auto);
-    padding: 5px;
-    margin: 0 10px;
-    /* border-style: double;
-    border: 2px; */
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.nav-item:hover > a {
-    /* background-color: rgb(50, 6, 247); */
-    color: pink;
-}
-
-.nav-item > a {
-    color: aliceblue;
-}
-
-a:link, a:visited {
-    text-decoration: none;
-}
-
 
 /* card stuff */
 
