@@ -1,8 +1,18 @@
-<div class="courses">
+<link rel="stylesheet" href="/css/courses.css">
+
+
+<div class="courses-main">
     <%
         const user = {
             name: "Jake"
         }
+
+        const courses = [
+            {
+                "title":"3D Printing",
+                "author":"Dominik Schreier"
+            }
+        ]
     %>
     <%
         if (user){
@@ -27,8 +37,55 @@
 
     </div>
 
-
     <%
         }
     %>
+
+    <div class="courses-list">
+        <%
+            for (let course of courses){
+        %>
+
+        <div class="course">
+            <div class="course-title">
+                <%= course.title %>
+            </div>
+            <div class="course-data">
+                <div class="course-data-item">
+                    <div class="course-data-item-icon">
+                        ICON
+                    </div>
+                    <div class="course-data-item-label">
+                        Lessons
+                    </div>
+                    <div class="course-data-item-value">
+                        12
+                    </div>
+                </div>
+                <div class="course-data-item">
+                    <div class="course-data-item-icon">
+                        ICON
+                    </div>
+                    <div class="course-data-item-label">
+                        Students
+                    </div>
+                    <div class="course-data-item-value">
+                        52
+                    </div>
+                </div>
+                <div class="course-data-author">
+                    <div class="course-data-author-picture">
+                        ICON
+                    </div>
+                    <div class="course-data-author-name">
+                        Dominik Schreier
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%
+            }
+        %>
+    </div>
 </div>
