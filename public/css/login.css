@@ -1,0 +1,53 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.login-box {
+    height:50vh;
+    width:500px;
+    box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.5s;
+    border-radius: 25px;
+}
+
+.login-box:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* This is the navbar-colored header */
+.login-header {
+    background-color: #273039;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-header-text {
+    color: white;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 300%;
+}
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:80%;
+}
+
+.login-content div {
+    margin: 10px 0;
+}
+
+input, label {
+    display: block;
+}
