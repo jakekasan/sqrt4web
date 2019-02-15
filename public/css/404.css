@@ -1,0 +1,27 @@
+/* 404 specific formatting */
+
+.message-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message {
+    width:80%;
+    height:60%;
+    display:grid;
+    grid-template-rows: 20% 60%;
+    grid-gap: 10%;
+}
+
+.message-title {
+    text-align: center;
+    font-size: 200%;
+}
+
+.message-text {
+    font-size: 150%;
+}
