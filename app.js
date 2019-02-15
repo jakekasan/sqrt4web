@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 const routes = require("./routes");
 const config = require("./config/index")();
 const mongoose = require("mongoose");
+const sqlite3 = require("sqlite3");
+const cookieParser = require("cookie-parser");
 
 // Controllers
 const HomeController = require("./controllers/home.controller");
@@ -25,6 +27,9 @@ app.use(bodyParser());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+// Cookies
+app.use(cookieParser());
+
 //routes(app);
 
 mongoose.connect(config.db.mongodb.address,(err,conn) => {
@@ -34,6 +39,11 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
 
     function databaseMiddleware(req,res,next){
         req.mongo = conn;
+        req.sqlite = new sqlite3.Database(":memory:",(err) => {
+            if (err) {
+                console.log(err);
+            }
+        })
         next();
     }
 
@@ -41,12 +51,10 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
 
     // for testing
 
-    app.all("/test",(req,res,next) => {
-        res.render("test");
-    });
-
-    app.all("/test2",(req,res,next) => {
-        res.render("test2");
+    app.all("/test/*",(req,res,next) => {
+        let split = (req.path).split("/");
+        let template = split.pop();
+        res.render(template);
     });
 
     app.all("/",(req,res,next) => {
@@ -71,7 +79,7 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
 
     app.use((req,res,next) => {
         console.log("404");
-        return res.send("404 Dude...");
+        return res.render("404");
     })
 
     app.listen(8080,() => {
