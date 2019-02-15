@@ -133,6 +133,7 @@
 
 .pagination {
     min-height: 50vh;
+    width: 100%;
     display: grid;
     margin: 20px 0;
     grid-template-areas:
@@ -149,15 +150,20 @@
 }
 
 .pagination-arrow {
-    background-color:lightgreen;
+    background-color:#273039;
     min-width: 10vh;
+    max-width:10vh;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: box-shadow 0.5s, background-color 0.5s;
+    /* : scaleY(3); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* max-width: 10vh; */
 }
 
 .pagination-arrow:hover {
-    background-color: green;
+    background-color: grey;
     box-shadow: 0 6px 12px 0 rgba(0,0,0,0.4);
     transition: box-shadow 0.5s, background-color 0.5s;
 }
@@ -176,7 +182,7 @@
 
 .page-numbers {
     grid-area: pagenum;
-    background-color:teal;
+    background-color: #273039;
     min-height:10vh;
     display: grid; 
     grid-template-columns: repeat(12,1fr);
@@ -188,10 +194,16 @@
 }
 
 .page-numbers > * {
-    background-color: lightgray;
+    background-color: white;
     grid-column-start: span 1;
     grid-row-start: span 1;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300%;
+    transition: background-color 0.5s;
+    cursor: pointer;
 }
 
 .page-numbers > div:hover {
@@ -200,6 +212,7 @@
 
 .page-numbers > .invalid:hover {
     background-color:darkgray;
+    opacity: 0.6;
 }
 
 /* .page-number:hover {
