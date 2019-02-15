@@ -1,0 +1,68 @@
+.courses-main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.message {
+    width: 80%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    margin: 50px 0;
+}
+
+.courses-list {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-auto-rows: 400px;
+}
+
+.course {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(4, 1fr);
+    margin: 50px 0;
+}
+
+.course-title {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+}
+
+.course-data {
+    grid-column: 1 / -1;
+    grid-row: 2 / -1;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.course-data-item {
+    grid-column: span 1;
+    display: grid;
+    grid-template-areas:
+        "label label"
+        "icon value"
+        "icon value";
+}
+
+.course-data-item-icon {
+    grid-area: icon;
+}
+
+.course-data-item-label {
+    grid-area: label;
+}
+
+.course-data-item-value {
+    grid-area: value;
+}
