@@ -1,10 +1,148 @@
 <div class="lesson-main">
+    <div class="lesson-info">
+        <div class="info-item wide short">
+            <div class="subtitle">
+                Title:
+            </div>
+            <div class="content title">
+                <%
+                if (locals.lesson && lesson.title){
+                %>
+                <%= lesson.title %>
+                <%
+                    } else {
+                %>
+                This is an untitled lesson.
+                <%
+                    }
+                %>
+            </div>
+        </div>
+        <div class="info-item wide">
+            <div class="subtitle">
+                Description:
+            </div>
+            <div class="content desc">
+                <%
+                if (locals.lesson && lesson.desc){
+                %>
+                <%= lesson.desc %>
+                <%
+                    } else {
+                %>
+                Here is where a description would go. There isn't one at the moment so this is just some placeholder text which I thought was a bit nicer to look at than lorem ipsum.
+                <%
+                    }
+                %>
+            </div>
+
+        </div>
+        <div class="info-item short">
+            <div class="subtitle">
+                Author:
+            </div>
+            <div class="content">
+                Dominik Schreier
+            </div>
+        </div>
+
+        <div class="info-item short">
+            <div class="subtitle">
+                Sponsors:
+            </div>
+            <div class="content">
+                Microsoft
+            </div>
+        </div>
+
+        <div class="info-item tall">
+            <div class="subtitle">
+                Projects:
+            </div>
+            <div class="list">
+                <div class="item">
+                    <div class="project-title">
+                        Make Glasses
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="project-title">
+                        Make Headphones
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-item tall">
+            <div class="subtitle">
+                Discussion:
+            </div>
+            <div class="list">
+                <div class="item comment">
+                    <div class="text">
+                        Luke, I am your father.
+                    </div>
+                    <div class="meta">
+                        <div class="time">
+                            10:31 PM
+                        </div>
+                        <div class="author">
+                            Darth Vader
+                        </div>
+                    </div>
+                </div>
+                <div class="item comment">
+                    <div class="text">
+                        Noooooo!
+                    </div>
+                    <div class="meta">
+                        <div class="time">
+                            10:31 PM
+                        </div>
+                        <div class="author">
+                            Luke Skywalker
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- <div class="lesson-metas">
+            <div class="lesson-meta">
+                <div class="lesson-meta-title">
+                    Projects
+                </div>
+                <div class="lesson-meta-list">
+                    <div class="lesson-meta-list-item">
+                        Making glasses
+                    </div>
+                    <div class="lesson-meta-list-item">
+                        Making headphones
+                    </div>
+                </div>
+            </div>
+            <div class="lesson-meta">
+                <div class="lesson-meta-title">
+                    Discussion
+                </div>
+                <div class="lesson-meta-list">
+                    <div class="lesson-meta-list-item">
+                        Making glasses
+                    </div>
+                    <div class="lesson-meta-list-item">
+                        Making headphones
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
     <div class="lesson-options">
         <div class="lesson-option">
-            View Lesson
+            <a href="content">Start!</a>
         </div>
-        <div class="lesson-option">
-            View Quiz
-        </div>
+        <!-- <div class="lesson-option">
+            <a href="quiz">View Quiz</a>
+        </div> -->
     </div>
 </div>
