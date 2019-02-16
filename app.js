@@ -64,18 +64,32 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
     });
 
     app.all("/",(req,res,next) => {
-        console.log("Req to '/'");
+        // console.log("Req to '/'");
         // console.log(hc);
         hc.run(req,res,next);
     });
 
-    app.all("/courses*",(req,res,next) => {
-        console.log("Req to '/courses/'");
+    app.all("/courses",(req,res,next) => {
+        // console.log("Req to '/courses/'");
         cc.run(req,res,next);
     });
 
-    app.all("/lesson/*",(req,res,next) => {
+    // Lessons
+    app.all("/lesson/:id*",(req,res,next) => {
         console.log(req.path);
+        console.log(req.params);
+        next();
+    })
+
+    app.all("/lesson/:id/:route*",(req,res,next) => {
+        console.log(req.path);
+        console.log(req.params);
+        next();
+    })
+
+    app.all("/lesson/:id/quiz/:quizID*",(req,res,next) => {
+        console.log(req.path);
+        console.log(req.params);
         next();
     })
 
