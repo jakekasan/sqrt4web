@@ -1,0 +1,120 @@
+.lesson-main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+}
+
+.lesson-info {
+    padding: 20px 0;
+    display:grid;
+    width:100%;
+    /* align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column; */
+    grid-auto-rows: 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.title {
+    font-size: 300%;
+}
+
+.desc {
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 150%;
+}
+
+.info-item {
+    grid-row: span 2;
+    grid-column: span 1;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.info-item > .subtitle {
+    grid-row: span 2;
+    font-size: 150%;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+.info-item > .content {
+    grid-row: span 6;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 150%;
+}
+
+.info-item > .list {
+    grid-row: span 6;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: grid;
+    grid-auto-rows: 50px;
+    grid-gap: 5px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.wide {
+    grid-column: span 2;
+}
+
+.tall {
+    grid-row: span 3;
+    grid-template-rows: repeat(12, 1fr);
+}
+
+.tall > .list,.content {
+    grid-row: span 10;
+}
+
+
+
+.short {
+    grid-row: span 1;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.short > .list {
+    grid-row: span 2;
+}
+
+
+
+
+.comment {
+    display: grid;
+    grid-template-rows: 70% 30%;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+}
+
+.comment .text {
+    font-size: 100%;
+}
+
+.comment .meta {
+    font-size: 60%;
+    opacity: 0.8;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.comment .author {
+    grid-column: span 2;
+}
+
+.comment .time {
+    grid-column: span 2;
+}
+
