@@ -1,0 +1,93 @@
+.project-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-rows: 100px;
+    grid-gap: 10px;
+}
+
+.item {
+    display: grid;
+    grid-column: span 2;
+    grid-row: span 2;
+    grid-template-rows: repeat(8,1fr);
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    overflow: hidden;
+}
+
+.item > .subtitle {
+    grid-row: span 2;
+    grid-column: span 2;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+.item > .content {
+    grid-row: span 6;
+    grid-column: span 4;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+}
+
+
+
+
+.wide {
+    grid-column: span 4;
+    /* grid-template-columns: repeat(8,1fr); */
+}
+
+.narrow {
+    grid-column: span 1;
+    /* grid-template-columns: repeat(2,1fr); */
+}
+
+.short {
+    grid-row: span 1;
+    grid-template-rows: repeat(4,1fr);
+}
+
+.short > .content {
+    grid-row: span 2;
+}
+
+.tall {
+    grid-row: span 4;
+    grid-template-rows: repeat(16,1fr);
+}
+
+.tall > .content {
+    grid-row: span 14;
+}
+
+.list {
+    position: relative;
+    display: grid;
+    grid-auto-rows: 50px;
+    grid-gap: 5px;
+    overflow-y: scroll;
+}
+
+.list > div {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    grid-column: span 2;
+}
+
+.narrow > .list {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.wide > .list {
+    grid-template-columns: repeat(4, 1fr)
+}
+
+.big-font {
+    font-size: 300%;
+}
