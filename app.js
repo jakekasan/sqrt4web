@@ -47,6 +47,12 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
         next();
     }
 
+    function loggingMiddleware(req,res,next){
+        console.log(`${new Date(Date.now())}: ${req.method} request to ${req.path} with body: ${(req.body != {}) ? JSON.stringify(req.body) : "Empty"}`);
+        next();
+    }
+
+    app.use(loggingMiddleware);
     app.use(databaseMiddleware);
 
     // for testing
@@ -67,6 +73,11 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
         console.log("Req to '/courses/'");
         cc.run(req,res,next);
     });
+
+    app.all("/lesson/*",(req,res,next) => {
+        console.log(req.path);
+        next();
+    })
 
     app.all("/view/course",(req,res,next) => {
         console.log("Req to '/view/course");
