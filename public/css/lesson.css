@@ -118,3 +118,20 @@
     grid-column: span 2;
 }
 
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+}
+
+.button {
+    border: none;
+    color: white;
+    background-color: green;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-size: 200%;
+    cursor: pointer;
+}
