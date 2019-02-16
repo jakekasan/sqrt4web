@@ -2,12 +2,14 @@
     <div class="question-text">
         <%= question.text %>
     </div>
-    <div class="question-answer" name="<%= question.id %>">
+    <div class="question-answer" data-id="<%= question.id %>">
         <% 
             for (let option of question.options) {
         %>
-            <div class="option" value="<%= option.text %>">
+            <div class="option" data-text="<%= option.text %>">
+                
                 <div class="option-text">
+                <input type="hidden" name="question_<%= question.id %>" value="<%= option.text %>">
                     <%= option.text %>
                 </div>
             </div>
