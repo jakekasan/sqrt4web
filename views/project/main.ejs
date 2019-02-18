@@ -1,52 +1,125 @@
+<%
+    const project = data.project[0];
+%>
 <div class="project-container">
     <div class="item wide short">
         <div class="subtitle">
             Title:
         </div>
         <div class="content big-font">
-            3D Printed Headphones
-        </div>
-    </div>
-
-    <div class="item wide">
-        <div class="subtitle">
-            Description:
-        </div>
-        <div class="content">
-            This is a project for printing headphones using a 3D Printer.
-        </div>
-    </div>
-
-    <div class="item short">
-        <div class="subtitle">
-            Authors:
-        </div>
-        <div class="content list">
-            <div>
-                Darth Vader
-            </div>
-            <div>
-                Darth Sidious
-            </div>
-        </div>
-    </div>
-    
-    <div class="item short">
-        <div class="subtitle">
-            Sponsors:
-        </div>
-        <div class="content list">
-            <div>Galactic Empire</div>
-            <div>Stormtroopers Union</div>
-            <div>Death Star</div>
+            <%= project.title %>
         </div>
     </div>
     <div class="item">
         <div class="subtitle">
-            Author:
+            Description:
         </div>
         <div class="content">
-            Dominik Schreier
+            <%= project.description %>
+        </div>
+    </div>
+    <div class="item short">
+        <div class="subtitle">
+            Cas dokonceni
+        </div>
+        <div class="content big-font">
+            6+ hodin
+        </div>
+    </div>
+    <div class="item short">
+        <div class="subtitle">
+            Obtiznost
+        </div>
+        <div class="content med-font">
+            Jednoducha az stredne tezka
+        </div>
+    </div>
+    <div class="item">
+        <div class="subtitle">
+            Gallery:
+        </div>
+        <div class="content center">
+            <%
+                for (let pic of project.gallery){
+            %>
+                <img src="/img/project/<%=pic%>" alt="/img/home.png">
+            <%
+                }
+            %>
+        </div>
+    </div>
+    <div class="item">
+        <div class="subtitle">
+            Partners:
+        </div>
+        <div class="content list">
+            <%
+                for (let partner of project.partners){
+            %>
+                    <div class="iconed">
+                        <i class="icon">
+                            <%= partner.icon %>
+                        </i>
+                        <div class="text">
+                            <%= partner.name %>
+                        </div>
+                    </div>
+            <%
+                }
+            %>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="subtitle">
+            Authors:
+        </div>
+        <div class="content list">
+            <%
+                for (let author of project.authors){
+            %>
+                    <div><%= author %></div>
+            <%
+                }
+            %>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="subtitle">
+            Resources:
+        </div>
+        <div class="content list">
+            <%
+                for (let resource of project.resources){
+            %>
+                    <div><%= resource.name %></div>
+            <%
+                }
+            %>
+        </div>
+    </div>
+    
+    
+    <div class="item tall">
+        <div class="subtitle">
+            Instructions:
+        </div>
+        <div class="content list">
+            <%
+                var counter = 1;
+                for (let step of project.steps){
+            %>
+            <div class="numbered">
+                <div class="number"><%= counter %></div>
+                <div class="text"> <%= step %></div>
+            </div>
+            <%
+                counter++;
+            %>
+            <%
+                }
+            %>
         </div>
     </div>
 
