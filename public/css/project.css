@@ -21,22 +21,20 @@
 }
 
 .item > .subtitle {
-    grid-row: span 2;
+    grid-row: span 1;
     grid-column: span 2;
     font-style: italic;
     opacity: 0.6;
 }
 
 .item > .content {
-    grid-row: span 6;
+    /* grid-row: span 6; */
+    grid-row: 2 / -1;
     grid-column: span 4;
     padding-left: 10px;
     padding-right: 10px;
-    overflow: hidden;
+    overflow-y: scroll;
 }
-
-
-
 
 .wide {
     grid-column: span 4;
@@ -53,18 +51,18 @@
     grid-template-rows: repeat(4,1fr);
 }
 
-.short > .content {
+/* .short > .content {
     grid-row: span 2;
-}
+} */
 
 .tall {
     grid-row: span 4;
     grid-template-rows: repeat(16,1fr);
 }
 
-.tall > .content {
+/* .tall > .content {
     grid-row: span 14;
-}
+} */
 
 .list {
     position: relative;
@@ -72,6 +70,7 @@
     grid-auto-rows: 50px;
     grid-gap: 5px;
     overflow-y: scroll;
+    padding-bottom: 10px;
 }
 
 .list > div {
@@ -90,4 +89,59 @@
 
 .big-font {
     font-size: 300%;
+}
+
+.med-font {
+    font-size: 200%;
+}
+
+.list > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    padding: 0 10px;
+}
+
+.numbered > .number {
+    padding-right: 10px;
+    border-right: 2px solid black;
+    opacity: 0.5;
+}
+
+.numbered > .text {
+    padding-left: 10px;
+}
+
+.iconed {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.iconed > .icon {
+    padding-right: 10px;
+}
+
+.iconed > .text {
+    padding-left: 10px;
+}
+
+.item .picture {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+}
+
+.content > img {
+    max-height:100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
