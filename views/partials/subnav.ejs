@@ -1,0 +1,39 @@
+<%
+    const breadcrumbs = [{
+        "name": "Home",
+        "url": "/"
+    },
+    {
+        "name": "3D Tisk",
+        "type": "Course",
+        "url": "/courses/abcde/"
+    },
+    {
+        "name": "Vytiskni 3D Bryle",
+        "type": "Project",
+        "url": "/projects/fghij/"
+    }];
+%>
+
+<link rel="stylesheet" href="/css/subnav.css">
+
+<div class="subnav">
+    <%
+        for (let crumb of breadcrumbs){
+    %>
+            <a href="<%=crumb.url%>" class="breadcrumb">
+                <div class="crumb-type">
+                    <%= crumb.type %>
+                </div>
+                <div class="crumb-name">
+                    <%= crumb.name %>
+                </div>
+            </a>
+            <div class="subnav-arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+    <%
+        }
+    %>
+
+</div>
