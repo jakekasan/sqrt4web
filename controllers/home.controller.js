@@ -9,18 +9,15 @@ class HomeController extends BaseController {
     }
 
     run(req,res,next){
-        console.log("Running run");
         if (this.debug) {
             console.log(`${Date.now()} : ${req.method} request recieved`);
         }
         var self = this; // for scope
-        console.log("Set self");
         self.req = req;
         self.res = res;
         self.next = next;
         self.mongo = self.req.mongo;
 
-        console.log("Running getContent");
         this.getContent(self);
 
 
@@ -45,11 +42,17 @@ class HomeController extends BaseController {
         console.log("In get content");
         // temporary data
         let data = {
-            title:"Welcome to SQRT4"
+            title:"Welcome to SQRT4",
+            breadcrumbs:[
+                {
+                    name:"Home",
+                    url:"/"
+                }
+            ]
         }
 
         // get data and render template
-        let view = new BaseView("main",self.res)
+        let view = new BaseView("home",self.res)
         self.content = data;
         return view.render(self.content);
     }
