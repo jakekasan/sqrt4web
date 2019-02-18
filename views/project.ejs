@@ -5,7 +5,9 @@
 
         <div class="page-content">
 
-            <%- include("project/main.ejs") %>
+            <% include partials/subnav %>
+
+            <%- include("project/main.ejs",data.project) %>
 
         </div>
 
