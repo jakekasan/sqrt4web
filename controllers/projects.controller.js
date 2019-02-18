@@ -20,11 +20,32 @@ class ProjectsController extends BaseController {
         let view = new BaseView("project",self.res);
 
         let dataPath = path.resolve(__dirname,"../public",'projects.json');
-        console.log(dataPath);
-        var projectData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        var projectData = JSON.parse(fs.readFileSync(dataPath, 'utf8'))[0];
+
+        console.log(projectData);
 
         return view.render({
-            project: projectData
+            project: projectData,
+            breadcrumbs: [
+                {
+                    name:"Home",
+                    url:"/"
+                },
+                {
+                    name:"Browse Courses",
+                    url:"/courses"
+                },
+                {
+                    name:"Specific Course",
+                    type:"/missing",
+                    url:"/courses"
+                },
+                {
+                    name:projectData.title,
+                    type:"Project",
+                    url:"/project"
+                }
+            ]
         });
     }
 }
