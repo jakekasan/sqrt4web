@@ -5,9 +5,9 @@
 
         <div class="page-content">
 
-            <% include partials/subnav %>
+            <%- include("partials/subnav",breadcrumbs) %>
 
-            <%- include("project/main.ejs",data.project) %>
+            <%- include("project/main.ejs",project) %>
 
         </div>
 
