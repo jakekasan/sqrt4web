@@ -122,6 +122,10 @@
 
 .iconed > .icon {
     padding-right: 10px;
+    max-height:50px;
+    max-width:50px;
+    height:auto;
+    width:auto;
 }
 
 .iconed > .text {
