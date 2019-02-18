@@ -5,7 +5,7 @@ class BaseView {
     }
 
     render(data){
-        return this.responseObject.render(this.templateName,{data:data});
+        return this.responseObject.render(this.templateName,data);
     }
 }
 
