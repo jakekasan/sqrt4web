@@ -2,7 +2,8 @@
     <body>
         <% include partials/header %>
         <div class="page-content">
-            <%- include("./courses/main.ejs",{}) %>
+            <%- include("./partials/subnav.ejs",breadcrumbs) %>
+            <%- include("./courses/main.ejs",courses) %>
         </div>
         <% include partials/footer %>
         <% include partials/modal %>
