@@ -57,9 +57,7 @@
                 for (let partner of project.partners){
             %>
                     <div class="iconed">
-                        <i class="icon">
-                            <%= partner.icon %>
-                        </i>
+                        <img class="icon" src="/img/project/<%= partner.logo %>">
                         <div class="text">
                             <%= partner.name %>
                         </div>
