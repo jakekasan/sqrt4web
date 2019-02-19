@@ -5,5 +5,15 @@
         "lessons":[
             1
         ]
+    },
+    {
+        "id":2,
+        "title":"Python",
+        "lessons":[]
+    },
+    {
+        "id":3,
+        "title":"German",
+        "lessons":[]
     }
 ]
