@@ -1,0 +1,38 @@
+<%
+        if (breadcrumbs.length > 1) {
+    %>
+    <%
+            for (let crumb of breadcrumbs.slice(0,-1)){
+    %>
+            <a href="<%=crumb.url%>" class="breadcrumb">
+                <div class="crumb-type">
+                    <%= crumb.type %>
+                </div>
+                <div class="crumb-name">
+                    <%= crumb.name %>
+                </div>
+            </a>
+            <div class="subnav-arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+    <%
+            }
+    %>
+    <%
+        }
+    %>
+    <%
+        if (breadcrumbs.length > 0) {
+            let crumb = breadcrumbs.pop();
+    %>
+        <a href="<%=crumb.url%>" class="breadcrumb">
+            <div class="crumb-type">
+                <%= crumb.type %>
+            </div>
+            <div class="crumb-name">
+                <%= crumb.name %>
+            </div>
+        </a>
+    <%
+        }
+    %>
