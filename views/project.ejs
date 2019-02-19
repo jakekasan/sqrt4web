@@ -1,3 +1,24 @@
+<%
+    var project2 = {
+        title:"Project",
+        description:"Something something dark side",
+        time:6,
+        difficulty:"Hard",
+        intentions:"To learn...",
+        author:"Dominik Schreier",
+        partner:"Prusa",
+        resources:[
+            "link1",
+            "link2"
+        ],
+        steps:[
+            "Do the first thing.",
+            "Do the second thing.",
+            "Do the last thing"
+        ]
+    };
+%>
+
 <html>
     <body>
         <link rel="stylesheet" href="/css/project.css">
@@ -7,7 +28,7 @@
 
             <%- include("partials/subnav",breadcrumbs) %>
 
-            <%- include("project/main.ejs",project) %>
+            <%- include("project/alt.ejs",project) %>
 
         </div>
 
