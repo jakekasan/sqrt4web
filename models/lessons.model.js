@@ -46,6 +46,18 @@ class LessonsModel extends BaseModel {
 
         return callback(data)
     }
+
+    findAll(obj,callback){
+        let { id } = obj;
+
+        let dataPath = path.resolve(__dirname,"../public",'lessons.json');
+
+        var data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+
+        data = data.filter(item => id.includes(item.id));
+
+        return callback(data)
+    }
 }
 
 module.exports = LessonsModel;
