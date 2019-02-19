@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/css/course.specific.css">
+<link rel="stylesheet" href="/css/modal.css">
+<script src="/js/gallery.js"></script>
+
+<div class="page-content">
+    <div class="course-details" data-id=<%=lesson.id %>>
+        <div class="title"><%= lesson.title %></div>
+        <div class="picture">
+            <%
+                if (lesson.titlePicture){
+            %>
+            <img src="/img/courses/<%= lesson.id %>/<%= lesson.titlePicture %>" alt="">
+            <%
+                } else {
+            %>
+            <img src="/img/homer.png" alt="">
+            <%
+                }
+            %>
+        </div>
+        <div class="description">
+            <div class="description-text">
+                <% if (lesson.desc) { %>
+                <%= lesson.desc %>
+                <% } else { %>
+                    No description given...
+                <% } %>
+            </div>
+        </div>
+        
+        <%
+            //for (let i = 0; i < 7; i++) {
+            for (let module of lesson.modules){
+        %>
+
+        <%- include("./lesson-module.ejs",{module:module,lesson:lesson}); %>
+
+        <%
+            };
+        %>
+        
+    </div>
+
+    <div class="modal">
+        <div class="modal-content large-modal">
+            <span class="modal-close">&times;</span>
+        </div>
+    </div>
+
+    <script src="/js/modal.js"></script>
+
+    </div>
+    <script>
+        console.log("Page Loaded");
+    </script>
+    <script>
+    
+        var moduleGalleries = [];
+    </script>
+</div>
