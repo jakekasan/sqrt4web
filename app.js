@@ -12,6 +12,7 @@ const HomeController = require("./controllers/home.controller");
 const CoursesController = require("./controllers/courses.controller");
 const APIController = require("./controllers/api.controller");
 const ProjectController = require("./controllers/projects.controller");
+const LessonController = require("./controllers/lesson.controller");
 
 // Models
 const UsersModel = require("./models/users.model");
@@ -38,6 +39,7 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
     var cc = new CoursesController(true);
     var api = new APIController(true);
     var pc = new ProjectController(true);
+    var lc = new LessonController(true);
 
     function databaseMiddleware(req,res,next){
         req.mongo = conn;
@@ -80,10 +82,8 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
         pc.run(req,res,next);
     })
     // Lessons
-    app.all("/lesson/:id*",(req,res,next) => {
-        console.log(req.path);
-        console.log(req.params);
-        next();
+    app.all("/lesson*",(req,res,next) => {
+        lc.run(req,res,next);
     })
 
     app.all("/lesson/:id/:route*",(req,res,next) => {
