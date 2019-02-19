@@ -1,6 +1,8 @@
 const BaseController = require("./base.controller");
 const BaseView = require("./../views/base.view");
 const CoursesModel = require("./../models/courses.model");
+const LessonsModel = require("./../models/lessons.model");
+const CoursesService = require("./services/courses.service");
 
 var quiz_data = {
     "title":"Quiz Time!",
@@ -313,6 +315,7 @@ class CoursesController extends BaseController {
         super("Courses Controller");
         this.debug = debug;
         this.coursesModel = new CoursesModel();
+        this.lessonsModel = new LessonsModel();
     }
 
     run(req,res,next){
@@ -326,6 +329,7 @@ class CoursesController extends BaseController {
         self.res = res;
         self.next = next;
         self.mongo = self.req.mongo;
+        self.coursesService = new CoursesService(false);
 
         // console.log("Courses Controller");
         // console.log(this.paths["/courses"]["GET"])
@@ -333,52 +337,17 @@ class CoursesController extends BaseController {
         if (this.paths[self.req.path] && this.paths[self.req.path][self.req.method]){
             this.paths[self.req.path][self.req.method](self);
         } else {
-            next();
+            return next();
         }
-
-        // if (req.query && req.query.id){
-        //     return this.singleCourse(self);
-        // } else {
-        //     return this.browseCourses(self);
-        // }
-
-        // if (req.path == "/view/course") {
-        //     this.singleCourse(self);
-        // }
-
-
-        // if (self.checkLoggedStatus(self)){
-        //     self.getContent(self);
-        // } else {
-        //     self.getContent(self);
-        // }
-    }
-
-    checkLoggedStatus(self){
-        /*
-        
-            returns either true or false depending on if req has a valid user session with userdata
-        
-        */
-
-       return true // for now...
     }
 
     browseCourses(self){
-        self.coursesModel.getData((data,err) => {
-            if (err) {
-                return console.log(err)
-            }
-
-            // self.content = {};
-
-            // self.content.courses = data;
-
-            // get data and render template
+        self.coursesService.getAllCourses()
+            .then((courses) => {
             let view = new BaseView("courses",self.res)
-            // self.content = data;
+            console.log(courses);
             return view.render({
-                courses: data,
+                courses: courses,
                 breadcrumbs: [
                     {
                         name:"Home",
@@ -391,8 +360,6 @@ class CoursesController extends BaseController {
                 ]
             });
         });
-
-        
     }
 
     singleCourse(self){
