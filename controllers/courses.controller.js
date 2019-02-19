@@ -414,9 +414,26 @@ class CoursesController extends BaseController {
     
             self.content = data;
     
-            let view = new BaseView("test2",self.res);
+            let view = new BaseView("course",self.res);
     
-            return view.render(self.content)
+            return view.render({
+                course:data,
+                breadcrumbs:[
+                    {
+                        name:"Home",
+                        url:"/"
+                    },
+                    {
+                        name:"Browse Courses",
+                        url:"/courses"
+                    },
+                    {
+                        name:data.course.name,
+                        type:"Course",
+                        url:`/courses?id=${data.course.id}`
+                    }
+                ]
+            })
         });
 
         
