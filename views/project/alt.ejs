@@ -1,0 +1,177 @@
+<div class="project">
+    <div class="project-info">
+        <div class="title-row">
+            <div class="title">
+                <%= project.title %>
+            </div>
+            <div class="time">
+                <%= project.time %>
+            </div>
+            <div class="difficulty">
+                <%= project.difficulty %>
+            </div>
+        </div>
+        <div class="gallery-row">
+            <div class="gallery">
+                <img src="/img/homer.png">
+            </div>
+            <div class="text-info">
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Description:
+                    </div>
+                    <div class="content">
+                        <%= project.description %>
+                    </div>
+                    
+                </div>
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Author:
+                    </div>
+                    <div class="content list">
+                        <%
+                            for (let author of project.authors){
+                        %>
+                            <div class="list-item">
+                                <%= author %>
+                            </div>
+                        <%
+                            }
+                        %>
+                    </div>
+                </div>
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Partner:
+                    </div>
+                    <div class="content">
+                        <%
+                            for (let partner of project.partners){
+                        %>
+                        <a href="<%=partner.url%>">
+                            <img src="/img/project/<%= partner.logo %>">
+                        </a>
+                        <%
+                            }
+                        %>
+                    </div>      
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="components subtitled">
+        <div class="subtitle">
+            Components:
+        </div>
+        <div class="content list">
+            <%
+                for (let component of project.components){
+            %>
+            <div class="list-item">
+                <%= component %>
+            </div>
+            <%
+                }
+            %>
+        </div>
+            
+    </div>
+    <div class="instructionals">
+        <div class="instructions subtitled">
+            <div class="subtitle">
+                Instrukce:
+            </div>
+            <div class="content list">
+                <%
+                    for (let step of project.steps){
+                %>
+                    <div class="list-item">
+                        <%= step %>
+                    </div>
+                <%
+                    }
+                %>
+            </div>
+            
+        </div>
+        <div class="resources subtitled">
+            <div class="subtitle">
+                Zdroje:
+            </div>
+            <div class="content list">
+                <%
+                    for (let resource of project.resources){
+                %>
+                <a href="<%=resource.url%>" class="list-item">
+                    <%= resource.name %>
+                </a>
+                <%
+                    }
+                %>
+            </div>
+        </div>
+    </div>
+    <div class="recommended subtitled">
+        <div class="subtitle">
+            Doporucene:
+        </div>
+        <div class="content">
+            <%= project.recommendedLessons %>
+        </div>
+    </div>
+
+
+
+
+    <!-- <div class="half-section">
+        <div class="row">
+            <div class="title">
+                <%= project.title %>
+            </div>
+            <div class="time">
+                <%= project.time %>
+            </div>
+            <div class="difficulty">
+                <%= project.difficulty %>
+            </div>
+        </div>
+        <div class="row-stretch">
+            <div class="2fr">
+
+            </div>
+            <div class="1fr">
+                <div class="text">
+                    <%= project.description %>
+                </div>
+                <div class="text">
+                    <%= project.intentions %>
+                </div>
+                <div class="text">
+                    <%= project.author %>
+                </div>
+                <div class="text">
+                    <%= project.partner %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            Co budes potrebovat
+        </div>
+    </div>
+    <div class="medium">
+        <div class="2fr">
+            Potato
+        </div>
+        <div class="1fr">
+            Salad
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            Doporucene Kurzy
+        </div>
+    </div> -->
+</div>
