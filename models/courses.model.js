@@ -33,15 +33,18 @@ class CoursesModel extends BaseModel {
         var obj = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
         
         return callback(obj)
+    }
 
-        // let fakeData = require("./../public/courses.json");
-        // for (let course of fakeData){
-        //     console.log({
-        //         id:course.id,
-        //         submodules:course.modules.length
-        //     });
-        // }
-        // return fakeData
+    findOne(query,callback){
+        let { id, title } = query;
+
+        // model methods will come here
+        let dataPath = path.resolve(__dirname,"../public",'courses.json');
+        var data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+
+        data = data.filter(item => item.id == id);
+
+        return callback(data)
     }
 }
 
