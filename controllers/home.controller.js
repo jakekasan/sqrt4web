@@ -5,13 +5,13 @@ class HomeController extends BaseController {
 
     constructor(debug){
         super("Home Controller");
-        this.debug = debug;
+        // this.debug = debug;
     }
 
     run(req,res,next){
-        if (this.debug) {
-            console.log(`${Date.now()} : ${req.method} request recieved`);
-        }
+        // if (this.debug) {
+        //     console.log(`${Date.now()} : ${req.method} request recieved`);
+        // }
         var self = this; // for scope
         self.req = req;
         self.res = res;
