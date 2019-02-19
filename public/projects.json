@@ -2,7 +2,6 @@
 	{
 		"title":"Vylepši sluchátka",
 		"description":"Tento projek tě provede celou šíří vývoje produktu. Cílem je v týmové spolupráci vylepšit stávající design sluchátek a vyrobit je. Obtížnost: jednoduchá až náročná, Trvání: 6h+, cena sluchátek: 300 Kč",
-
 		"gallery":[
 			"project_photo.jpeg"
 		],
@@ -36,6 +35,15 @@
 			"Test konceptů a materiálů",
 			"Třídění nápadů a první draft",
 			"Výroba produktu"
+		],
+		"time":6,
+		"difficulty":"Lehka az stredne tezka",
+		"intentions":[
+			"learn stuff!",
+			"learn other stuff"
+		],
+		"components":[
+			"thing1", "thing2"
 		]
 	}
 ]
