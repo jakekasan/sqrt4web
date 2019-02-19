@@ -1,0 +1,119 @@
+<div class="course-main">
+    <div class="course-info">
+        <div class="info-item wide short">
+            <div class="subtitle">
+                Title:
+            </div>
+            <div class="content title">
+                <%
+                if (course && course.title){
+                %>
+                <%= course.title %>
+                <%
+                    } else {
+                %>
+                This is an untitled course.
+                <%
+                    }
+                %>
+            </div>
+        </div>
+        <div class="info-item wide">
+            <div class="subtitle">
+                Description:
+            </div>
+            <div class="content desc">
+                <%
+                if (course && course.desc){
+                %>
+                <%= course.desc %>
+                <%
+                    } else {
+                %>
+                Here is where a description would go. There isn't one at the moment so this is just some placeholder text which I thought was a bit nicer to look at than lorem ipsum.
+                <%
+                    }
+                %>
+            </div>
+
+        </div>
+        <div class="info-item short">
+            <div class="subtitle">
+                Author:
+            </div>
+            <div class="content">
+                Dominik Schreier
+            </div>
+        </div>
+
+        <div class="info-item short">
+            <div class="subtitle">
+                Sponsors:
+            </div>
+            <div class="content">
+                Microsoft
+            </div>
+        </div>
+
+        <div class="info-item tall">
+            <div class="subtitle">
+                Projects:
+            </div>
+            <div class="list">
+                <div class="item">
+                    <div class="project-title">
+                        Make Glasses
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="project-title">
+                        Make Headphones
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-item tall">
+            <div class="subtitle">
+                Discussion:
+            </div>
+            <div class="list">
+                <div class="item comment">
+                    <div class="text">
+                        Luke, I am your father.
+                    </div>
+                    <div class="meta">
+                        <div class="time">
+                            10:31 PM
+                        </div>
+                        <div class="author">
+                            Darth Vader
+                        </div>
+                    </div>
+                </div>
+                <div class="item comment">
+                    <div class="text">
+                        Noooooo!
+                    </div>
+                    <div class="meta">
+                        <div class="time">
+                            10:31 PM
+                        </div>
+                        <div class="author">
+                            Luke Skywalker
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="info-item short wide">
+            <div class="centered-container">
+                <button class="button">
+                    Start!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
