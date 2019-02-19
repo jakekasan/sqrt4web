@@ -2,81 +2,29 @@
 
 
 <div class="courses-main">
-    <%
-        const user = {
-            name: "Jake"
-        }
-    %>
-    <%
-        if (locals.user){
-    %>
-    <div class="message">
-
-        Welcome, <%= user.name %>.
-
-        Select a new course to do here.
-
-    </div>
-
-    <%
-        } else {
-    %>
-
-    <div class="message">
-
-        You're not logged it an the moment.
-
-        You can browse courses, but if you want to attend or start a project, you must create an account.
-
-    </div>
-
-    <%
-        }
-    %>
-
-    <div class="courses-list">
+    <div class="blocks">
         <%
             for (let course of courses){
         %>
-
-        <div class="course">
-            <div class="course-title">
+        <a href="/courses?id=<%=course.id%>" class="block">
+            <div class="title">
                 <%= course.title %>
             </div>
-            <div class="course-data">
-                <div class="course-data-item">
-                    <div class="course-data-item-icon">
-                        <a class="fa fa-book fa-2x"></a>
-                    </div>
-                    <div class="course-data-item-label">
-                        Lessons
-                    </div>
-                    <div class="course-data-item-value">
-                        12
-                    </div>
-                </div>
-                <div class="course-data-item">
-                    <div class="course-data-item-icon">
-                        <a class="fa fa-user fa-2x"></a>
-                    </div>
-                    <div class="course-data-item-label">
-                        Students
-                    </div>
-                    <div class="course-data-item-value">
-                        52
-                    </div>
-                </div>
-                <div class="course-data-author">
-                    <div class="course-data-author-picture">
-                        ICON
-                    </div>
-                    <div class="course-data-author-name">
-                        Dominik Schreier
-                    </div>
-                </div>
+            <div class="lessons">
+                <%
+                    let lessonCount = course.lessons.length;
+                %>
+                    <%= lessonCount %> <%= (lessonCount == 1) ? "Lesson" : "Lessons"; %>
+                
             </div>
-        </div>
-
+            <div class="time">
+                <%= (course.lessons).reduce((acc,ele) => {
+                    return acc+(ele.modules.reduce((totalTime,module) => {
+                        return totalTime+module.minutes
+                    },0))
+                },0) %> Minutes
+            </div>
+        </a>
         <%
             }
         %>
