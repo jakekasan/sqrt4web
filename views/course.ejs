@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <link rel="stylesheet" href="/css/course.css">
+        <% include partials/header %>
+        <div class="page-content">
+            <%- include("./partials/subnav.ejs",breadcrumbs) %>
+            <%- include("./course/main.ejs",course) %>
+        </div>
+        <% include partials/footer %>
+    </body>
+    <% include partials/modal %>
+</html>
