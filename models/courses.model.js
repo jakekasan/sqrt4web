@@ -42,7 +42,7 @@ class CoursesModel extends BaseModel {
         let dataPath = path.resolve(__dirname,"../public",'courses.json');
         var data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 
-        data = data.filter(item => item.id == id);
+        data = data.filter(item => item.id == id).pop();
 
         return callback(data)
     }
