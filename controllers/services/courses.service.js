@@ -18,7 +18,7 @@ module.exports = class CoursesService {
         })
     }
 
-    getLessonsForCourse (course){
+    getLessonsForCourse (course) {
         let lessonIDs = course.lessons;
         let promises = lessonIDs.map(item => {
             return this.getLessonByID(item)
@@ -37,8 +37,8 @@ module.exports = class CoursesService {
                     return reject(error)
                 }
                 this.getLessonsForCourse(course)
-                    .then(course => {
-                        resolve(course);
+                    .then(data => {
+                        resolve(data);
                     })
             })
         })
