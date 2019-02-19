@@ -368,23 +368,15 @@ class CoursesController extends BaseController {
         let id = self.req.query.id;
 
         // replace with model lookup EVENTUALLY
-        self.coursesModel.getData((courses,err) => {
-            let course = courses.filter(item => item.id == id)[0];
-
-            let data = {};
-    
-            if (course) {
-                data.course = course;
-            } else {
-                data.course = courses[0];
-            }
-    
-            self.content = data;
-    
+        self.coursesService.getCourseByID(id)
+            .then((course) => {
+            
             let view = new BaseView("course",self.res);
     
+            console.log(course);
+
             return view.render({
-                course:data,
+                course:course,
                 breadcrumbs:[
                     {
                         name:"Home",
@@ -395,9 +387,9 @@ class CoursesController extends BaseController {
                         url:"/courses"
                     },
                     {
-                        name:data.course.name,
+                        name:course.name,
                         type:"Course",
-                        url:`/courses?id=${data.course.id}`
+                        url:`/courses?id=${course.id}`
                     }
                 ]
             })
