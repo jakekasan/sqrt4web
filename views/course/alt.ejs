@@ -1,0 +1,24 @@
+<div class="course">
+    <div class="blocks">
+        <%
+            for (let lesson of course.lessons){
+        %>
+        <a href="/lesson?id=<%=lesson.id%>" class="block">
+            <div class="title">
+                <%= lesson.title %>
+            </div>
+            <div class="modules">
+                <%= lesson.modules.length %> Modules
+            </div>
+            <div class="time">
+                <% let minutes = lesson.modules.reduce((acc,ele) => {
+                    return acc + ele.minutes
+                },0) %>
+                <%= minutes %> <%= (minutes == 1) ? "Minute" : "Minutes" %>
+            </div>
+        </a>
+        <%
+            }
+        %>
+    </div>
+</div>
