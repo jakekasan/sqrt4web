@@ -49,6 +49,13 @@
     font-size: 100%;
 }
 
+.title-row > .difficulty > img {
+    max-width:80%;
+    max-height:80%;
+    width: auto;
+    height: auto;
+}
+
 .gallery-row {
     /* background-color:pink; */
     display: grid;
@@ -148,4 +155,11 @@
 
 .list-item:nth-child(1){
     border:none;
+}
+
+.icon {
+    max-height: 15px;
+    max-width: 15px;
+    height:auto;
+    width:auto;
 }
