@@ -1,137 +1,313 @@
-.lesson-main {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    flex-direction: column;
-}
-
-.lesson-info {
-    padding: 20px 0;
+.course-details {
     display:grid;
+    min-height:100vh;
     width:100%;
-    /* align-items: flex-start;
-    justify-content: space-evenly;
-    flex-direction: column; */
+    /* background-color:grey; */
+    grid-template-columns: repeat(4,1fr);
     grid-auto-rows: 100px;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    font-family: 'Franklin Gothic Medium';
 }
 
 .title {
-    font-size: 300%;
-}
-
-.desc {
-    padding-left: 50px;
-    padding-right: 50px;
-    font-size: 150%;
-}
-
-.info-item {
-    grid-row: span 2;
-    grid-column: span 1;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    padding: 10px;
-    display: grid;
-    grid-template-rows: repeat(8, 1fr);
-}
-
-.info-item > .subtitle {
-    grid-row: span 2;
-    font-size: 150%;
-    opacity: 0.6;
-    font-style: italic;
-}
-
-.info-item > .content {
-    grid-row: span 6;
-    padding-left: 50px;
-    padding-right: 50px;
-    font-size: 150%;
-}
-
-.info-item > .list {
-    grid-row: span 6;
-    padding-left: 50px;
-    padding-right: 50px;
-    display: grid;
-    grid-auto-rows: 50px;
-    grid-gap: 5px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-
-.wide {
-    grid-column: span 2;
-}
-
-.tall {
-    grid-row: span 3;
-    grid-template-rows: repeat(12, 1fr);
-}
-
-.tall > .list,.content {
-    grid-row: span 10;
-}
-
-
-
-.short {
+    grid-area: title;
+    /* background-color: lightblue; */
+    grid-column-start: 1;
+    grid-column-end: -1;
     grid-row: span 1;
-    grid-template-rows: repeat(4, 1fr);
+    font-size: 4em;
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-bottom:20px;
 }
 
-.short > .list {
-    grid-row: span 2;
+.picture {
+    grid-area: picture;
+    /* background-color: lightyellow; */
+    grid-column-start:1;
+    grid-column-end:3;
+    grid-row: span 4;
+    margin: 0 auto;
 }
 
+.picture > img {
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
 
-
-
-.comment {
+.description {
+    grid-area: description;
+    /* background-color: lightgreen; */
+    grid-column-start:3;
+    grid-column-end:-1;
+    grid-row: span 4;
+    width: 80%;
+    margin: 0 auto;
     display: grid;
-    grid-template-rows: 70% 30%;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-    padding: 5px 10px;
+    grid-auto-rows: 1fr 5fr 2fr;
+    grid-gap: 20px;
 }
 
-.comment .text {
-    font-size: 100%;
+.description > .top-bar {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
 }
 
-.comment .meta {
-    font-size: 60%;
-    opacity: 0.8;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-}
-
-.comment .author {
-    grid-column: span 2;
-}
-
-.comment .time {
-    grid-column: span 2;
-}
-
-.centered-container {
+.description > .top-bar > * {
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-row: 1 / -1;
-    grid-column: 1 / -1;
 }
 
-.button {
-    border: none;
-    color: white;
-    background-color: green;
-    padding: 10px 30px;
-    text-transform: uppercase;
-    font-size: 200%;
-    cursor: pointer;
+.description > .top-bar > .time {
+
+}
+
+.description > .top-bar > .difficulty {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.description > .top-bar > .difficulty > img {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.description > .description-text {
+    font-size: 100%;
+}
+
+.description > .people {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.people > * {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    background-color: white;
+}
+
+.author {
+    
+}
+
+.partner {
+    
+}
+
+.module {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    grid-area: module;
+    background-color: white;
+    grid-column: span 4;
+    grid-row: span 6; 
+    margin: 5vh 0;
+    padding: 2vh 2vw;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7,1fr);
+    /* grid-template-areas:
+        "mtitle mtitle mtitle mtitle mtitle"
+        "mpicture mpicture mpicture mgallery mgallery"
+        "mpicture mpicture mpicture mtext mtext"
+        "mpicture mpicture mpicture mtext mtext"
+        "mpicture mpicture mpicture mtext mtext"
+        "mpicture mpicture mpicture mtext mtext"
+        "mpicture mpicture mpicture mtext mtext"; */
+}
+
+.module:nth-child(even) {
+    /* background-color: aqua; */
+}
+
+/* .module-id {
+    grid-column-start: 1;
+    grid-row-start: 1;
+} */
+
+
+
+.module-title {
+    /* grid-area: mtitle; */
+    /* background-color: beige; */
+    font-size: 2em;
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-bottom:30px;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+}
+
+.module-picture {
+    /* grid-area: mpicture; */
+    width: auto;
+    height: auto;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 2 / -1;
+    /* background-color: darkcyan; */
+}
+
+.module-picture > img {
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.5s;
+}
+
+.module-picture > img:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    transition: box-shadow 0.5s;
+}
+
+.module-text {
+    /* grid-area: mtext; */
+    grid-column: 4 / -1;
+    grid-row: 3 / -1;
+    /* background-color: red; */
+}
+
+.module-text > .text {
+    width:100%;
+    height:inherit;
+    margin:20px 0;
+    padding: 10px 0px;
+    display:grid;
+    grid-template-rows: auto;
+    grid-gap: 1vh;
+}
+
+.text-segment {
+    grid-row-start: span 1;
+    width:auto;
+    padding: 2px 5px;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.subtitle-segment {
+    font-size: 120%;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.module-gallery {
+    /* grid-area: mgallery; */
+    grid-column: 4 / -1;
+    grid-row: 2 / 3;
+    /* background-color: lightgreen; */
+    /* height: 90%; */
+    width: 100%;
+    height: 11vh;
+    display: grid;
+    grid-template-columns: repeat(3,30%);
+    grid-gap: 5%;
+    margin: 0 0;
+}
+
+/* .module-gallery > * {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    /* background-color: lightgrey; */
+    width: 100%;
+} */
+
+.module-gallery > .left:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    background-color: pink;
+}
+
+.module-gallery > .right:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    background-color: pink;
+}
+
+/* .module-gallery > .item:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    background-color: pink;
+} */
+
+.module-gallery > .item > img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    /* height: auto;
+    width: 100%;
+    margin: auto 0;
+    padding: auto 0; */
+    zoom: 2;
+
+    display: block;
+    margin: auto;
+
+    height: auto;
+    max-height: 100%;
+
+    width: auto;
+    max-width: 100%;
+    transition: box-shadow 0.5s;
+}
+
+.module-gallery > .item:hover > img {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.5s;
+}
+
+.module-gallery > .disabled {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 775px) {
+
+    .picture {
+        grid-column: 1 / -1;
+        grid-row: span 4;
+    }
+
+    .description {
+        grid-column: 1 / -1;
+        grid-row: span 2;
+    }
+
+
+    .module {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(9,1fr);
+        grid-gap: 20px;
+        grid-row: span 8;
+    }
+
+    .module-title {
+        font-size: 100%;
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+    }
+
+    .module-picture {
+        grid-column: 1 / -1;
+        grid-row: 2 / 5;
+    }
+
+    .module-gallery {
+        grid-column: 1 / -1;
+        grid-row: 5 / 6;
+    }
+
+    .module-text {
+        grid-column: 1 / -1;
+        grid-row: 6 / -1;
+        font-size:80%
+    }
 }
