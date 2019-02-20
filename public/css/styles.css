@@ -334,9 +334,6 @@ html, body {
     height: auto;
     bottom:0;
     background-color: #273039;
-    /* background-color: teal; */
-    /* background-color: rgba(48, 22, 190, 0.9); */
-    /* background-color: rgba(38, 85, 214, 0.8); */
     color: aliceblue;
 }
 
@@ -392,6 +389,21 @@ html, body {
     background: rgb(243, 50, 50);
     color: white;
     transition: background-color 1s;
+}
+
+.sqrt-logo {
+    background: white;
+    color: white;
+    transition: background-color 1s;
+}
+
+.sqrt-logo > img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.sqrt-logo:hover {
+    background: lightslategray;
 }
 
 .fa-youtube:hover {
