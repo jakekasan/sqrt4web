@@ -35,6 +35,10 @@
     color: pink;
 }
 
+.nav-item:hover > a > img {
+    background-color: pink;
+}
+
 .nav-item > a {
     color: aliceblue;
 }
