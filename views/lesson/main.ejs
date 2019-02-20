@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/css/course.specific.css">
-<link rel="stylesheet" href="/css/lesson.css">
+<!-- <link rel="stylesheet" href="/css/course.specific.css"> -->
+<!-- <link rel="stylesheet" href="/css/lesson.css"> -->
 <link rel="stylesheet" href="/css/modal.css">
 <script src="/js/gallery.js"></script>
 
@@ -20,29 +20,52 @@
             %>
         </div>
         <div class="description">
-            <div class="top-bar">
+            <div class="short">
                 <%
                     let time = lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0);
                 %>
-                <div class="time"><%= time %> Minutes</div>
-                <div class="difficulty">
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Time:
+                    </div>
+                    <div class="content">
+                        <%= time %> Minutes
+                    </div>
+                </div>
+                <div class="subtitled">
                     <!-- <img src="/img/icons/difficulty/5.png" alt=""> -->
-                    <img src="/img/icons/difficulty/<%= lesson.difficulty %>.png">
+                    <div class="subtitle">
+                        Partner:
+                    </div>
+                    <div class="content">
+                        <img src="/img/icons/difficulty/<%= lesson.difficulty %>.png">
+                    </div>
                 </div>
             </div>
-            <div class="description-text">
+            <div class="tall">
                 <% if (lesson.desc) { %>
                 <%= lesson.desc %>
                 <% } else { %>
                     No description given...
                 <% } %>
             </div>
-            <div class="people">
-                <div class="author">
-                    <%= lesson.author %>
+            <div class="short">
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Author:
+                    </div>
+                    <div class="content">
+                        <%= lesson.author %>
+                    </div>
                 </div>
-                <div class="partner">
-                    <%= lesson.partner %>
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Partner:
+                    </div>
+                    <div class="content">
+                        <%= lesson.partner %>
+                    </div>
+                    
                 </div>
             </div>
         </div>
