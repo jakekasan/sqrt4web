@@ -1,0 +1,48 @@
+/* Subnav */
+
+.subnav {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(16,1fr);
+    grid-gap: 5px;
+    padding: 20px 0;
+}
+
+.breadcrumb {
+    opacity: 0.6;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: 20% 80%;
+    height: 50px;
+    grid-column: span 2;
+    text-decoration: none;
+    background-color: #273039;
+    color: white;
+}
+
+.crumb-type {
+    font-size: 60%;
+    opacity: 0.4;
+    font-style: italic;
+    padding: 5px;
+}
+
+.crumb-name {
+    font-size: 80%;
+    padding: 0 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subnav-arrow {
+    grid-column: span 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
