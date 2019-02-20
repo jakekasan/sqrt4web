@@ -19,18 +19,27 @@
 
 <link rel="stylesheet" href="/css/subnav.css">
 
-<div class="subnav">
+<!-- <div class="subnav">
 
     <%
         if (locals.previous){
     %>
         <a href="<%=previous.url%>" class="previous">
-            Back to <%=previous.text%>
+            Back to <%=previous.name%>
         </a>
     <%
         }
     %>
 
+    <%
+        if (locals.user){
+    %>
+        <a href="/user" class="user">
+            <%= user.name %>
+        </a>
+    <%
+        }
+    %>
     
 
-</div>
+</div> -->
