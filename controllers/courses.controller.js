@@ -375,7 +375,9 @@ class CoursesController extends BaseController {
             
             let view = new BaseView("course",self.res);
     
-            
+            if (!course.projects){
+                course.projects = [];
+            }
             self.projectsService.getProjectByID(course.projects)
                 .then(projects => {
                     console.log(projects);
