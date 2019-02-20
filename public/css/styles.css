@@ -375,37 +375,46 @@ html, body {
   
 /* Instagram */
 .fa-instagram {
-    background: #55ACEE;
+    background: rgb(118, 191, 247);
     color: white;
     transition: background-color 1s;
 }
 
 .fa-instagram:hover {
-    background: rgb(6, 145, 252);
+    background: rgb(3, 140, 245);
 }
 
 /* Youtube */
 .fa-youtube {
-    background: rgb(243, 50, 50);
+    background: rgb(241, 85, 85);
     color: white;
     transition: background-color 1s;
+}
+
+.fa-youtube:hover {
+    background: rgb(250, 0, 0);
 }
 
 .sqrt-logo {
     background: white;
     color: white;
     transition: background-color 1s;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .sqrt-logo > img {
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 150%;
+    max-width: 150%;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(-10%,-10%);
 }
 
 .sqrt-logo:hover {
     background: lightslategray;
 }
 
-.fa-youtube:hover {
-    background: rgb(238, 6, 6);
-}
