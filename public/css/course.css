@@ -185,3 +185,28 @@
     text-align: right;
     /* align-content: flex-start; */
 }
+
+.course {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(10,1fr);
+}
+
+.course > section {
+    border-top: 2px solid black;
+    grid-column: 1 / -1;
+    grid-row: span 5;
+}
+
+section > .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300%;
+}
+
+.course > section:nth-child(1) {
+    border: none;
+}
