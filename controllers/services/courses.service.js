@@ -1,10 +1,14 @@
 const LessonsModel = require("./../../models/lessons.model");
 const CoursesModel = require("./../../models/courses.model");
+const ProjectsModel = require("./../../models/projects.model");
+
+const ProjectsService = require("./projects.service");
 
 module.exports = class CoursesService {
     constructor(connection){
         this.lessonsModel = new LessonsModel(connection);
         this.coursesModel = new CoursesModel(connection);
+        this.projectsModel = new ProjectsModel(connection);
     }
 
     getLessonByID (lessonID) {
