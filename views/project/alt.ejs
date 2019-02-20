@@ -5,10 +5,10 @@
                 <%= project.title %>
             </div>
             <div class="time">
-                <%= project.time %>
+                <img class="icon" src="/img/icons/hodiny.png" alt=""> <%= project.time %>h
             </div>
             <div class="difficulty">
-                <%= project.difficulty %>
+                <img src="/img/icons/difficulty/<%= project.difficulty %>.png" alt="">
             </div>
         </div>
         <div class="gallery-row">
@@ -23,7 +23,6 @@
                     <div class="content">
                         <%= project.description %>
                     </div>
-                    
                 </div>
                 <div class="subtitled">
                     <div class="subtitle">
