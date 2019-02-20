@@ -26,6 +26,8 @@
     border: 2px; */
     text-align: center;
     text-transform: uppercase;
+    max-height:100%;
+    max-width:100%;
 }
 
 .nav-item:hover > a {
@@ -39,4 +41,11 @@
 
 a:link, a:visited {
     text-decoration: none;
+}
+
+.nav-item > a > img {
+    max-height: 100%;
+    max-width: 100%;
+    height: 15px;
+    width:auto;
 }
