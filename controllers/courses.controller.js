@@ -3,6 +3,7 @@ const BaseView = require("./../views/base.view");
 const CoursesModel = require("./../models/courses.model");
 const LessonsModel = require("./../models/lessons.model");
 const CoursesService = require("./services/courses.service");
+const ProjectsService = require("./services/projects.service");
 
 var quiz_data = {
     "title":"Quiz Time!",
@@ -330,6 +331,7 @@ class CoursesController extends BaseController {
         self.next = next;
         self.mongo = self.req.mongo;
         self.coursesService = new CoursesService(false);
+        self.projectsService = new ProjectsService(false);
 
         // console.log("Courses Controller");
         // console.log(this.paths["/courses"]["GET"])
@@ -373,26 +375,30 @@ class CoursesController extends BaseController {
             
             let view = new BaseView("course",self.res);
     
-            console.log(course);
-
-            return view.render({
-                course:course,
-                breadcrumbs:[
-                    {
-                        name:"Home",
-                        url:"/"
-                    },
-                    {
-                        name:"Browse Courses",
-                        url:"/courses"
-                    },
-                    {
-                        name:course.name,
-                        type:"Course",
-                        url:`/courses?id=${course.id}`
-                    }
-                ]
-            })
+            
+            self.projectsService.getProjectByID(course.projects)
+                .then(projects => {
+                    console.log(projects);
+                    course.projects = projects;
+                    return view.render({
+                        course:course,
+                        breadcrumbs:[
+                            {
+                                name:"Home",
+                                url:"/"
+                            },
+                            {
+                                name:"Browse Courses",
+                                url:"/courses"
+                            },
+                            {
+                                name:course.name,
+                                type:"Course",
+                                url:`/courses?id=${course.id}`
+                            }
+                        ]
+                    })
+                });
         });
 
         
