@@ -2,7 +2,7 @@
 <div class="project-container">
     <div class="item wide short">
         <div class="subtitle">
-            Title:
+            Název:
         </div>
         <div class="content big-font">
             <%= project.title %>
@@ -10,7 +10,7 @@
     </div>
     <div class="item">
         <div class="subtitle">
-            Description:
+            Popis:
         </div>
         <div class="content">
             <%= project.description %>
@@ -18,7 +18,7 @@
     </div>
     <div class="item short">
         <div class="subtitle">
-            Cas dokonceni
+            Čas dokončení:
         </div>
         <div class="content big-font">
             6+ hodin
@@ -26,10 +26,10 @@
     </div>
     <div class="item short">
         <div class="subtitle">
-            Obtiznost
+            Obtížnost:
         </div>
-        <div class="content med-font">
-            Jednoducha az stredne tezka
+        <div class="content difficulty">
+            <img src="/img/icons/difficulty/<%=project.difficulty%>.png" alt="">
         </div>
     </div>
     <div class="item">
