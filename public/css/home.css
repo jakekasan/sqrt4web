@@ -26,10 +26,12 @@
     background-color: #273039;
     color: aliceblue;
     border-radius: 25px;
+    margin: 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    text-decoration: none;
     transition: background-color 0.75s;
     cursor: pointer;
 }
