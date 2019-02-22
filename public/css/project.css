@@ -36,22 +36,31 @@
 }
 .title-row > .time {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     padding: 10px;
-    font-size: 100%;
+    font-size: 300%;
 }
+
+.title-row > .time > img {
+    max-width:60%;
+    max-height:60%;
+    width: auto;
+    height: auto;
+    padding-right:20px;
+}
+
 .title-row > .difficulty {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     padding: 10px;
     font-size: 100%;
 }
 
 .title-row > .difficulty > img {
-    max-width:80%;
-    max-height:80%;
+    max-width:60%;
+    max-height:60%;
     width: auto;
     height: auto;
 }
