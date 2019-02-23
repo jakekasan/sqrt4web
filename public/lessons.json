@@ -235,5 +235,77 @@
             "minutes":1
         }
     ]
- }
+},
+{
+    "id":2,
+    "course_id":1,
+    "title":"Úvod do 3D tisku",
+    "desc":"Zatim nic...",
+    "author":"Dominik Schreier",
+    "partner":"Prusa",
+    "difficulty":1,
+    "quiz":"https://goo.gl/forms/DlBWfAx4HMqLMYOS2",
+    "titlePicture":"Cover Photo.jpeg",
+    "modules":[]
+},
+{
+    "id":3,
+    "course_id":1,
+    "title":"Model a materiály",
+    "desc":"Zatim nic...",
+    "author":"Dominik Schreier",
+    "partner":"Prusa",
+    "difficulty":1,
+    "quiz":"https://goo.gl/forms/DlBWfAx4HMqLMYOS2",
+    "titlePicture":"Cover Photo.jpeg",
+    "modules":[]
+},
+{
+    "id":4,
+    "course_id":1,
+    "title":"Slic3r",
+    "desc":"Zatim nic...",
+    "author":"Dominik Schreier",
+    "partner":"Prusa",
+    "difficulty":1,
+    "quiz":"https://goo.gl/forms/DlBWfAx4HMqLMYOS2",
+    "titlePicture":"Cover Photo.jpeg",
+    "modules":[]
+},
+{
+    "id":5,
+    "course_id":1,
+    "title":"Tisk na originál Pruša i3 MK3",
+    "desc":"Zatim nic...",
+    "author":"Dominik Schreier",
+    "partner":"Prusa",
+    "difficulty":1,
+    "quiz":"https://goo.gl/forms/DlBWfAx4HMqLMYOS2",
+    "titlePicture":"Cover Photo.jpeg",
+    "modules":[]
+},
+{
+    "id":6,
+    "course_id":1,
+    "title":"Troubleshooting",
+    "desc":"Zatim nic...",
+    "author":"Dominik Schreier",
+    "partner":"Prusa",
+    "difficulty":1,
+    "quiz":"https://goo.gl/forms/DlBWfAx4HMqLMYOS2",
+    "titlePicture":"Cover Photo.jpeg",
+    "modules":[]
+},
+{
+    "id":7,
+    "course_id":1,
+    "title":"Post-processing",
+    "desc":"Zatim nic...",
+    "author":"Dominik Schreier",
+    "partner":"Prusa",
+    "difficulty":1,
+    "quiz":"https://goo.gl/forms/DlBWfAx4HMqLMYOS2",
+    "titlePicture":"Cover Photo.jpeg",
+    "modules":[]
+}
 ]
