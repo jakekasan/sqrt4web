@@ -16,6 +16,7 @@ body {
     /* margin-bottom: 50px; */
     padding: 0;
     z-index: 1;
+    /* opacity: 1; */
 }
 
 
@@ -62,6 +63,11 @@ body {
 .home-splash-button:hover {
     background-color: lightslategray;
 }
+/* .videoContainer {
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: -1;
+} */
 
 #youtubeVideo {
     position: absolute;
@@ -72,8 +78,14 @@ body {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY((-50%));
-    -webkit-transition: 2s opacity ease;
-    transition: 2s opacity ease;
-    opacity:0.5;
-    z-index: -1;
+    /* -webkit-transition: 2s opacity ease;
+    transition: 2s opacity ease; */
+    opacity: 0.4;
+    transition: opacity 0.5s;
+    z-index: -2;
+    pointer-events: none;
 }
+
+/* .visible {
+    opacity: 0.4;
+} */
