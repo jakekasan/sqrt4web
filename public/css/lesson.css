@@ -322,16 +322,17 @@
 }
 
 .end-button-container > a {
-    min-width:150px;
+    min-width:200px;
     width: auto;
     height: auto;
     background-color: #273039;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
-    border-radius: 25px;
+    border-radius: 100px;
     color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: background-color 0.5s, color 0.5s;
+    font-size: 200%;
 }
 
 .end-button-container > a:hover {
