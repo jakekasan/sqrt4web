@@ -23,5 +23,20 @@
         "id":4,
         "title":"OctoPi",
         "lessons":[]
+    },
+    {
+        "id":5,
+        "title":"Arduino",
+        "lessons":[]
+    },
+    {
+        "id":6,
+        "title":"Linux",
+        "lessons":[]
+    },
+    {
+        "id":7,
+        "title":"Grafický Design",
+        "lessons":[]
     }
 ]
