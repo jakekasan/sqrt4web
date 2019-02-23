@@ -1,7 +1,7 @@
 [
     {
         "id":1,
-        "title":"Nauc se tisknout",
+        "title":"3D Tisk",
         "lessons":[
             1
         ],
@@ -11,12 +11,17 @@
     },
     {
         "id":2,
-        "title":"Python",
+        "title":"Elektro",
         "lessons":[]
     },
     {
         "id":3,
-        "title":"German",
+        "title":"Python",
+        "lessons":[]
+    },
+    {
+        "id":4,
+        "title":"OctoPi",
         "lessons":[]
     }
 ]
