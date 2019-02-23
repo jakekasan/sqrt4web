@@ -1,0 +1,119 @@
+<!-- <link rel="stylesheet" href="/css/course.specific.css"> -->
+<!-- <link rel="stylesheet" href="/css/lesson.css"> -->
+<link rel="stylesheet" href="/css/modal.css">
+<script src="/js/gallery.js"></script>
+
+<div class="page-content">
+    <div class="course-details" data-id=<%=lesson.id %>>
+        <div class="title"><%= lesson.title %></div>
+        <div class="other-details">
+            <div class="picture-container">
+                <div class="picture-main">
+                    <img src="/img/courses/<%=lesson.id%>/<%=lesson.titlePicture%>">
+                </div>
+                <div class="picture-browser">
+                    
+                </div>
+            </div>
+            <div class="info-container">
+
+            </div>
+        </div>
+        <!-- <div class="picture">
+            <%
+                if (lesson.titlePicture){
+            %>
+            <img src="/img/courses/<%= lesson.id %>/<%= lesson.titlePicture %>" alt="">
+            <%
+                } else {
+            %>
+            <img src="/img/homer.png" alt="">
+            <%
+                }
+            %>
+        </div>
+        <div class="description">
+            <div class="short">
+                <%
+                    let time = lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0);
+                %>
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Time:
+                    </div>
+                    <div class="content float">
+                        <img class="icon" src="/img/icons/hodiny.png"><%= time %> min
+                    </div>
+                </div>
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Difficulty:
+                    </div>
+                    <div class="content float">
+                        <img src="/img/icons/difficulty/<%= lesson.difficulty %>.png">
+                    </div>
+                </div>
+            </div>
+            <div class="tall">
+                <% if (lesson.desc) { %>
+                <%= lesson.desc %>
+                <% } else { %>
+                    No description given...
+                <% } %>
+            </div>
+            <div class="short">
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Author:
+                    </div>
+                    <div class="content">
+                        <%= lesson.author %>
+                    </div>
+                </div>
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Partner:
+                    </div>
+                    <div class="content">
+                        <%= lesson.partner %>
+                    </div>
+                    
+                </div>
+            </div>
+        </div> -->
+        
+        <%
+            //for (let i = 0; i < 7; i++) {
+            for (let module of lesson.modules){
+        %>
+
+        <%- include("./lesson-module.ejs",{module:module,lesson:lesson}); %>
+
+        <%
+            };
+        %>
+        
+    </div>
+
+    <div class="end-button-container">
+        <a target="_blank" href="<%=lesson.quiz%>">Spustit kvíz</a>
+    </div>
+
+
+    <div class="modal">
+        <div class="modal-content large-modal">
+            <span class="modal-close">&times;</span>
+        </div>
+    </div>
+
+    <script src="/js/modal.js"></script>
+
+    </div>
+    <script>
+        console.log("Page Loaded");
+    </script>
+    <script>
+    
+        var moduleGalleries = [];
+    </script>
+</div>
