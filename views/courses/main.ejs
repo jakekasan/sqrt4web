@@ -6,25 +6,34 @@
         <%
             for (let course of courses){
         %>
-        <a href="/courses?id=<%=course.id%>" class="block">
-            <div class="title">
-                <%= course.title %>
-            </div>
-            <div class="lessons">
-                <%
-                    let lessonCount = course.lessons.length;
-                %>
-                    <%= lessonCount %> <%= (lessonCount == 1) ? "Lesson" : "Lessons"; %>
+
+        <%
+            var rightContent;
+            
+            if (typeof course.lessons != undefined) {
                 
-            </div>
-            <div class="time">
-                <%= (course.lessons).reduce((acc,ele) => {
-                    return acc+(ele.modules.reduce((totalTime,module) => {
-                        return totalTime+module.minutes
-                    },0))
-                },0) %> Minutes
-            </div>
-        </a>
+                rightContent = course.lessons.reduce((acc,ele) => {
+                        return acc+(ele.modules.reduce((totalTime,mod) => {
+                            return totalTime+mod.minutes
+                        },0))
+                    },0)
+            } else {
+                rightContent = 0;
+            }
+        %>
+
+        <%- include("../partials/block.ejs",{
+            blockContent: {
+                title: course.title,
+                leftContent: (typeof course.lessons != undefined) ? course.lessons.length : 0,
+                leftLabel: "Lekce",
+                rightContent: rightContent,
+                rightLabel: "Min",
+                link:`/courses?id=${course.id}`
+            }
+        })
+        %>
+
         <%
             }
         %>
