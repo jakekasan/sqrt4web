@@ -19,7 +19,7 @@
     display:grid;
     height: 45px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 0;
+    grid-column-gap: 10px;
 }
 
 .footer-social-media > a {
@@ -27,13 +27,14 @@
 }
 
 .fa {
-    padding: 20px;
+    padding: 10px;
     font-size: 45px;
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     text-align: center;
     text-decoration: none;
     display: flex;
+    flex-direction: column;
     align-content: center;
     justify-content: center;
     border-radius: 50%;
@@ -83,12 +84,12 @@
 }
 
 .sqrt-logo > img {
-    max-height: 150%;
-    max-width: 150%;
+    max-height: 75%;
+    max-width: 75%;
     position: relative;
     top: 0;
     left: 0;
-    transform: translate(-10%,-10%);
+    /* transform: translate(-10%,-10%); */
 }
 
 .sqrt-logo:hover {
