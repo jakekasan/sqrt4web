@@ -1,0 +1,13 @@
+body {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    z-index: -2;
+    min-height:100vh;
+    min-width:100vw;
+}
