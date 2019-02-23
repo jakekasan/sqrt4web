@@ -89,7 +89,7 @@
     position: relative;
     top: 0;
     left: 0;
-    /* transform: translate(-10%,-10%); */
+    transform: translate(15%,0);
 }
 
 .sqrt-logo:hover {
