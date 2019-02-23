@@ -1,7 +1,5 @@
 body {
-    /* opacity: 1; */
-    /* height: inherit; */
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .background { 
@@ -10,6 +8,16 @@ body {
     left: 0;
     opacity: 0.4;
     z-index: -3;
+    min-height:100vh;
+    min-width:100vw;
+}
+
+.background-fader {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
     min-height:100vh;
     min-width:100vw;
 }

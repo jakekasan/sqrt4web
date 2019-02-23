@@ -13,8 +13,14 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     padding: 10px;
     background-color: #273039;
+    transition: background-color 1s, box-shadow 1s;
     color:aliceblue;
     /* height: 150px; */
+}
+
+.block:hover {
+    background-color: #6a829b;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
 .block > * {
