@@ -2,7 +2,7 @@
 <div class="section-styling">
     <section>
         <header>
-            Lekce k kurzu:
+            Kurz <%= course.title %>
         </header>
         <article>
             <div class="blocks">
@@ -32,7 +32,7 @@
     </section>
     <section>
         <header>
-            Příslušný projekty:
+            Navazující projekty:
         </header>
         <article>
             <div class="blocks">
@@ -44,9 +44,9 @@
                     blockContent:{
                         title: project.title,
                         leftContent: project.steps.length,
-                        leftLabel: (project.steps.length == 1) ? "Krok" : "Kroků",
+                        leftLabel: (project.steps.length == 1) ? "krok" : "kroků",
                         rightContent: project.time,
-                        rightLabel:(project.time == 1) ? "Hodina" : "Hodin",
+                        rightLabel:(project.time == 1) ? "hodina" : "hodin",
                         link:`/project?id=${project.id}`
                     }
                 }) %>
