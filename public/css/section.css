@@ -1,0 +1,25 @@
+.section-styling {
+    opacity: 1;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.section-styling > section {
+    margin-top: 0;
+    margin-bottom: 100px;
+}
+
+section > header {
+    color: white;
+    font-size:300%;
+    min-height: 100px;
+    width: 100%;
+}
+
+section > article {
+    width:100%;
+    height: auto;
+    max-height: 75vh;
+    overflow-y: scroll;
+}
