@@ -7,20 +7,21 @@
             <%
                 for (let lesson of course.lessons){
             %>
-            <a href="/lesson?id=<%=lesson.id%>" class="block">
-                <div class="title">
-                    <%= lesson.title %>
-                </div>
-                <div class="modules">
-                    <%= lesson.modules.length %> Modules
-                </div>
-                <div class="time">
-                    <% let minutes = lesson.modules.reduce((acc,ele) => {
-                        return acc + ele.minutes
-                    },0) %>
-                    <%= minutes %> <%= (minutes == 1) ? "Minute" : "Minutes" %>
-                </div>
-            </a>
+            <%
+                let minutes = lesson.modules.reduce((acc,ele) => {
+                    return acc + ele.minutes
+                },0)
+            %>
+            <%- include("./../partials/block.ejs",{
+                blockContent:{
+                    title: lesson.title,
+                    leftContent: lesson.modules.length,
+                    leftLabel: (lesson.modules.length == 1) ? "Module" : "Modul",
+                    rightContent: minutes,
+                    rightLabel: (minutes == 1) ? "Minuta" : "Minut",
+                    link:`/lesson?id=${lesson.id}`
+                }
+            }) %>
             <%
                 }
             %>
@@ -34,18 +35,17 @@
             <%
                 for (let project of course.projects){
             %>
-            <a href="/project?id=<%=project.id%>" class="block">
-                <div class="title">
-                    <%= project.title %>
-                </div>
-                <div class="modules">
-                    <%= project.steps.length %> <%= (project.steps.length == 1) ? "Step" : "Steps" %>
-                </div>
-                <div class="time">
-                    <% let hours = project.time %>
-                    <%= hours %> <%= (hours == 1) ? "Hour" : "Hours" %>
-                </div>
-            </a>
+
+            <%- include("./../partials/block.ejs",{
+                blockContent:{
+                    title: project.title,
+                    leftContent: project.steps.length,
+                    leftLabel: (project.steps.length == 1) ? "Krok" : "Kroků",
+                    rightContent: project.time,
+                    rightLabel:(project.time == 1) ? "Hodina" : "Hodin",
+                    link:`/project?id=${project.id}`
+                }
+            }) %>
             <%
                 }
             %>
