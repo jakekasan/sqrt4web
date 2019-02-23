@@ -1,55 +1,60 @@
-<div class="course">
+<link rel="stylesheet" href="/css/section.css">
+<div class="section-styling">
     <section>
-        <div class="heading">
+        <header>
             Lekce k kurzu:
-        </div>
-        <div class="blocks">
-            <%
-                for (let lesson of course.lessons){
-            %>
-            <%
-                let minutes = lesson.modules.reduce((acc,ele) => {
-                    return acc + ele.minutes
-                },0)
-            %>
-            <%- include("./../partials/block.ejs",{
-                blockContent:{
-                    title: lesson.title,
-                    leftContent: lesson.modules.length,
-                    leftLabel: (lesson.modules.length == 1) ? "Module" : "Modul",
-                    rightContent: minutes,
-                    rightLabel: (minutes == 1) ? "Minuta" : "Minut",
-                    link:`/lesson?id=${lesson.id}`
-                }
-            }) %>
-            <%
-                }
-            %>
-        </div>
+        </header>
+        <article>
+            <div class="blocks">
+                <%
+                    for (let lesson of course.lessons){
+                %>
+                <%
+                    let minutes = lesson.modules.reduce((acc,ele) => {
+                        return acc + ele.minutes
+                    },0)
+                %>
+                <%- include("./../partials/block.ejs",{
+                    blockContent:{
+                        title: lesson.title,
+                        leftContent: lesson.modules.length,
+                        leftLabel: (lesson.modules.length == 1) ? "Module" : "Modul",
+                        rightContent: minutes,
+                        rightLabel: (minutes == 1) ? "Minuta" : "Minut",
+                        link:`/lesson?id=${lesson.id}`
+                    }
+                }) %>
+                <%
+                    }
+                %>
+            </div>
+        </article>
     </section>
     <section>
-        <div class="heading">
+        <header>
             Příslušný projekty:
-        </div>
-        <div class="blocks">
-            <%
-                for (let project of course.projects){
-            %>
+        </header>
+        <article>
+            <div class="blocks">
+                <%
+                    for (let project of course.projects){
+                %>
 
-            <%- include("./../partials/block.ejs",{
-                blockContent:{
-                    title: project.title,
-                    leftContent: project.steps.length,
-                    leftLabel: (project.steps.length == 1) ? "Krok" : "Kroků",
-                    rightContent: project.time,
-                    rightLabel:(project.time == 1) ? "Hodina" : "Hodin",
-                    link:`/project?id=${project.id}`
-                }
-            }) %>
-            <%
-                }
-            %>
-        </div>
+                <%- include("./../partials/block.ejs",{
+                    blockContent:{
+                        title: project.title,
+                        leftContent: project.steps.length,
+                        leftLabel: (project.steps.length == 1) ? "Krok" : "Kroků",
+                        rightContent: project.time,
+                        rightLabel:(project.time == 1) ? "Hodina" : "Hodin",
+                        link:`/project?id=${project.id}`
+                    }
+                }) %>
+                <%
+                    }
+                %>
+            </div>
+        </article>
     </section>
 
 </div>
