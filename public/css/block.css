@@ -17,6 +17,10 @@
     /* height: 150px; */
 }
 
+.block > * {
+    font-size: 200%;
+}
+
 .block > .title {
     grid-column: span 4;
     grid-row: 1 / -2;
