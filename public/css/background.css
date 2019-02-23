@@ -1,13 +1,15 @@
 body {
-    background-color: rgba(0, 0, 0, 0);
+    /* opacity: 1; */
+    /* height: inherit; */
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
-.background {
+.background { 
     position: fixed;
     top: 0;
     left: 0;
-    opacity: 0.3;
-    z-index: -2;
+    opacity: 0.4;
+    z-index: -3;
     min-height:100vh;
     min-width:100vw;
 }
