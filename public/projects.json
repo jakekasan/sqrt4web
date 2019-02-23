@@ -40,11 +40,15 @@
 		"time":6,
 		"difficulty":2,
 		"intentions":[
-			"learn stuff!",
-			"learn other stuff"
+			"Užitý design pro 3D tisk",
+			"Týmová spolupráce",
+			"Obsluha tiskárny Original Prusa i3 MK3",
+			"Pokročilé nastavení programu Slic3r",
+			"Pájení elektroniky"
 		],
 		"components":[
-			"thing1", "thing2"
+			"3D Tiskárna", "Pájka", "Kleště", "Lepidlo", "Kabel", "2x Speaker for Bose QCěř",
+			"Kabel s jackem", "2,5 female jack socket", "Earpads Bose QC"
 		]
 	}
 ]
