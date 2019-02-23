@@ -1,41 +1,48 @@
 <link rel="stylesheet" href="/css/courses.css">
+<link rel="stylesheet" href="/css/section.css">
 
+<div class="section-styling">
+    <section>
+        <header>
+            Kurzy:
+        </header>
+        <article>
+            <div class="blocks">
+                <%
+                    for (let course of courses){
+                %>
 
-<div class="courses-main">
-    <div class="blocks">
-        <%
-            for (let course of courses){
-        %>
+                <%
+                    var rightContent;
 
-        <%
-            var rightContent;
-            
-            if (typeof course.lessons != undefined) {
-                
-                rightContent = course.lessons.reduce((acc,ele) => {
-                        return acc+(ele.modules.reduce((totalTime,mod) => {
-                            return totalTime+mod.minutes
-                        },0))
-                    },0)
-            } else {
-                rightContent = 0;
-            }
-        %>
+                    if (typeof course.lessons != undefined) {
+                        
+                        rightContent = course.lessons.reduce((acc,ele) => {
+                                return acc+(ele.modules.reduce((totalTime,mod) => {
+                                    return totalTime+mod.minutes
+                                },0))
+                            },0)
+                    } else {
+                        rightContent = 0;
+                    }
+                %>
 
-        <%- include("../partials/block.ejs",{
-            blockContent: {
-                title: course.title,
-                leftContent: (typeof course.lessons != undefined) ? course.lessons.length : 0,
-                leftLabel: "Lekce",
-                rightContent: rightContent,
-                rightLabel: "Min",
-                link:`/courses?id=${course.id}`
-            }
-        })
-        %>
+                <%- include("../partials/block.ejs",{
+                    blockContent: {
+                        title: course.title,
+                        leftContent: (typeof course.lessons != undefined) ? course.lessons.length : 0,
+                        leftLabel: "lekce",
+                        rightContent: rightContent,
+                        rightLabel: "min",
+                        link:`/courses?id=${course.id}`
+                    }
+                })
+                %>
 
-        <%
-            }
-        %>
-    </div>
+                <%
+                    }
+                %>
+            </div>
+        </article>
+    </section>
 </div>
