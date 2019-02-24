@@ -18,7 +18,7 @@
                         Trvání
                     </div>
                     <div class="stuff">
-                        <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %>
+                        <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min.
                     </div>
                 </div>
                 <div class="difficulty labeled">
@@ -60,9 +60,9 @@
                     <div class="label">
                         Partner
                     </div>
-                    <div class="stuff with-image">
+                    <a href="<%=lesson.partner.url%>" class="stuff with-image">
                         <img src="/img/partners/<%=lesson.partner.logo_url%>" alt="">
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
