@@ -11,12 +11,59 @@
                 <div class="picture-main">
                     <img src="/img/courses/<%=lesson.id%>/<%=lesson.titlePicture%>">
                 </div>
-                <div class="picture-browser">
-                    
-                </div>
             </div>
             <div class="info-container">
-
+                <div class="time labeled">
+                    <div class="label">
+                        Trvání
+                    </div>
+                    <div class="stuff">
+                        <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %>
+                    </div>
+                </div>
+                <div class="difficulty labeled">
+                    <div class="label">
+                        Obtížnost
+                    </div>
+                    <div class="stuff with-image">
+                        <img src="/img/icons/difficulty/<%=lesson.difficulty%>.png" alt="">
+                    </div>
+                </div>
+                <div class="desc labeled">
+                    <div class="label">
+                        Popis
+                    </div>
+                    <div class="stuff">
+                        <%
+                            if (lesson.desc){
+                        %>
+                        <%= lesson.desc %>
+                        <%
+                            } else {
+                        %>
+                        Bez popisu.
+                        <%
+                            }
+                        %>
+                        
+                    </div>
+                </div>
+                <div class="author labeled">
+                    <div class="label">
+                        Autor
+                    </div>
+                    <div class="stuff">
+                        <%= lesson.author %>
+                    </div>
+                </div>
+                <div class="partner labeled">
+                    <div class="label">
+                        Partner
+                    </div>
+                    <div class="stuff with-image">
+                        <img src="/img/partners/<%=lesson.partner.logo_url%>" alt="">
+                    </div>
+                </div>
             </div>
         </div>
         <!-- <div class="picture">
