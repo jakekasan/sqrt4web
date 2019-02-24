@@ -2,9 +2,12 @@
     "id":1,
     "course_id":1,
     "title":"Začni tisknout",
-    "desc":"Naučíš se upravit model a vytisknout ho na Original Prusa i3 MK3. Seznámíš se s programem Slic3r, ve kterém snadno připravíš model k tisku. Moduly 5, 6 a 7 ukazují, jak připravit tiskárnu k tisku – jsou důležité, při ovládání tiskárny bez asistence.",
+    "desc":"Naučíš se upravit model a vytisknout ho na Original Prusa i3 MK3. Seznámíš se s programem Slic3r, ve kterém snadno připravíš model k tisku. Moduly 5, 6 a 7 ukazují, jak připravit tiskárnu k tisku a jsou důležité, při obsluze tiskárny bez asistence.",
     "author":"Dominik Schreier",
-    "partner":"Prusa",
+    "partner":{
+        "name":"Prusa",
+        "logo_url":"prusaresearch_logo.png"
+    },
     "difficulty":1,
     "quiz":"https://goo.gl/forms/DlBWfAx4HMqLMYOS2",
     "titlePicture":"Cover Photo.jpeg",
