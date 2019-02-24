@@ -6,7 +6,8 @@
     "author":"Dominik Schreier",
     "partner":{
         "name":"Prusa",
-        "logo_url":"prusaresearch_logo.png"
+        "logo_url":"prusaresearch_logo.png",
+        "url":"https://www.prusa3d.com"
     },
     "difficulty":1,
     "quiz":"https://goo.gl/forms/DlBWfAx4HMqLMYOS2",
