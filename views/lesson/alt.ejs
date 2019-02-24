@@ -18,7 +18,7 @@
                         Trvání
                     </div>
                     <div class="stuff">
-                        <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min.
+                        <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min
                     </div>
                 </div>
                 <div class="difficulty labeled">
@@ -66,68 +66,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="picture">
-            <%
-                if (lesson.titlePicture){
-            %>
-            <img src="/img/courses/<%= lesson.id %>/<%= lesson.titlePicture %>" alt="">
-            <%
-                } else {
-            %>
-            <img src="/img/homer.png" alt="">
-            <%
-                }
-            %>
-        </div>
-        <div class="description">
-            <div class="short">
-                <%
-                    let time = lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0);
-                %>
-                <div class="subtitled">
-                    <div class="subtitle">
-                        Time:
-                    </div>
-                    <div class="content float">
-                        <img class="icon" src="/img/icons/hodiny.png"><%= time %> min
-                    </div>
-                </div>
-                <div class="subtitled">
-                    <div class="subtitle">
-                        Difficulty:
-                    </div>
-                    <div class="content float">
-                        <img src="/img/icons/difficulty/<%= lesson.difficulty %>.png">
-                    </div>
-                </div>
-            </div>
-            <div class="tall">
-                <% if (lesson.desc) { %>
-                <%= lesson.desc %>
-                <% } else { %>
-                    No description given...
-                <% } %>
-            </div>
-            <div class="short">
-                <div class="subtitled">
-                    <div class="subtitle">
-                        Author:
-                    </div>
-                    <div class="content">
-                        <%= lesson.author %>
-                    </div>
-                </div>
-                <div class="subtitled">
-                    <div class="subtitle">
-                        Partner:
-                    </div>
-                    <div class="content">
-                        <%= lesson.partner %>
-                    </div>
-                    
-                </div>
-            </div>
-        </div> -->
         
         <%
             //for (let i = 0; i < 7; i++) {
