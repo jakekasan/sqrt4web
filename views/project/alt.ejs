@@ -13,7 +13,7 @@
         </div>
         <div class="gallery-row">
             <div class="gallery">
-                <img src="/img/homer.png">
+                <img src="/img/project/<%=project.picture%>">
             </div>
             <div class="text-info">
                 <div class="subtitled">
@@ -44,7 +44,7 @@
                     <div class="subtitle">
                         Partner:
                     </div>
-                    <div class="content">
+                    <div class="content flex-centered">
                         <%
                             for (let partner of project.partners){
                         %>
@@ -63,13 +63,13 @@
         <div class="subtitle">
             Components:
         </div>
-        <div class="content list">
+        <div class="content list component-list">
             <%
                 for (let component of project.components){
             %>
-            <div class="list-item">
-                <%= component %>
-            </div>
+            <a href="<%=component.url%>" class="list-item">
+                <%= component.name %>
+            </a>
             <%
                 }
             %>
