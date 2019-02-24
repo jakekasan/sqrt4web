@@ -155,6 +155,31 @@
     grid-gap: 10px;
 }
 
+.list.component-list {
+    display: grid;
+    /* grid-auto-rows: 50px; */
+    grid-template-columns: repeat(5,1fr);
+    overflow-y: scroll;
+    padding: 15px 10px;
+    grid-gap: 15px;
+}
+
+.component-list > .list-item {
+    border: none;
+    transition: background-color 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 25px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.component-list > .list-item:hover {
+    background-color: lightgray;
+}
+
 .list-item {
     grid-row: span 1;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); */
@@ -172,4 +197,10 @@
     max-width: 15px;
     height:auto;
     width:auto;
+}
+
+.flex-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
