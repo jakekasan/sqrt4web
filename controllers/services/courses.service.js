@@ -1,14 +1,15 @@
+const ProjectsModel = require("./../../models/projects.model");
 const LessonsModel = require("./../../models/lessons.model");
 const CoursesModel = require("./../../models/courses.model");
-const ProjectsModel = require("./../../models/projects.model");
 
-const ProjectsService = require("./projects.service");
+
+// const ProjectsService = require("./projects.service");
 
 module.exports = class CoursesService {
     constructor(connection){
         this.lessonsModel = new LessonsModel(connection);
-        this.coursesModel = new CoursesModel(connection);
         this.projectsModel = new ProjectsModel(connection);
+        this.coursesModel = new CoursesModel(connection);
     }
 
     getLessonByID (lessonID) {
@@ -54,6 +55,10 @@ module.exports = class CoursesService {
                 if (error) {
                     return reject(error)
                 }
+                console.log("\n\nHere is where we are failing\n");
+                console.log(this.coursesModel);
+                console.log(this.coursesModel.getData());
+                console.log(courses);
                 let coursePromises = courses.map(course => this.getLessonsForCourse(course));
                 Promise.all(coursePromises)
                     .then(data => {
