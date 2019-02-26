@@ -1,0 +1,28 @@
+<form action="" class="course-edit" method="POST">
+    <div class="edit-title-container">
+        <input type="text" name="title" id="titleInput" value="<%= (course && course.title) ? course.title : '' %>">
+    </div>
+    <div class="edit-description-container">
+        <input type="text" name="description" id="descriptionInput" value="<%= (course && course.description) ? course.description : '' %>">
+    </div>
+    <div class="edit-lessons">
+        <div class="content-list">
+
+        </div>
+        <div class="content-buttons">
+            <div class="button">
+                Add
+            </div>
+        </div>
+    </div>
+    <div class="edit-projects">
+        <div class="projects-list">
+
+        </div>
+        <div class="content-buttons">
+            <div class="button">
+                Add
+            </div>
+        </div>
+    </div>
+</form>
