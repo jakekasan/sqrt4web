@@ -1,7 +1,5 @@
 class BaseModel {
     constructor(model){
-        console.log("Setting Model as:");
-        console.log(model);
         this.model = model;
     }
 
