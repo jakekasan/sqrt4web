@@ -4,9 +4,9 @@ const BaseView = require("./../views/base.view");
 const CoursesService = require("./services/courses.service");
 
 module.exports = class LoginController extends BaseController {
-    constructor(connection){
-        let model = new UsersModel(connection);
-        super(model);
+    constructor(params){
+        // params = new UsersModel(connection);
+        super({ ...params });
     }
 
     run(req,res,next){
@@ -25,6 +25,45 @@ module.exports = class LoginController extends BaseController {
     get paths(){
         return {
             "/admin/course":{
+                "GET":(self) => {
+                    // 
+                    
+                    let view = new BaseView("edit",self.res);
+
+                    return view.render({
+                        course: []
+                    });
+                },
+                "POST":(self) => {
+                    // handle post
+
+                    let view = new BaseView("login",self.res);
+                    
+                    return view.render({
+                        message:JSON.stringify(self.body)
+                    });
+                }
+            },
+            "/admin/lesson":{
+                "GET":(self) => {
+                    // 
+                    let view = new BaseView("login",self.res);
+
+                    return view.render({
+                        message:null
+                    });
+                },
+                "POST":(self) => {
+                    // handle post
+
+                    let view = new BaseView("login",self.res);
+                    
+                    return view.render({
+                        message:JSON.stringify(self.body)
+                    });
+                }
+            },
+            "/admin/project":{
                 "GET":(self) => {
                     // 
                     let view = new BaseView("login",self.res);
