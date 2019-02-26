@@ -2,8 +2,6 @@
 const path = require("path");
 const fs = require("fs");
 
-var dataFilePath;
-var name;
 
 module.exports = function(filename){
     // console.log("Fake Connection :: filename given as: ",filename);
@@ -11,52 +9,54 @@ module.exports = function(filename){
     // name = filename;
     return {
         model: function(name,schema){
-            name = name;
-            
-            return FakeModel
+            let params = {
+                name,
+                schema,
+                dataFilePath
+            }
+            return new FakeModel(params)
         }
     }
 }
 
 class FakeModel {
-    constructor(object){
-        this.object = object;
+    constructor(params){
+        let { dataFilePath, modelName, schema } = params;
+        this.dataFilePath = dataFilePath;
+        this.modelName = modelName;
+        this.schema = schema;
     }
 
-    static get name(){
-        return name
-    }
+    // save(callback){
+    //     // check the file for number of existing objects
+    //     let data = loadData();
+    //     let id = data.length;
+    //     this.object.id = id;
 
-    save(callback){
-        // check the file for number of existing objects
-        let data = loadData();
-        let id = data.length;
-        this.object.id = id;
+    //     data.push(this.object);
 
-        data.push(this.object);
+    //     return saveData(data,(err) => {
+    //         return callback(err,data)
+    //     })
+    // }
 
-        return saveData(data,(err) => {
-            return callback(err,data)
-        })
-    }
-
-    static create(objectToCreate,callback){
-        let data = loadData();
+    create(objectToCreate,callback){
+        let data = this.loadData();
         let id = data.length;
 
         objectToCreate.id = id;
 
         data.push(objectToCreate);
         
-        saveData(data,(err) => {
+        this.saveData(data,(err) => {
             return callback(err,objectToCreate)    
         });
     }
 
-    static find(objectToFind,callback){
+    find(objectToFind,callback){
         // find object
 
-        let data = loadData();
+        let data = this.loadData();
 
         if ((Object.keys(objectToFind)).length == 0){
             return callback(null,data)
@@ -75,11 +75,11 @@ class FakeModel {
         return callback(null,data)
     }
 
-    static update(objectToUpdate,updatedObject,callback){
+    update(objectToUpdate,updatedObject,callback){
         
         let { id } = objectToUpdate;
 
-        let data = loadData();
+        let data = this.loadData();
 
         data = data.map(item => {
             if (item.id = id){
@@ -88,7 +88,7 @@ class FakeModel {
             }
         })
 
-        saveData(data,(err) => {
+        this.saveData(data,(err) => {
             updatedObject.id = id;
 
             return callback(err,updatedObject)
@@ -97,7 +97,7 @@ class FakeModel {
         
     }
 
-    static delete(objectToDelete,callback){
+    delete(objectToDelete,callback){
         let { id } = objectToDelete;
 
         let data = loadData();
@@ -106,18 +106,18 @@ class FakeModel {
             return item.id != id
         })
 
-        saveData(data,(err) => {
+        this.saveData(data,(err) => {
             return callback(err,null)
         });
     }
     
     loadData(){
         // console.log("Fake Connection :: Loading data from path:",dataFilePath);
-        return JSON.parse(fs.readFileSync(dataFilePath, 'utf8'))
+        return JSON.parse(fs.readFileSync(this.dataFilePath, 'utf8'))
     }
     
     saveData(dataToSave,callback){
-        fs.writeFile(dataFilePath,JSON.stringify(dataToSave),"utf8",(err) => {
+        fs.writeFile(this.dataFilePath,JSON.stringify(dataToSave),"utf8",(err) => {
             return callback(err)
         })
     }
