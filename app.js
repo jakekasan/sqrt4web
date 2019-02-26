@@ -37,13 +37,16 @@ app.use(cookieParser());
 //routes(app);
 
 mongoose.connect(config.db.mongodb.address,(err,conn) => {
-    var home = new HomeController(true);
-    var courses = new CoursesController(true);
-    var api = new APIController(true);
-    var projects = new ProjectController(true);
-    var lessons = new LessonController(true);
-    var login = new LoginController(false);
-    var admin = new AdminController(false);
+    let params = {
+        debug: false
+    }
+    var home = new HomeController(params);
+    var courses = new CoursesController(params);
+    var api = new APIController(params);
+    var projects = new ProjectController(params);
+    var lessons = new LessonController(params);
+    var login = new LoginController(params);
+    var admin = new AdminController(params);
 
     function databaseMiddleware(req,res,next){
         req.mongo = conn;
