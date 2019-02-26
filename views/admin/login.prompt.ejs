@@ -1,4 +1,15 @@
 <div class="login-container">
+    <% 
+        if (message) {
+    %>
+    
+    <div class="login-message">
+        <%= message %>
+    </div>
+
+    <%
+        }
+    %>
     <div class="login-box">
         <div class="login-header">
             <div class="login-header-text">
