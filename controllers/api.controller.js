@@ -3,9 +3,9 @@ var BaseController = require("./base.controller");
 var tempData = require("./../public/courses.json");
 
 class APIController extends BaseController {
-    constructor(debug){
-        super("API Controller")
-        this.debug = debug;
+    constructor(params){
+        params.name = "API Controller";
+        super({ ...params });
     }
 
     run(req,res,next){
