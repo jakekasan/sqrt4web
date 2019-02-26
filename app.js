@@ -13,6 +13,8 @@ const CoursesController = require("./controllers/courses.controller");
 const APIController = require("./controllers/api.controller");
 const ProjectController = require("./controllers/projects.controller");
 const LessonController = require("./controllers/lesson.controller");
+const LoginController = require("./controllers/login.controller");
+const AdminController = require("./controllers/admin.controller");
 
 // Models
 const UsersModel = require("./models/users.model");
@@ -35,11 +37,13 @@ app.use(cookieParser());
 //routes(app);
 
 mongoose.connect(config.db.mongodb.address,(err,conn) => {
-    var hc = new HomeController(true);
-    var cc = new CoursesController(true);
+    var home = new HomeController(true);
+    var courses = new CoursesController(true);
     var api = new APIController(true);
-    var pc = new ProjectController(true);
-    var lc = new LessonController(true);
+    var projects = new ProjectController(true);
+    var lessons = new LessonController(true);
+    var login = new LoginController(false);
+    var admin = new AdminController(false);
 
     function databaseMiddleware(req,res,next){
         req.mongo = conn;
@@ -70,20 +74,20 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
     app.all("/",(req,res,next) => {
         // console.log("Req to '/'");
         // console.log(hc);
-        hc.run(req,res,next);
+        home.run(req,res,next);
     });
 
     app.all("/courses",(req,res,next) => {
         // console.log("Req to '/courses/'");
-        cc.run(req,res,next);
+        courses.run(req,res,next);
     });
 
     app.all("/project",(req,res,next) => {
-        pc.run(req,res,next);
+        projects.run(req,res,next);
     })
     // Lessons
     app.all("/lesson*",(req,res,next) => {
-        lc.run(req,res,next);
+        lessons.run(req,res,next);
     })
 
     app.all("/lesson/:id/:route*",(req,res,next) => {
@@ -100,12 +104,24 @@ mongoose.connect(config.db.mongodb.address,(err,conn) => {
 
     app.all("/view/course",(req,res,next) => {
         console.log("Req to '/view/course");
-        cc.run(req,res,next);
+        courses.run(req,res,next);
     });
 
-    app.all("/api/*",(req,res,next) => {
+    app.all("/login*",(req,res,next) => {
+        login.run(req,res,next);
+    })
+
+    app.all("/logout",(req,res,next) => {
+        login.logout(req,res,next);
+    })
+
+    app.all("/api*",(req,res,next) => {
         api.run(req,res,next);
     })
+
+    app.all("/admin*",(req,res,next) => {
+        admin.run(req,res,next);
+    });
 
     app.use((req,res,next) => {
         console.log("404");
