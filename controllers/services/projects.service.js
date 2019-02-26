@@ -18,7 +18,7 @@ module.exports = class ProjectsService {
                 if (err){
                     return reject(err);
                 }
-                return resolve(data);
+                return resolve(data.pop());
             })
         })
     }
