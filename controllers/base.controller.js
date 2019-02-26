@@ -7,15 +7,20 @@
 
 */
 
+const CoursesModel = require("./../models/courses.model");
+const ProjectsModel = require("./../models/projects.model");
+const LessonsModel = require("./../models/lessons.model");
+// const CoursesModel = require("./../models/courses.model");
 
 const _ = require("underscore");
 
-class baseController {
+class BaseController {
     constructor(params){
         // name = "Base Controller",debug = false
         let { name,debug } = { ...params };
-        this.name = name || "Home Controller";
+        this.name = name || "Unnamed Controller";
         this.debug = (debug != undefined) ? debug : false;
+        this.models = setModels(params.mongo);
     }
 
     run(req,res,next){
@@ -27,4 +32,16 @@ class baseController {
     }
 }
 
-module.exports = baseController;
+module.exports = BaseController;
+
+function setModels(mongo){
+    if (mongo == undefined){
+        mongo = false;
+    }
+
+    let coursesModel = new CoursesModel(mongo);
+    let projectsModel = new ProjectsModel(mongo);
+    let lessonsModel = new LessonsModel(mongo);
+    
+    return { coursesModel, projectsModel, lessonsModel }
+}
