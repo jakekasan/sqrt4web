@@ -4,47 +4,48 @@ const fetch = require("node-fetch");
 var fs = require("fs");
 var path = require("path");
 
-
-
-let fakeData = require("./../public/courses.json");
-
-var fakeConnection = {
-    model: function(string,schema){
-        return {
-            string,
-            schema
-        }
-    }
-}
+// fake connection to use static files
+var fakeConnection = require("./fake.connection");
 
 class CoursesModel extends BaseModel {
     constructor(connection){
         var connection = connection;
         if (!connection){
-            connection = fakeConnection;
+            console.log("Setting filename for Courses Model");
+            connection = fakeConnection("courses.json");
         }
-        let model = connection.model("Courses",coursesSchema);
-        super(model)
+        let model = connection.model("Course",coursesSchema);
+        super(model);
     }
 
     getData(callback){
-        let dataPath = path.resolve(__dirname,"../public",'courses.json');
-        console.log(dataPath);
-        var obj = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        // let dataPath = path.resolve(__dirname,"../public",'courses.json');
+        // console.log(dataPath);
+        // var obj = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
         
-        return callback(obj)
+        this.retrieve({},(err,data) => {
+            if (err) {
+                console.log(err)
+            }
+            return callback(data)
+        })
     }
 
     findOne(query,callback){
-        let { id, title } = query;
+        // let { id, title } = query;
 
-        // model methods will come here
-        let dataPath = path.resolve(__dirname,"../public",'courses.json');
-        var data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        // // model methods will come here
+        // let dataPath = path.resolve(__dirname,"../public",'courses.json');
+        // var data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 
-        data = data.filter(item => item.id == id).pop();
+        // data = data.filter(item => item.id == id).pop();
 
-        return callback(data)
+        this.retrieve({ ...query},(err,data) => {
+            if (err) {
+                console.log(err);
+            }
+            return callback(data)
+        })
     }
 }
 
