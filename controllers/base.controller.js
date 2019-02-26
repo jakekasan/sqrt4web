@@ -11,9 +11,11 @@
 const _ = require("underscore");
 
 class baseController {
-    constructor(name = "Base Controller",debug = false){
-        this.name = name;
-        this.debug = debug;
+    constructor(params){
+        // name = "Base Controller",debug = false
+        let { name,debug } = { ...params };
+        this.name = name || "Home Controller";
+        this.debug = (debug != undefined) ? debug : false;
     }
 
     run(req,res,next){
