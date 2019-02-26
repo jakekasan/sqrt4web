@@ -8,7 +8,7 @@
                 <img class="icon" src="/img/icons/hodiny.png" alt=""> <%= project.time %>h
             </div>
             <div class="difficulty">
-                <img src="/img/icons/difficulty/<%= project.difficulty %>.png" alt="">
+                <img src="/img/icons/difficulty/<%= project.difficulty %>.png">
             </div>
         </div>
         <div class="gallery-row">
@@ -24,6 +24,18 @@
                         <%= project.description %>
                     </div>
                 </div>
+            
+                <div class="subtitled">
+                    <div class="subtitle">
+                        Zde se naučíte:
+                    </div>
+                    
+                    <div class="content">
+                        <%= project.learningIntentions %>
+                    </div>
+                
+                </div>
+            
                 <div class="subtitled">
                     <div class="subtitle">
                         Author:
