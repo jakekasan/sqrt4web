@@ -312,11 +312,9 @@ var quiz_data = {
 };
 
 class CoursesController extends BaseController {
-    constructor(debug){
-        super("Courses Controller");
-        this.debug = debug;
-        this.coursesModel = new CoursesModel();
-        this.lessonsModel = new LessonsModel();
+    constructor(params){
+        params.name = "Courses Controller"
+        super({ ...params });
     }
 
     run(req,res,next){
@@ -329,7 +327,7 @@ class CoursesController extends BaseController {
         self.req = req;
         self.res = res;
         self.next = next;
-        self.mongo = self.req.mongo;
+        // self.mongo = self.req.mongo;
         self.coursesService = new CoursesService(false);
         self.projectsService = new ProjectsService(false);
 
