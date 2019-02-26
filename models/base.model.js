@@ -1,32 +1,28 @@
 class BaseModel {
     constructor(model){
-        // set schemas?
+        console.log("Setting Model as:");
+        console.log(model);
         this.model = model;
     }
 
     create(objectToCreate,callback){
-        /*
-        * 
-        *
-        */
-
-        this.model.create(objectToCreate,(error,data) => callback(error,data))
-        callback(null,null)
+        // create object
+        this.model.create(objectToCreate,(error,data) => callback(error,data));
     }
 
-    retrieve(objectToCreate,callback){
-        // create object
+    retrieve(objectToRetrieve,callback){
+        // retrieve object
         this.model.find(objectToRetrieve,(error,data) => callback(error,data));
     }
 
     update(objectToUpdate,updatedObject,callback){
-        // create object
-        callback(null,null)
+        // update object
+        this.model.update(objectToUpdate,updatedObject,callback);
     }
 
     delete(objectToDelete,callback){
-        // create object
-        callback(null,null)
+        // delete object
+        this.model.delete(objectToDelete,callback);
     }
 }
 
