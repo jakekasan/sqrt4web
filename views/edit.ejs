@@ -3,25 +3,31 @@
     <link rel="stylesheet" href="/css/lesson.css">
         <% include partials/header %>
             <div class="page-content">
-                <%- include("./partials/subnav.ejs",breadcrumbs); %>
                 <%
-                    if (course){
+                    if (locals.course){
                 %>
-                    <%- include("./admin/edit.course.ejs",course) %>
-                <%
-                    }
-                %>
-                <%
-                    if (lesson){
-                %>
-                    <%- include("./admin/edit.lesson.ejs",lesson) %>
+                    <%- include("./admin/edit.course.ejs",(course) ? course : {}) %>
                 <%
                     }
                 %>
                 <%
-                    if (project){
+                    if (locals.lesson){
                 %>
-                    <%- include("./admin/edit.project.ejs",project) %>
+                    <%- include("./admin/edit.lesson.ejs",(lesson) ? lesson : {}) %>
+                <%
+                    }
+                %>
+                <%
+                    if (locals.project){
+                %>
+                    <%- include("./admin/edit.project.ejs",(project) ? project : {}) %>
+                <%
+                    }
+                %>
+                <%
+                    if (!locals.project && !locals.lesson && !locals.course){
+                %>
+                    <%- include("./admin/edit.browse.ejs") %>
                 <%
                     }
                 %>
