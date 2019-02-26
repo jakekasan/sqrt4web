@@ -1,0 +1,35 @@
+<html>
+    <body>
+    <link rel="stylesheet" href="/css/lesson.css">
+        <% include partials/header %>
+            <div class="page-content">
+                <%- include("./partials/subnav.ejs",breadcrumbs); %>
+                <%
+                    if (course){
+                %>
+                    <%- include("./admin/edit.course.ejs",course) %>
+                <%
+                    }
+                %>
+                <%
+                    if (lesson){
+                %>
+                    <%- include("./admin/edit.lesson.ejs",lesson) %>
+                <%
+                    }
+                %>
+                <%
+                    if (project){
+                %>
+                    <%- include("./admin/edit.project.ejs",project) %>
+                <%
+                    }
+                %>
+                
+            </div>
+        <% include partials/footer %>
+        <% include partials/background %>
+        <% include partials/modal %>    
+    </body>
+    
+</html>
