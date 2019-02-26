@@ -1,13 +1,21 @@
 <form action="" class="course-edit" method="POST">
-    <div class="edit-title-container">
+    <div class="edit-text-container">
         <input type="text" name="title" id="titleInput" value="<%= (course && course.title) ? course.title : '' %>">
     </div>
-    <div class="edit-description-container">
+    <div class="edit-text-container">
         <input type="text" name="description" id="descriptionInput" value="<%= (course && course.description) ? course.description : '' %>">
     </div>
-    <div class="edit-lessons">
+    <div class="edit-list">
         <div class="content-list">
-
+            <%
+                for (let lesson of course.lessons){
+            %>
+            <div class="content-list-item">
+                <%= JSON.stringify(lesson) %>
+            </div>
+            <%
+                }
+            %>
         </div>
         <div class="content-buttons">
             <div class="button">
@@ -15,9 +23,17 @@
             </div>
         </div>
     </div>
-    <div class="edit-projects">
+    <div class="edit-list">
         <div class="projects-list">
-
+            <%
+                for (let lesson of course.lessons){
+            %>
+            <div class="content-list-item">
+                <%= JSON.stringify(lesson) %>
+            </div>
+            <%
+                }
+            %>
         </div>
         <div class="content-buttons">
             <div class="button">
