@@ -2,7 +2,7 @@
 	{
 		"id":1,
 		"title":"Vylepši sluchátka",
-		"description":"Tento projek tě provede celou šíří vývoje produktu. Cílem je v týmové spolupráci vylepšit stávající design sluchátek a vyrobit je. Obtížnost: jednoduchá až náročná, Trvání: 6h+, cena sluchátek: 300 Kč",
+		"description":"Tento projekt tě provede vývojem sluchátek. Cílem je v týmové spolupráci vylepšit stávající design sluchátek a vyrobit je.",
 		"picture":"project_photo.jpeg",
 		"gallery":[
 			"project_photo.jpeg"
@@ -40,7 +40,7 @@
 		],
 		"time":6,
 		"difficulty":2,
-		"intentions":[
+		"learningIntentions":[
 			"Užitý design pro 3D tisk",
 			"Týmová spolupráce",
 			"Obsluha tiskárny Original Prusa i3 MK3",
