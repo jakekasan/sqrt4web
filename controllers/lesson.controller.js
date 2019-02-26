@@ -3,10 +3,9 @@ const BaseView = require("./../views/base.view");
 const LessonsModel = require("./../models/lessons.model");
 
 class LessonController extends BaseController {
-    constructor(debug){
-        super("Lesson Controller");
-        this.debug = debug;
-        this.lessonsModel = new LessonsModel();
+    constructor(params){
+        params.name = "Lesson Controller";
+        super({ ...params });
     }
 
     run(req,res,next){

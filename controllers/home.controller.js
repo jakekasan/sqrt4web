@@ -3,9 +3,9 @@ const BaseView = require("./../views/base.view");
 
 class HomeController extends BaseController {
 
-    constructor(debug){
-        super("Home Controller");
-        // this.debug = debug;
+    constructor(params){
+        params.name = "Home Controller";
+        super({ ...params });
     }
 
     run(req,res,next){
@@ -16,16 +16,9 @@ class HomeController extends BaseController {
         self.req = req;
         self.res = res;
         self.next = next;
-        self.mongo = self.req.mongo;
+        // self.mongo = self.req.mongo;
 
         this.getContent(self);
-
-
-        // if (self.checkLoggedStatus(self)){
-        //     self.getContent(self);
-        // } else {
-        //     self.getContent(self);
-        // }
     }
 
     checkLoggedStatus(self){

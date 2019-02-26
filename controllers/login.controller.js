@@ -3,9 +3,9 @@ const UsersModel = require("./../models/users.model");
 const BaseView = require("./../views/base.view");
 
 module.exports = class LoginController extends BaseController {
-    constructor(connection){
-        let model = new UsersModel(connection);
-        super(model);
+    constructor(params){
+        params.name = "Login Controller";
+        super({ ...params });
     }
 
     run(req,res,next){

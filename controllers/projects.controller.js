@@ -5,10 +5,9 @@ const path = require("path");
 const fs = require("fs");
 
 class ProjectsController extends BaseController {
-    constructor(debug){
-        super("Projects Controller");
-        this.debug = debug;
-        // this.coursesModel = new CoursesModel();
+    constructor(params){
+        params.name = "Projects Controller";
+        super({ ...params });
     }
 
     run(req,res,next){
