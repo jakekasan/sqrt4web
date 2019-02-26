@@ -10,7 +10,6 @@ class LessonsModel extends BaseModel {
     constructor(connection){
         var connection = connection;
         if (!connection){
-            console.log("Setting filename for Lessons Model");
             connection = fakeConnection("lessons.json");
         }
         let model = connection.model("Lesson",lessonsSchema);
@@ -43,12 +42,7 @@ class LessonsModel extends BaseModel {
             if (err) {
                 console.log(err);
             }
-            console.log("\n\n");
-            console.log("findOne in Lessons Model");
-            console.log(obj);
-            console.log("result:");
-            console.log(data);
-            console.log("\n\n");
+    
             let result = data.pop();
 
             return callback(result,null)
