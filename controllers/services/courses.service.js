@@ -25,6 +25,7 @@ module.exports = class CoursesService {
 
     getLessonsForCourse (course) {
         let lessonIDs = course.lessons;
+        if (!lessonIDs) { console.log(course) };
         let promises = lessonIDs.map(item => {
             return this.getLessonByID(item)
         })
@@ -55,10 +56,6 @@ module.exports = class CoursesService {
                 if (error) {
                     return reject(error)
                 }
-                console.log("\n\nHere is where we are failing\n");
-                console.log(this.coursesModel);
-                console.log(this.coursesModel.getData());
-                console.log(courses);
                 let coursePromises = courses.map(course => this.getLessonsForCourse(course));
                 Promise.all(coursePromises)
                     .then(data => {
