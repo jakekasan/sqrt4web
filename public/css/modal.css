@@ -28,6 +28,17 @@
     padding: 1rem 1.5rem;
     width:24rem;
     border-radius: 0.5rem;
+    overflow-y:scroll;
+}
+
+.modal-list {
+    overflow-y:scroll;
+    display:grid;
+    grid-auto-rows: 25px;
+}
+
+.modal-list > .list-item {
+    grid-row: span 1;
 }
 
 .large-modal {
