@@ -11,7 +11,6 @@ class CoursesModel extends BaseModel {
     constructor(connection){
         var connection = connection;
         if (!connection){
-            console.log("Setting filename for Courses Model");
             connection = fakeConnection("courses.json");
         }
         let model = connection.model("Course",coursesSchema);
@@ -44,7 +43,7 @@ class CoursesModel extends BaseModel {
             if (err) {
                 console.log(err);
             }
-            return callback(data)
+            return callback(data.pop())
         })
     }
 }
