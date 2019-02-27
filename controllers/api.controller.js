@@ -21,12 +21,35 @@ class APIController extends BaseController {
 }
 
 const validPaths = {
-    "/api/data/courses":{
+    "/api/courses":{
         "GET":(req,res,next) => {
             return res.json(tempData);
         },
         "POST":(req,res,next) => {
             return res.send("404")
+        }
+    },
+    "/api/lessons":{
+        "GET":() => {},
+        "POST":() => {}
+    },
+    "/api/projects":{
+        "GET":() => {
+
+        },
+        "POST":() => {
+
+        }
+    },
+    "/api/images":{
+        "GET": (req,res,next) => {
+            // why would I need to get an image from server?
+
+            // redirect!
+            res.send(404);
+        },
+        "POST": (req,res,next) => {
+            // process image, upload to s3 and return address as response
         }
     }
 }
