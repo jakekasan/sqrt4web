@@ -26,13 +26,23 @@ module.exports = class LoginController extends BaseController {
         return {
             "/admin/course":{
                 "GET":(self) => {
-                    // 
-                    
                     let view = new BaseView("edit",self.res);
-
+                    
                     return view.render({
-                        course: []
+                        course: {
+                            projects:[],
+                            lessons:[]
+                        }
                     });
+
+                    if (self.req && self.req.body && self.req.body.id){
+
+                        
+
+                        
+                    } else {
+                        // edit browse?
+                    }
                 },
                 "POST":(self) => {
                     // handle post
