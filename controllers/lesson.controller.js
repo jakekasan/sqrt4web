@@ -24,7 +24,7 @@ class LessonController extends BaseController {
     }
 
     getContent(obj,callback){
-        this.lessonsModel.findOne(obj,(data,err) => {
+        this.models.lessonsModel.findOne(obj,(data,err) => {
             return callback(data,err);
         })
     }
