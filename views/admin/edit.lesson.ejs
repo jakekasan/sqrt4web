@@ -1,24 +1,21 @@
 <link rel="stylesheet" href="/css/edit.css">
 
-<form action="" class="course-edit" method="POST">
+<form action="" class="lesson-edit" method="POST">
     <div class="edit-title">
-        Edit Course!
+        Edit Lesson!
     </div>
     <div class="edit-text-container">
         <div class="container-title">
             Title
         </div>
-        <div class="container-content">
-            <input type="text" name="title" id="titleInput" value="<%= (course && course.title) ? course.title : '' %>">
-        </div>
-        
+        <input type="text" name="title" id="titleInput" value="<%= (course && course.title) ? course.title : '' %>">
     </div>
-    <div class="edit-text-container longer">
+    <div class="edit-text-container">
         <div class="container-title">
             Description
         </div>
         <div class="container-content">
-            <textarea form="course-edit" name="description" id="descriptionInput" value="<%= (course && course.description) ? course.description : '' %>"></textarea>
+                <input type="text" name="description" id="descriptionInput" value="<%= (course && course.description) ? course.description : '' %>">
         </div>
     </div>
     <div class="edit-list-container">
