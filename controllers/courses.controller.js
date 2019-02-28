@@ -363,7 +363,7 @@ class CoursesController extends BaseController {
         let id = self.req.query.id;
 
         // replace with model lookup EVENTUALLY
-        self.services.coursesService.getCourseByID(id)
+        self.services.coursesService.getCourse({id:id})
             .then((course) => {
             
             let view = new BaseView("course",self.res);
