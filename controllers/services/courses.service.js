@@ -6,15 +6,28 @@ const CoursesModel = require("./../../models/courses.model");
 // const ProjectsService = require("./projects.service");
 
 module.exports = class CoursesService {
-    constructor(connection){
-        this.lessonsModel = new LessonsModel(connection);
-        this.projectsModel = new ProjectsModel(connection);
-        this.coursesModel = new CoursesModel(connection);
+    constructor(params){
+        let { debug } = params;
+        this.lessonsModel = new LessonsModel(params);
+        this.projectsModel = new ProjectsModel(params);
+        this.coursesModel = new CoursesModel(params);
+        this.debug = debug;
     }
 
-    getLessonByID (lessonID) {
+    getOneLesson(query) {
         return new Promise((resolve,reject) => {
-            this.lessonsModel.findOne({id:lessonID},(data,err) => {
+            this.lessonsModel.findOne({...query},(data,err) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(data);
+            })
+        })
+    }
+
+    getLessons(query) {
+        return new Promise((resolve,reject) => {
+            this.lessonsModel.getData((data,err) => {
                 if (err) {
                     reject(err);
                 }
@@ -24,14 +37,14 @@ module.exports = class CoursesService {
     }
 
     getLessonsForCourse (course) {
-        console.log(course);
+        // console.log(course);
         if (!course.lessons){
             course.lessons = [];
         }
         let lessonIDs = course.lessons;
         if (!lessonIDs) { console.log(course) };
         let promises = lessonIDs.map(item => {
-            return this.getLessonByID(item)
+            return this.getOneLesson({id:item})
         })
         return Promise.all(promises)
             .then(data => {
@@ -40,10 +53,10 @@ module.exports = class CoursesService {
             })
     }
 
-    getCourseByID(id){
+    getCourse(query){
         console.log(`getCourseByID : id = ${id}`);
         return new Promise((resolve,reject) => {
-            this.coursesModel.findOne({id:id},(course,error) => {
+            this.coursesModel.findOne({...query},(course,error) => {
                 if (error) {
                     return reject(error)
                 }
