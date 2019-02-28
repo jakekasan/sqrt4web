@@ -2,6 +2,7 @@ const BaseController = require("./base.controller");
 const UsersModel = require("./../models/users.model");
 const BaseView = require("./../views/base.view");
 const CoursesService = require("./services/courses.service");
+const ProjectsService = require("./services/projects.service");
 
 module.exports = class LoginController extends BaseController {
     constructor(params){
@@ -26,23 +27,37 @@ module.exports = class LoginController extends BaseController {
         return {
             "/admin/course":{
                 "GET":(self) => {
-                    let view = new BaseView("edit",self.res);
                     
-                    return view.render({
-                        course: {
-                            projects:[],
-                            lessons:[]
-                        }
-                    });
+                    let view = new BaseView("edit",self.res);
 
-                    if (self.req && self.req.body && self.req.body.id){
+                    if (self.req && self.req.query && self.req.query.id){
+                        self.services.coursesService.getCourseByID(self.req.query.id)
+                            .then(course => {
+                                if (!course.projects){
+                                    course.projects = [];
+                                }
+                                self.services.projectsService.getProjectByID(course.projects)
+                                    .then(projects => {
+                                        course.projects = projects;
 
-                        
-
-                        
+                                        return view.render({
+                                            course: course
+                                        })
+                                    })
+                            })
                     } else {
                         // edit browse?
+                        return view.render({
+                            course: {
+                                projects:[],
+                                lessons:[]
+                            }
+                        });
                     }
+
+                    
+
+                    
                 },
                 "POST":(self) => {
                     // handle post
