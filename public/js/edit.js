@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",() => {
 
     let addProjectButton = document.querySelector("#addProject");
 
-    addProjectButton.addEventListener("click",() => {
+    addProjectButton.addEventListener("click",(event) => {
         // ASYNC load project list into modal
 
         fetch("/api/projects")
@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded",() => {
             .then(data => {
                 openModal({
                     type:"project",
-                    data: data
+                    data: data,
+                    event: event
                 });
             })
             .catch(e => console.log(e))
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded",() => {
     })
 })
 
-function openModal(params){
+function doModal(params){
     let { type, data } = params;
 
     let modal = document.querySelector(".modal");
@@ -34,6 +35,12 @@ function openModal(params){
     let modalList = document.createElement("div");
     modalList.classList.add("modal-list");
 
-    
+    for (let dataItem of data){
+        let listItem = document.createElement("div");
+        listItem.classList.add("modal-list-item");
+        listItem.innerText = dataItem.title;
+        listItem.dataset.id = dataItem.id;
+        listItem.dataset.title = dataItem.title;
+    }
 }
 
