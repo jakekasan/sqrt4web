@@ -2,8 +2,8 @@ const ProjectsModel = require("./../../models/projects.model");
 
 
 module.exports = class ProjectsService {
-    constructor(connection){
-        this.projectsModel = new ProjectsModel(connection);
+    constructor(params){
+        this.projectsModel = new ProjectsModel(params);
     }
 
     getProjectByID(id){
