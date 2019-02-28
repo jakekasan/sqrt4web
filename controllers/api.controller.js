@@ -11,45 +11,85 @@ class APIController extends BaseController {
     run(req,res,next){
         // check path and method are legit
 
-        if ( !( validPaths[req.path] && validPaths[req.path][req.method] ) ) {
+        var self = this;
+        self.req = req;
+        self.res = res;
+        self.next = next;
+
+        if ( !( self.validPaths[self.req.path] && self.validPaths[self.req.path][self.req.method] ) ) {
             // pass down to 404
             return next()
+        } else {
+            self.validPaths[self.req.path][self.req.method](self);
         }
-
-        validPaths[req.path][req.method](req,res,next);
     }
-}
 
-const validPaths = {
-    "/api/courses":{
-        "GET":(req,res,next) => {
-            return res.json(tempData);
-        },
-        "POST":(req,res,next) => {
-            return res.send("404")
-        }
-    },
-    "/api/lessons":{
-        "GET":() => {},
-        "POST":() => {}
-    },
-    "/api/projects":{
-        "GET":() => {
+    badPath(res){
+        return res.json({
+            "status":"Bad Request"
+        })
+    }
 
-        },
-        "POST":() => {
+    get validPaths() {
+        return {
+            "/api/courses":{
+                "GET":(self) => {
+                    if (self.req.query && self.req.query.id) {
+                        self.services.coursesService.get
+                        return self.res.json(tempData);
+                    } else {
+                        return self.res.json()
+                    }
+                    
+                },
+                "POST":(self) => {
+                    return self.badPath(self.req)
+                }
+            },
+            "/api/lessons":{
+                "GET":(self) => {
+                    if (self.req.query && Object.keys(self.req.query).length > 0){
+                        if (self.debug){
+                            console.log(`\nAPI Controller\nself.req.query: ${JSON.stringify(self.req.query)}\ncalling getOneLesson()`)
+                        }
+                        self.services.coursesService.getOneLesson(self.req.query)
+                            .then(data => {
+                                return self.res.json(data);
+                            })
+                    } else {
+                        if (self.debug){
+                            console.log(`\nAPI Controller\nself.req.query: ${JSON.stringify(self.req.query)}\ncalling getLessons()`)
+                        }
+                        self.services.coursesService.getLessons({})
+                            .then(data => {
+                                return self.res.json(data);
+                            })
+                    }
+                },
+                "POST":(self) => {
+                    return self.badPath(self.req)
+                }
+            },
+            "/api/projects":{
+                "GET":(self) => {
+                    return self.badPath(self.req)
+                },
+                "POST":(self) => {
+                    return self.badPath(self.req)
+                }
+            },
+            "/api/images":{
+                "GET": (self) => {
+                    // why would I need to get an image from server?
 
-        }
-    },
-    "/api/images":{
-        "GET": (req,res,next) => {
-            // why would I need to get an image from server?
-
-            // redirect!
-            res.send(404);
-        },
-        "POST": (req,res,next) => {
-            // process image, upload to s3 and return address as response
+                    // redirect!
+                    return self.badPath(self.req)
+                },
+                "POST": (self) => {
+                    // process image, upload to s3 and return address as response
+                    return self.badPath(self.req)
+                }
+            }
         }
     }
 }
