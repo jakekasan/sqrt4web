@@ -24,6 +24,10 @@ module.exports = class CoursesService {
     }
 
     getLessonsForCourse (course) {
+        console.log(course);
+        if (!course.lessons){
+            course.lessons = [];
+        }
         let lessonIDs = course.lessons;
         if (!lessonIDs) { console.log(course) };
         let promises = lessonIDs.map(item => {
@@ -37,6 +41,7 @@ module.exports = class CoursesService {
     }
 
     getCourseByID(id){
+        console.log(`getCourseByID : id = ${id}`);
         return new Promise((resolve,reject) => {
             this.coursesModel.findOne({id:id},(course,error) => {
                 if (error) {
@@ -45,6 +50,9 @@ module.exports = class CoursesService {
                 this.getLessonsForCourse(course)
                     .then(data => {
                         resolve(data);
+                    })
+                    .catch(e => {
+                        reject(e)
                     })
             })
         })
