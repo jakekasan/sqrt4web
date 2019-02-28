@@ -22,8 +22,8 @@ class BaseController {
         let { name,debug } = { ...params };
         this.name = name || "Unnamed Controller";
         this.debug = (debug != undefined) ? debug : false;
-        this.models = setModels(params.mongo);
-        this.services = setServices(params.mongo);
+        this.models = setModels(params);
+        this.services = setServices(params);
     }
 
     run(req,res,next){
@@ -37,26 +37,19 @@ class BaseController {
 
 module.exports = BaseController;
 
-function setModels(mongo){
-    if (mongo == undefined){
-        mongo = false;
-    }
+function setModels(params){
 
-    let coursesModel = new CoursesModel(mongo);
-    let projectsModel = new ProjectsModel(mongo);
-    let lessonsModel = new LessonsModel(mongo);
+    let coursesModel = new CoursesModel(params);
+    let projectsModel = new ProjectsModel(params);
+    let lessonsModel = new LessonsModel(params);
     
     return { coursesModel, projectsModel, lessonsModel }
 }
 
-function setServices(mongo){
+function setServices(params){
 
-    if (mongo == undefined){
-        mongo = false;
-    }
-
-    let coursesService = new CoursesService(mongo);
-    let projectsService = new ProjectsService(mongo);
+    let coursesService = new CoursesService(params);
+    let projectsService = new ProjectsService(params);
 
     return { coursesService, projectsService }
 }
