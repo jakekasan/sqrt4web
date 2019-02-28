@@ -10,6 +10,8 @@
 const CoursesModel = require("./../models/courses.model");
 const ProjectsModel = require("./../models/projects.model");
 const LessonsModel = require("./../models/lessons.model");
+const ProjectsService = require("./services/projects.service");
+const CoursesService = require("./services/courses.service");
 // const CoursesModel = require("./../models/courses.model");
 
 const _ = require("underscore");
@@ -21,6 +23,7 @@ class BaseController {
         this.name = name || "Unnamed Controller";
         this.debug = (debug != undefined) ? debug : false;
         this.models = setModels(params.mongo);
+        this.services = setServices(params.mongo);
     }
 
     run(req,res,next){
@@ -44,4 +47,16 @@ function setModels(mongo){
     let lessonsModel = new LessonsModel(mongo);
     
     return { coursesModel, projectsModel, lessonsModel }
+}
+
+function setServices(mongo){
+
+    if (mongo == undefined){
+        mongo = false;
+    }
+
+    let coursesService = new CoursesService(mongo);
+    let projectsService = new ProjectsService(mongo);
+
+    return { coursesService, projectsService }
 }
