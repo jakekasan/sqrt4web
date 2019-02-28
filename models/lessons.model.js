@@ -7,25 +7,22 @@ var path = require("path");
 var fakeConnection = require("./fake.connection")
 
 class LessonsModel extends BaseModel {
-    constructor(connection){
-        var connection = connection;
+    constructor(params){
+        let { connection } = params;
         if (!connection){
-            connection = fakeConnection("lessons.json");
+            params.dataFileName = "lessons.json";
+            connection = fakeConnection(params);
         }
-        let model = connection.model("Lesson",lessonsSchema);
-        super(model);
+        params.model = connection.model("Lesson",lessonsSchema);
+        super(params);
     }
 
     getData(callback){
-        // let dataPath = path.resolve(__dirname,"../public",'lessons.json');
-        // console.log(dataPath);
-        // var obj = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-        
         this.retrieve({},(err,data) => {
             if (err) {
                 console.log(err);
             }
-            return callback(data)
+            return callback(data,err)
         })
     }
 
@@ -52,14 +49,6 @@ class LessonsModel extends BaseModel {
     }
 
     findAll(obj,callback){
-        // let { id } = obj;
-
-        // let dataPath = path.resolve(__dirname,"../public",'lessons.json');
-
-        // var data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-
-        // data = data.filter(item => id.includes(item.id));
-
         this.retrieve(obj,(err,data) => {
             if (err) {
                 console.log(err);

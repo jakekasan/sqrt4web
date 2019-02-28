@@ -4,49 +4,32 @@ const projectsSchema = require("./schemas/projects.schema");
 let fakeConnection = require("./fake.connection");
 
 class ProjectsModel extends BaseModel {
-    constructor(connection) {
-        var connection = connection;
-        if (!connection) {
-            console.log("Setting filename for Projects Model");
-            connection = fakeConnection("projects.json");
+    constructor(params){
+        let { connection } = params;
+        if (!connection){
+            params.dataFileName = "projects.json";
+            connection = fakeConnection(params);
         }
-        let model = connection.model("Project",projectsSchema);
-        super(model);
+        params.model = connection.model("Project",projectsSchema);
+        super(params);
     }
 
     findOne(obj,callback){
-        // for now, load data from file
-        let { id } = obj;
-
-        // let dataPath = path.resolve(__dirname,"../public",'projects.json');
-
-        // var data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-
-        // data = data.filter(item => item.id == id)[0];
-
         this.retrieve(obj,(err,data) => {
             if (err) {
                 console.log(err);
             }
-            return callback(data)
+            return callback(data,err)
         })
         
     }
 
     findAll(obj,callback){
-        // let { id } = obj;
-
-        // let dataPath = path.resolve(__dirname,"../public",'projects.json');
-
-        // var data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-
-        // data = data.filter(item => item.id == id)[0];
-
         this.retrieve(obj,(err,data) => {
             if (err) {
                 console.log(err);
             }
-            return callback(data)
+            return callback(data,err)
         })
     }
 }

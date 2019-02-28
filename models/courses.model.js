@@ -8,13 +8,14 @@ var path = require("path");
 var fakeConnection = require("./fake.connection");
 
 class CoursesModel extends BaseModel {
-    constructor(connection){
-        var connection = connection;
+    constructor(params){
+        let { connection } = params;
         if (!connection){
-            connection = fakeConnection("courses.json");
+            params.dataFileName = "courses.json";
+            connection = fakeConnection(params);
         }
-        let model = connection.model("Course",coursesSchema);
-        super(model);
+        params.model = connection.model("Course",coursesSchema);
+        super(params);
     }
 
     getData(callback){
