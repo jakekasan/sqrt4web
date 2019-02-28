@@ -31,7 +31,7 @@ module.exports = class LoginController extends BaseController {
                     let view = new BaseView("edit",self.res);
 
                     if (self.req && self.req.query && self.req.query.id){
-                        self.services.coursesService.getCourseByID(self.req.query.id)
+                        self.services.coursesService.getCourse({ ...self.req.query})
                             .then(course => {
                                 if (!course.projects){
                                     course.projects = [];
