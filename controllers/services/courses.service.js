@@ -54,7 +54,7 @@ module.exports = class CoursesService {
     }
 
     getCourse(query){
-        console.log(`getCourseByID : id = ${id}`);
+        console.log(`getCourseByID : id = ${query}`);
         return new Promise((resolve,reject) => {
             this.coursesModel.findOne({...query},(course,error) => {
                 if (error) {
