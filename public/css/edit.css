@@ -9,7 +9,7 @@
 .course-edit > * {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     border-radius: 25px;
-    padding: 15px;
+    padding: 10px;
     background-color: aliceblue;
 }
 
@@ -22,7 +22,7 @@
     grid-row: span 1;
     grid-column: span 2;
     display: grid;
-    grid-template-rows: 25px 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .edit-text-container.longer {
@@ -31,9 +31,14 @@
 
 .edit-list-container {
     grid-row: span 3;
-    grid-column: span 2;
+    grid-column: span 1;
     display:grid;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-gap:5px;
+}
+
+.edit-list-container.tall {
+    grid-row: span 6;
 }
 
 .container-title {
@@ -44,18 +49,92 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:0;
+    margin: 10px;
 }
 
 .container-content > * {
     width: 90%;
-    height:90%;
-    font-size: 120%;
+    height: auto;
+    /* height: auto; */
+    font-size: 100%;
     text-align: start;
 }
 
-.content-list {
+
+/* **************************************** */
+/* *******      CONTAINER LIST      ******* */
+/* **************************************** */
+
+.container-list {
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: 50px;
+    overflow-y: scroll;
+    grid-gap: 10px;
+}
+
+.container-list-item {
+    grid-row: span 1;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    transition: background-color 1s;
+}
+
+.container-list-item:hover {
+    background-color: beige;
+}
+
+.item-title {
+    padding-left: 10px;
+    grid-column: 1 / 3;
+    grid-row: 1 / -1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.item-buttons {
+    grid-column: 3 / -1;
+    grid-row: 1 / -1;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+}
+
+
+
+/* **************************************** */
+
+
+
+/* **************************************** */
+/* *******          Buttons         ******* */
+/* **************************************** */
+
+.container-buttons {
+    display: grid;
+    margin: 0 15px;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-rows: 100%;
+    grid-gap: 10px;
+}
+
+.button {
+    background: lightslategray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 100%;
+    color: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: grey;
 }
