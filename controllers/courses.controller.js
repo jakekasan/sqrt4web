@@ -328,11 +328,6 @@ class CoursesController extends BaseController {
         self.res = res;
         self.next = next;
         // self.mongo = self.req.mongo;
-        self.coursesService = new CoursesService(false);
-        self.projectsService = new ProjectsService(false);
-
-        // console.log("Courses Controller");
-        // console.log(this.paths["/courses"]["GET"])
 
         if (this.paths[self.req.path] && this.paths[self.req.path][self.req.method]){
             this.paths[self.req.path][self.req.method](self);
@@ -342,7 +337,7 @@ class CoursesController extends BaseController {
     }
 
     browseCourses(self){
-        self.coursesService.getAllCourses()
+        self.services.coursesService.getAllCourses()
             .then((courses) => {
             let view = new BaseView("courses",self.res)
             console.log(courses);
@@ -368,7 +363,7 @@ class CoursesController extends BaseController {
         let id = self.req.query.id;
 
         // replace with model lookup EVENTUALLY
-        self.coursesService.getCourseByID(id)
+        self.services.coursesService.getCourseByID(id)
             .then((course) => {
             
             let view = new BaseView("course",self.res);
@@ -376,9 +371,8 @@ class CoursesController extends BaseController {
             if (!course.projects){
                 course.projects = [];
             }
-            self.projectsService.getProjectByID(course.projects)
+            self.services.projectsService.getProjectByID(course.projects)
                 .then(projects => {
-                    console.log(projects);
                     course.projects = projects;
                     return view.render({
                         course:course,
