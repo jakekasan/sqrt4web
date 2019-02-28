@@ -38,7 +38,7 @@ app.use(cookieParser());
 
 mongoose.connect(config.db.mongodb.address,(err,conn) => {
     let params = {
-        debug: false
+        debug: true
     }
     var home = new HomeController(params);
     var courses = new CoursesController(params);
