@@ -3,17 +3,15 @@ const path = require("path");
 const fs = require("fs");
 
 
-module.exports = function(filename){
+module.exports = function(params){
     // console.log("Fake Connection :: filename given as: ",filename);
-    dataFilePath = path.resolve(__dirname,"../public",filename);
+    let { dataFileName } = params;
+    params.dataFilePath = path.resolve(__dirname,"../public",dataFileName);
     // name = filename;
     return {
         model: function(name,schema){
-            let params = {
-                name,
-                schema,
-                dataFilePath
-            }
+            params.modelName = name;
+            params.modelSchema = schema;
             return new FakeModel(params)
         }
     }
@@ -21,10 +19,11 @@ module.exports = function(filename){
 
 class FakeModel {
     constructor(params){
-        let { dataFilePath, modelName, schema } = params;
+        let { debug, dataFilePath, modelName, schema } = params;
         this.dataFilePath = dataFilePath;
         this.modelName = modelName;
         this.schema = schema;
+        this.debug = debug;
     }
 
     // save(callback){
@@ -41,6 +40,11 @@ class FakeModel {
     // }
 
     create(objectToCreate,callback){
+
+        if (this.debug){
+            console.log(`\nFake Model\n create(): ${JSON.stringify(objectToCreate)}\n`);
+        }
+
         let data = this.loadData();
         let id = data.length;
 
@@ -55,10 +59,16 @@ class FakeModel {
 
     find(objectToFind,callback){
         // find object
+        if (this.debug){
+            console.log(`\nFake Model\n find(): ${JSON.stringify(objectToFind)}\n`);
+        }
 
         let data = this.loadData();
 
         if ((Object.keys(objectToFind)).length == 0){
+            if (this.debug){
+                console.log(`\nFake Model\n objectToFind has no properties, returning all data\n`)
+            }
             return callback(null,data)
         }
 
@@ -76,7 +86,9 @@ class FakeModel {
     }
 
     update(objectToUpdate,updatedObject,callback){
-        
+        if (this.debug){
+            console.log(`\nFake Model\n update(): ${JSON.stringify(objectToUpdate)}, ${JSON.stringify(updatedObject)}\n`);
+        }
         let { id } = objectToUpdate;
 
         let data = this.loadData();
@@ -98,6 +110,9 @@ class FakeModel {
     }
 
     delete(objectToDelete,callback){
+        if (this.debug){
+            console.log(`\nFake Model\n delete(): ${JSON.stringify(objectToDelete)}\n`);
+        }
         let { id } = objectToDelete;
 
         let data = loadData();
@@ -112,7 +127,9 @@ class FakeModel {
     }
     
     loadData(){
-        // console.log("Fake Connection :: Loading data from path:",dataFilePath);
+        if (this.debug){
+            console.log(`\nFake Model\n loadData(): dataFilePath: ${this.dataFilePath}`);
+        }
         return JSON.parse(fs.readFileSync(this.dataFilePath, 'utf8'))
     }
     
