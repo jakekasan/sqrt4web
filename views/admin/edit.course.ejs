@@ -13,45 +13,51 @@
         </div>
         
     </div>
-    <div class="edit-text-container longer">
+    <div class="edit-text-container">
         <div class="container-title">
             Description
         </div>
         <div class="container-content">
-            <textarea form="course-edit" name="description" id="descriptionInput" value="<%= (course && course.description) ? course.description : '' %>"></textarea>
+            <textarea form="course-edit" name="description" id="descriptionInput"><%= (course && course.description) ? course.description : '' %></textarea>
         </div>
     </div>
-    <div class="edit-list-container">
+    <div class="edit-list-container tall">
         <div class="container-title">
             Lessons
         </div>
-        <div class="content-list">
+        <div class="container-list">
             <%
             course.lessons.forEach((lesson,i) => {
             %>
-            <div class="content-list-item">
-                <input type="hidden" name="lessons[i]"
-                <%= JSON.stringify(lesson) %>
+            <div class="container-list-item">
+                <div class="item-title">
+                    <%=lesson.title%>
+                </div>
+                <div class="item-buttons">
+                    <div class="button">Edit</div>
+                    <div class="button">Delete</div>
+                </div>
+                <input type="hidden" name="lessons[]" value="<%=lesson.id%>">
             </div>
             <%
                 });
             %>
         </div>
-        <div class="content-buttons">
+        <div class="container-buttons">
             <div class="button">
                 Add
             </div>
         </div>
     </div>
-    <div class="edit-list-container">
+    <div class="edit-list-container tall">
         <div class="container-title">
             Projects
         </div>
-        <div class="content-list">
+        <div class="container-list">
             <%
                 for (let project of course.projects){
             %>
-            <div class="content-list-item">
+            <div class="container-list-item">
                 <input type="hidden" name="projects">
                 <%= JSON.stringify(project) %>
             </div>
@@ -59,7 +65,7 @@
                 }
             %>
         </div>
-        <div class="content-buttons">
+        <div class="container-buttons">
             <div class="button">
                 Add
             </div>
