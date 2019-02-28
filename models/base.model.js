@@ -1,5 +1,6 @@
 class BaseModel {
-    constructor(model){
+    constructor(params){
+        let { model } = params; 
         this.model = model;
     }
 
