@@ -39,6 +39,19 @@
 
 .modal-list > .list-item {
     grid-row: span 1;
+    cursor: pointer;
+}
+
+.modal-list > .list-item:hover {
+    background-color: beige;
+}
+
+.modal-message {
+    font-size: 150%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .large-modal {
