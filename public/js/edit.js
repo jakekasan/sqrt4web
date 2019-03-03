@@ -222,6 +222,7 @@ function createLessonItem(params){
 
     containerListItem.appendChild(listItemTitle);
     containerListItem.appendChild(buttonsContainer);
+    containerListItem.appendChild(hiddenInput);
 
     return containerListItem
 }
