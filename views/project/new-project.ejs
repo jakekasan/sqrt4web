@@ -1,0 +1,108 @@
+<link rel="stylesheet" href="/css/test_project.css">
+<div class="project-container">
+    <h1 id="title">
+        This is a project.
+    </h1>
+    <div id="media">
+        <%
+            if (true){
+        %>
+            <h1>
+                No pictures are associated with this project.
+            </h1>
+        <%
+            }
+        %>
+    </div>
+    <div id="short-info">
+        <h3>
+            O tomto projektu:
+        </h3>
+        <ul id="short-info">
+            <%
+                let shortInfos = ["Difficulty","Time to Completion","Author","Sponsor"]
+            %>
+            <%
+                for (let shortInfo of shortInfos){
+            %>
+            <li>
+                <%= shortInfo %>
+            </li>
+            <%
+                }
+            %>
+        </ul>
+    </div>
+    <div id="components">     
+        <h3>
+            Need to buy:
+        </h3>       
+        <ul id="components">
+            <%
+                let components = ["Scissors","Tape","Paper"];
+            %>
+            <%
+                for (let component of components){
+            %>
+
+            <li>
+                <%= component %>
+            </li>
+            <%
+                }
+            %>
+        </ul>
+    </div>
+    <div id="description">
+        <h3>
+            Popis projektu
+        </h3>
+        <p>
+            This is where the description will go.
+            It will be reasonably long and take up a number of lines.
+            Maybe three sentances oughta do it.
+        </p>
+        
+    </div>
+    <div id="recommended">
+        <h3>
+            Doporucene:
+        </h3>
+        <ul>
+            <%
+                let recommendedList = ["External Link 1", "External Link 2", "External Link 3"];
+            %>
+
+            <%
+                for (let recommendedItem of recommendedList){
+            %>
+
+            <li>
+                <%= recommendedItem %>
+            </li>
+
+            <%
+                }
+            %>
+        </ul>
+    </div>
+    <div id="steps">
+        <h3>
+            Instrukce:
+        </h3>
+        <ul>
+            <%
+                let steps = ["Step one","Step two","Step three","Step four"];
+            %>
+            <%
+                for (let step of steps){
+            %>
+                <li class="step">
+                    <%= step %>
+                </li>
+            <%
+                }
+            %>
+        </ul>    
+    </div>
+</div>
