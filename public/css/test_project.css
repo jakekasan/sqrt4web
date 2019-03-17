@@ -13,14 +13,21 @@
         "description description description description"
         "components components recommended recommended"
         "steps steps steps steps";
-    box-shadow: 0 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
     background-color: white;
     margin: 20px 0;
     padding: 25px;
 }
 
+
+
 .project-container > h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 300%;
+}
+
+.project-container > * > p {
+    padding: 0 25px;
 }
 
 ul, li {
@@ -53,11 +60,14 @@ li {
 
 #media {
     grid-area: media;
-    min-height: 60vh;
+    height: 60vh;
+    max-height: 100vw;
     padding: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: lightslategray;
+    opacity: 0.4;
 }
 
 #short-info {
@@ -78,4 +88,28 @@ li {
 
 #steps {
     grid-area: steps;
+}
+
+
+@media only screen and (max-width: 750px) {
+    .project-container {
+        grid-template-areas: 
+            "title"
+            "media"
+            "short-info"
+            "description"
+            "components"
+            "recommended"
+            "steps";
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .project-container {
+        grid-template-areas: 
+            "title title title"
+            "media media short-info"
+            "description components recommended"
+            "steps steps steps";
+    }
 }
