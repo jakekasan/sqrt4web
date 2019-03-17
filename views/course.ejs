@@ -1,5 +1,6 @@
 <html>
-<title><%= course.title %></title>
+<% locals.title = course.title %>
+<% include partials/head %>
     <body>
         <link rel="stylesheet" href="/css/course.css">
         <% include partials/header %>
