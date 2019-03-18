@@ -20,6 +20,7 @@
 %>
 
 <html>
+<% include partials/head %>
     <body>
         <link rel="stylesheet" href="/css/project.css">
         <% include partials/header %>
@@ -40,7 +41,7 @@
 
             <%- include("partials/subnav",{user,previous}) %>
 
-            <%- include("project/alt.ejs",project) %>
+            <%- include("project/new-project.ejs",project) %>
 
         </div>
 
