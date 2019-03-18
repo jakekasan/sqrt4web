@@ -490,6 +490,7 @@
         "picture picture author partner"
         "description description description description"
         "modules modules modules modules";
+    grid-template-columns: 2fr 2fr 1fr 1fr;
 }
 
 #course > * {
@@ -502,17 +503,17 @@
 @media only screen and (max-width: 800px){
     #course {
         grid-template-areas:
-            "title title"
-            "picture picture"
-            "time difficulty"
-            "author partner"
-            "description description"
-            "modules modules";
+            "title title title title"
+            "picture picture picture picture"
+            "time difficulty author partner"
+            "description description description description"
+            "modules modules modules modules";
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
 
 img {
-    max-height: 90%;
+    /* max-height: 90%; */
     max-width: 90%;
 }
 
@@ -563,12 +564,12 @@ section > a {
     align-items: center;
 }
 
-img {
+/* img {
     max-width: 90%;
     max-height: 90%;
     min-height: 20%;
     min-width: 20%;
-}
+} */
 
 #title {
     grid-area: title;
@@ -583,8 +584,11 @@ img {
 
 #picture {
     grid-area: picture;
-    min-width: 60vw;
-    min-height: 20vh;
+}
+
+#picture > img {
+    height: auto;
+    width: auto;
 }
 
 #time {
