@@ -520,7 +520,7 @@ img {
 article, section {
     display:flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -528,10 +528,10 @@ article > * {
     /* flex: 3; */
 }
 
-article a, section a {
+/* article a, section a {
     white-space: nowrap;
     display: inline;
-}
+} */
 
 article > h3 {
     /* flex: 1; */
@@ -546,6 +546,10 @@ section > * {
 section > h3 {
     /* flex: 1; */
     font-size: 100%;
+}
+
+article > p, section > p, article > a, article > a {
+    height: 60%;
 }
 
 h3 {
@@ -609,6 +613,25 @@ section > a {
 
 #partner {
     grid-area: partner;
+}
+
+#time, #difficulty, #author, #partner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#time > h3, #difficulty > h3, #author > h3, #partner > h3 {
+    position: absolute;
+    top: 0;
+    left: 10px;
+
+}
+
+#time > a, #difficulty > a, #author > a, #partner > a {
+    max-height: 80%;
+    max-width: 80%;
 }
 
 #modules {
