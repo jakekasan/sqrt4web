@@ -21,14 +21,14 @@
                 <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min
             </p>
         </article>
-        <section id="difficulty">
+        <article id="difficulty">
             <h3>
                 Obtížnost
             </h3>
             <a>
                 <img src="/img/icons/difficulty/<%=lesson.difficulty%>.png" alt="">
             </a>
-        </section>
+        </article>
         <article id="desc">
             <h3>
                 Popis
