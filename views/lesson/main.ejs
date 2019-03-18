@@ -3,83 +3,124 @@
 <link rel="stylesheet" href="/css/modal.css">
 <script src="/js/gallery.js"></script>
 
-<div class="page-content">
-    <div class="course-details" data-id=<%=lesson.id %>>
-        <div class="title"><%= lesson.title %></div>
-        <div class="picture">
-            <%
-                if (lesson.titlePicture){
-            %>
-            <img src="/img/courses/<%= lesson.id %>/<%= lesson.titlePicture %>" alt="">
-            <%
-                } else {
-            %>
-            <img src="/img/homer.png" alt="">
-            <%
-                }
-            %>
-        </div>
-        <div class="description">
-            <div class="short">
+
+    <div id="course" data-id=<%=lesson.id %>>
+        <section id="title">
+            <h1>
+                <%= lesson.title %>
+            </h1>
+        </section>
+        <section id="picture">
+            <img src="/img/courses/<%=lesson.id%>/<%=lesson.titlePicture%>">
+        </section>
+        <article id="time">
+            <h3>
+                Trvání
+            </h3>
+            <p>
+                <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min
+            </p>
+        </article>
+        <section id="difficulty">
+            <h3>
+                Obtížnost
+            </h3>
+            <a>
+                <img src="/img/icons/difficulty/<%=lesson.difficulty%>.png" alt="">
+            </a>
+        </section>
+        <article id="desc">
+            <h3>
+                Popis
+            </h3>
+            <p>
                 <%
-                    let time = lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0);
+                    if (lesson.desc){
                 %>
-                <div class="subtitled">
-                    <div class="subtitle">
-                        Time:
-                    </div>
-                    <div class="content float">
-                        <img class="icon" src="/img/icons/hodiny.png"><%= time %> min
-                    </div>
-                </div>
-                <div class="subtitled">
-                    <!-- <img src="/img/icons/difficulty/5.png" alt=""> -->
-                    <div class="subtitle">
-                        Difficulty:
-                    </div>
-                    <div class="content float">
-                        <img src="/img/icons/difficulty/<%= lesson.difficulty %>.png">
-                    </div>
-                </div>
-            </div>
-            <div class="tall">
-                <% if (lesson.desc) { %>
                 <%= lesson.desc %>
-                <% } else { %>
-                    No description given...
-                <% } %>
-            </div>
-            <div class="short">
-                <div class="subtitled">
-                    <div class="subtitle">
-                        Author:
-                    </div>
-                    <div class="content">
-                        <%= lesson.author %>
-                    </div>
+                <%
+                    } else {
+                %>
+                Bez popisu.
+                <%
+                    }
+                %>
+            </p>
+        </article>
+        <article id="author">
+            <h3>
+                Autor:
+            </h3>
+            <p>
+                <%= lesson.author %>
+            </p>
+        </article>
+        <article id="partner">
+            <h3>
+                Partner:
+            </h3>
+            <a href="<%=lesson.partner.url%>" class="stuff with-image">
+                <img src="/img/partners/<%=lesson.partner.logo_url%>" alt="">
+            </a>
+        </article>
+        <section id="modules">
+            <%
+                for (let module of lesson.modules){
+            %>
+            <article>
+                <h2>
+                    <%= module.title %>
+                </h2>
+                <ul class="icons">
+                    <%
+                        for (let i = 0; i < module.submodules.length; i++) {
+                            let submodule = module.submodules[i];
+                    %>
+                            <li>
+                                <img src="/img/courses/<%=lesson.id%>/<%=submodule.pictureURL%>" alt="/img/homer.png" onclick="toggleSubmodule('<%=module.id%>_<%=i%>')">
+                            </li>
+                    <%
+                        } 
+                    %>
+                </ul>
+                <div class="submodules">
+                    <%
+                        for (let i = 0; i < module.submodules.length; i++){
+                            let submodule = module.submodules[i];
+                    %>
+                            <article id="<%=module.id%>_<%=i%>" class="submodule">
+                                <img src="/img/courses/<%=lesson.id%>/<%=submodule.pictureURL%>" alt="/img/homer.png">
+                                <h3>
+                                    <%= submodule.title %>
+                                </h3>
+                                <p>
+                                    <%- submodule.text.join("<br>") %>
+                                </p>
+                            </article>
+                    <%
+                        }
+                    %>
                 </div>
-                <div class="subtitled">
-                    <div class="subtitle">
-                        Partner:
-                    </div>
-                    <div class="content">
-                        <%= lesson.partner %>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+                <script>
+                    function toggleSubmodule(id){
+                        let target = document.getElementById(id);
+                        let parent = target.parentNode;
+
+                        Array.from(parent.children).forEach(child => {
+                            child.style.display = "none";
+                        });
+
+                        target.style.display = "grid";
+                    }
+                </script>
+            </article>
+    
+            <%
+                };
+            %>
+        </section>
         
-        <%
-            //for (let i = 0; i < 7; i++) {
-            for (let module of lesson.modules){
-        %>
-
-        <%- include("./lesson-module.ejs",{module:module,lesson:lesson}); %>
-
-        <%
-            };
-        %>
+        
         
     </div>
 
@@ -101,7 +142,5 @@
         console.log("Page Loaded");
     </script>
     <script>
-    
         var moduleGalleries = [];
     </script>
-</div>
