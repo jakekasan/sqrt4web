@@ -7,7 +7,9 @@
     /* grid-template-columns: repeat(4,1fr);
     grid-auto-rows: 100px; */
     grid-gap: 25px;
-    font-family: 'Franklin Gothic Medium';
+    /* font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif; */
+    font-weight: 400;
+    font-style: normal;
     grid-template-areas:
         "title"
         "details"
@@ -218,7 +220,7 @@
     visibility: hidden;
 }
 
-@media screen and (max-width: 775px) {
+@media screen and (max-width: 800px) {
 
     .picture {
         grid-column: 1 / -1;
@@ -469,9 +471,12 @@
 }
 
 
-@media screen and (max-width: 775px){
+/* ############################### */
+/* ############################### */
+/* ############################### */
+/* ############################### */
+/* ############################### */
 
-}
 
 #course {
     margin: 25px 0;
@@ -494,6 +499,18 @@
     padding: 10px;
 }
 
+@media only screen and (max-width: 800px){
+    #course {
+        grid-template-areas:
+            "title title"
+            "picture picture"
+            "time difficulty"
+            "author partner"
+            "description description"
+            "modules modules";
+    }
+}
+
 img {
     max-height: 90%;
     max-width: 90%;
@@ -507,21 +524,26 @@ article, section {
 }
 
 article > * {
-    flex: 3;
+    /* flex: 3; */
+}
+
+article a, section a {
+    white-space: nowrap;
+    display: inline;
 }
 
 article > h3 {
-    flex: 1;
+    /* flex: 1; */
     text-align: left;
     font-size: 100%;
 }
 
 section > * {
-    flex: 3;
+    /* flex: 3; */
 }
 
 section > h3 {
-    flex: 1;
+    /* flex: 1; */
     font-size: 100%;
 }
 
@@ -529,6 +551,10 @@ h3 {
     padding: 0;
     margin: 5px 0;
     text-align: left;
+}
+
+p {
+    display: flex;
 }
 
 section > a {
@@ -557,7 +583,8 @@ img {
 
 #picture {
     grid-area: picture;
-    min-width: 40vw;
+    min-width: 60vw;
+    min-height: 20vh;
 }
 
 #time {
@@ -598,15 +625,33 @@ img {
     background-color: white;
     display: grid;
     padding: 25px;
-    grid-gap: 25px;
+    grid-gap: 50px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "title icons"
         "content content";
 }
 
-#modules > article > h3 {
+@media only screen and (max-width: 800px){
+    #modules > article {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "icons"
+            "content"
+    }
+}
+
+/* #modules > article > h3 {
     grid-area: title;
+    font-size: 200%;
+} */
+
+#modules > article > h2 {
+    grid-area: title;
+    font-size: 300%;
+    padding: 0;
+    margin: 0;
 }
 
 article > ul.icons {
@@ -627,6 +672,11 @@ ul.icons > li {
 
 li > img {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.5s;
+}
+
+li > img:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
 }
 
 article > div.submodules {
@@ -641,19 +691,31 @@ ul, li {
 }
 
 ul {
-    padding: 0 25px;
+    padding: 0;
 }
 
 article.submodule {
     display: none;
     grid-template-areas:
-        "image image title title"
-        "image image text text"
-        "image image text text"
-        "image image text text";
+        "image title"
+        "image text"
+        "image text"
+        "image text";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 3fr;
-    grid-gap: 10px;
+    grid-gap: 50px;
+}
+
+@media only screen and (max-width: 700px){
+    article.submodule {
+        grid-template-areas:
+            "image"
+            "title"
+            "text";
+        grid-template-columns: 1fr;
+        grid-template-rows: 5fr 1fr 3fr;
+        grid-gap:25px;
+    }
 }
 
 article.submodule:nth-child(1) {
@@ -665,20 +727,22 @@ article.submodule > img {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     /* min-width: 30vw; */
     max-height: 100%;
-    max-width: 50%;
+    max-width: 100%;
 }
 
 article.submodule > h3 {
     grid-area: title;
+    font-size: 150%;
 }
 
 article.submodule > p {
     grid-area: text;
-    display: flex;
-    flex-direction: column;
+    display: inline;
+    /* flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: flex-start; */
     width: 100%;
     height: 100%;
-    padding: 0 10px;
+    margin: 0;
+    padding: 0;
 }
