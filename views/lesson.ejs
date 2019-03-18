@@ -1,10 +1,11 @@
 <html>
+<% include partials/head %>
     <body>
     <link rel="stylesheet" href="/css/lesson.css">
         <% include partials/header %>
             <div class="page-content">
                 <%- include("./partials/subnav.ejs",breadcrumbs); %>
-                <%- include("./lesson/alt.ejs",lesson) %>
+                <%- include("./lesson/main.ejs",lesson) %>
             </div>
         <% include partials/footer %>
         <% include partials/background %>
