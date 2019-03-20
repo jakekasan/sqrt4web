@@ -320,7 +320,7 @@
 }
 
 .end-button-container {
-    margin-top:150px;
+    margin: 75px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
