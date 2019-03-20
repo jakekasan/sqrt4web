@@ -10,7 +10,7 @@
 
 h1 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 4rem;
 }
 
 h2 {
@@ -41,14 +41,13 @@ p {
 #course {
     margin: 25px 0;
     display: grid;
-    grid-gap: 25px;
+    grid-gap: 15px;
     grid-template-areas:
         "title title title title"
-        "picture picture time difficulty"
-        "picture picture author partner"
-        "picture picture author partner"
-        "picture picture author partner"
-        "description description description description"
+        "picture picture description description"
+        "picture picture description description"
+        "picture picture time author"
+        "picture picture difficulty partner"
         "modules modules modules modules";
     grid-template-columns: 2fr 2fr 1fr 1fr;
 }
@@ -73,6 +72,11 @@ article, section {
 
 article > p, section > p, article > a, section > a {
     height: 100%;
+    margin: 10px;
+}
+
+article > a {
+    margin: 10px 5px;
 }
 
 p > a {
@@ -119,6 +123,10 @@ section > a {
 
 #difficulty {
     grid-area: difficulty;
+}
+
+#difficulty img {
+    max-height: 50px;
 }
 
 #desc {
