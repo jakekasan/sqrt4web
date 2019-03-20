@@ -3,6 +3,9 @@
 /* Footer */
 /* ###### */
 
+* {
+    box-sizing: border-box;
+}
 
 .footer {
     /* position: absolute; */
@@ -24,12 +27,6 @@
     font-style: normal;
 }
 
-@media only screen and (max-width:500px){
-    .footer {
-        grid-template-columns: 1fr;
-    }
-}
-
 .footer-social-media {
     list-style-type: none;
     display:grid;
@@ -44,10 +41,6 @@
 }
 
 @media only screen and (max-width: 750px){
-    .two-columns {
-        flex-direction: column;
-    }
-
     .footer-social-media {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
