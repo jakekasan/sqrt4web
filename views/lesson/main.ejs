@@ -14,25 +14,25 @@
             <img src="/img/courses/<%=lesson.id%>/<%=lesson.titlePicture%>">
         </section>
         <article id="time">
-            <h3>
+            <h4>
                 Trvání
-            </h3>
+            </h4>
             <p>
                 <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min
             </p>
         </article>
         <article id="difficulty">
-            <h3>
+            <h4>
                 Obtížnost
-            </h3>
+            </h4>
             <a>
                 <img src="/img/icons/difficulty/<%=lesson.difficulty%>.png" alt="">
             </a>
         </article>
         <article id="desc">
-            <h3>
+            <h4>
                 Popis
-            </h3>
+            </h4>
             <p>
                 <%
                     if (lesson.desc){
@@ -48,17 +48,17 @@
             </p>
         </article>
         <article id="author">
-            <h3>
+            <h4>
                 Autor:
-            </h3>
+            </h4>
             <p>
                 <%= lesson.author %>
             </p>
         </article>
         <article id="partner">
-            <h3>
+            <h4>
                 Partner:
-            </h3>
+            </h4>
             <a href="<%=lesson.partner.url%>" class="stuff with-image">
                 <img src="/img/partners/<%=lesson.partner.logo_url%>" alt="">
             </a>
@@ -124,10 +124,10 @@
         
     </div>
 
-    <div class="end-button-container">
+    <!-- <div class="end-button-container">
         <a target="_blank" href="<%=lesson.quiz%>">Spustit kvíz</a>
     </div>
-
+ -->
 
     <div class="modal">
         <div class="modal-content large-modal">
