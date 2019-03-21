@@ -225,7 +225,7 @@
             "title":"Tisk z SD karty",
             "submodules":[
                 {
-                    "title":"This is a title",
+                    "title":"",
                     "text":[
                         "Zasuň SD kartu, očisti trysku a plát, (<a href='#5'>zaveď filament</a>)",
                         "Stiskni: Ovládací tlačítko -> Tisk z SD -> model_MK3.gcode",
