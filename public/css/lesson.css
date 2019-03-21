@@ -8,9 +8,18 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 120%;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
     text-align: center;
-    font-size: 4rem;
+    font-size: 6rem;
 }
 
 h2 {
@@ -68,13 +77,29 @@ aside {
     opacity: 0.6;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
 aside > h5 {
     font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
+
+aside > h5 > i {
+    max-height: 100%;
+    padding: 0 10px;
+}
+
+aside > h5 > i > img {
+    max-height: 2rem;
+    width:auto;
+    height:auto;
+}
+
 
 #course {
     margin: 25px 0;
@@ -113,7 +138,7 @@ article, section {
 
 article {
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 1rem auto;
     grid-template-columns: 1fr;
     align-items: flex-start;
 }
@@ -121,8 +146,16 @@ article {
 article > p, section > p, article > a, section > a {
     height: 100%;
     width: 100%;
-    padding: 0 20px;
+    padding: 10px 20px;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+article > p, section > p {
+    padding: 0 20px;
+    justify-content: center;
 }
 
 p > a {
@@ -287,12 +320,11 @@ article.submodule {
     display: none;
     grid-template-areas:
         "image title"
-        "image text"
-        "image text"
         "image text";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 3fr;
-    grid-gap: 50px;
+    grid-template-rows: minmax(50px,auto) auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 10px;
 }
 
 article > ul {
@@ -310,6 +342,8 @@ article.submodule > img {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     max-height: 100%;
     max-width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 article.submodule > h3 {
@@ -382,6 +416,14 @@ article.submodule > p {
         grid-template-columns: 1fr 1fr;
         grid-row-gap: 10px;
     }
+
+    #course > article > a {
+        padding: 10px 20px;
+    }
+
+    #course > article > p {
+        padding: 10px;
+    }
 }
 
 
@@ -394,5 +436,11 @@ article.submodule > p {
 
     article.submodule {
         grid-gap: 10px;
+    }
+}
+
+@media only screen and (min-width: 1500px){
+    html {
+        font-size: 200%;
     }
 }
