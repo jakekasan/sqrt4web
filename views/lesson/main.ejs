@@ -67,9 +67,9 @@
             <%
                 for (let module of lesson.modules){
             %>
-            <article>
+            <article id="<%=module.id%>">
                 <h2>
-                    <%= module.title %>
+                    <%=module.id%>: <%= module.title %>
                 </h2>
                 <ul class="icons">
                     <%
@@ -91,11 +91,17 @@
                             <article id="<%=module.id%>_<%=i%>" class="submodule">
                                 <img src="/img/courses/<%=lesson.id%>/<%=submodule.pictureURL%>" alt="/img/homer.png">
                                 <h3>
-                                    <%= submodule.title %>
+                                    <%= module.id %>.<%= i+1 %>: <%= submodule.title %>
                                 </h3>
-                                <p>
-                                    <%- submodule.text.join("<br>") %>
-                                </p>
+                                <ol>
+                                    <%
+                                        for (let text of submodule.text) {
+                                    %>
+                                            <li><%- text %></li>
+                                    <%
+                                        }
+                                    %>
+                                </ol>
                             </article>
                     <%
                         }
