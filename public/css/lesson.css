@@ -28,11 +28,16 @@ h3 {
 }
 
 h4 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     padding: 0;
     margin: 0;
     opacity: 0.6;
     font-style: italic;
+}
+
+h5 {
+    padding: 0;
+    margin: 0;
 }
 
 p {
@@ -56,20 +61,36 @@ ul {
     padding: 0;
 }
 
+aside {
+    height: 100%;
+    width: 100%;
+    padding: 5px 20px;
+    opacity: 0.6;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+aside > h5 {
+    font-size: 2rem;
+}
+
 #course {
     margin: 25px 0;
     display: grid;
     grid-gap: 15px;
     grid-template-areas:
-        "title title title title"
-        "picture picture picture picture"
-        "picture picture picture picture"
-        "description description time partner"
-        "description description difficulty partner"
-        "description description author partner"
+        "title title title title title"
+        "picture picture picture picture time"
+        "picture picture picture picture difficulty"
+        "picture picture picture picture author"
+        "description description description partner partner"
+        "description description description partner partner"
+        "description description description partner partner"
         /* "time author difficulty partner partner" */
-        "modules modules modules modules";
-    grid-template-columns: repeat(4,1fr);
+        "modules modules modules modules modules";
+    grid-template-columns: repeat(5,1fr);
 }
 
 #course > * {
@@ -100,6 +121,8 @@ article {
 article > p, section > p, article > a, section > a {
     height: 100%;
     width: 100%;
+    padding: 0 20px;
+    margin: 0;
 }
 
 p > a {
@@ -131,11 +154,12 @@ article > a, section > a {
     grid-area: picture;
     box-shadow: none;
     background: inherit;
+    padding: 0;
 }
 
 #picture > img {
     height: auto;
-    width: 70%;
+    width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 
@@ -202,10 +226,13 @@ article > a, section > a {
     grid-template-rows: auto auto auto;
     grid-template-areas:
         "title title"
-        ". icons"
+        "meta icons"
         "content content";
 }
 
+#modules > article > aside {
+    grid-area: meta;
+}
 
 #modules > article > h2 {
     grid-area: title;
@@ -338,6 +365,7 @@ article.submodule > p {
         grid-template-columns: 1fr;
         grid-template-areas:
             "title"
+            "meta"
             "icons"
             "content";
         grid-gap: 10px;
