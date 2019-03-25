@@ -62,8 +62,4 @@ a:link, a:visited {
         justify-content: center;
         align-items: center;
     }
-
-    .nav-item {
-        flex-basis: 35%;
-    }
 }
