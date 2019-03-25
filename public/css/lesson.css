@@ -9,7 +9,7 @@
 }
 
 html {
-    font-size: 120%;
+    font-size: 90%;
 }
 
 h1, h2, h3, h4, h5 {
@@ -19,18 +19,18 @@ h1, h2, h3, h4, h5 {
 
 h1 {
     text-align: center;
-    font-size: 6rem;
+    font-size: 4rem;
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     padding: 0;
     margin: 0;
     text-align: center;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 0;
     margin: 5px 0;
     text-align: center;
@@ -360,6 +360,10 @@ article.submodule > p {
 
 @media only screen and (max-width: 700px){
 
+    html {
+        font-size: 80%;
+    }
+
     #picture {
         margin: 0;
         padding: 0;
@@ -369,7 +373,7 @@ article.submodule > p {
         width: 100%;
     }
 
-    h1 {
+    /* h1 {
         font-size: 3rem;
     }
 
@@ -379,7 +383,7 @@ article.submodule > p {
 
     h3 {
         font-size: 1.5rem;
-    }
+    } */
 
     article.submodule {
         grid-template-areas:
@@ -441,6 +445,6 @@ article.submodule > p {
 
 @media only screen and (min-width: 1500px){
     html {
-        font-size: 200%;
+        font-size: 120%;
     }
 }
