@@ -13,56 +13,55 @@
         <section id="picture">
             <img src="/img/courses/<%=lesson.id%>/<%=lesson.titlePicture%>">
         </section>
-        <article id="time">
-            <h4>
-                Trvání
-            </h4>
-            <p>
-                <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min
-            </p>
-        </article>
-        <article id="difficulty">
-            <h4>
-                Obtížnost
-            </h4>
-            <a>
-                <img src="/img/icons/difficulty/<%=lesson.difficulty%>.png" alt="">
-            </a>
-        </article>
-        <article id="desc">
-            <h4>
-                Popis
-            </h4>
-            <p>
-                <%
-                    if (lesson.desc){
-                %>
-                <%= lesson.desc %>
-                <%
-                    } else {
-                %>
-                Bez popisu.
-                <%
-                    }
-                %>
-            </p>
-        </article>
-        <article id="author">
-            <h4>
-                Autor:
-            </h4>
-            <p>
-                <%= lesson.author %>
-            </p>
-        </article>
-        <article id="partner">
-            <h4>
-                Partner:
-            </h4>
-            <a href="<%=lesson.partner.url%>" class="stuff with-image">
-                <img src="/img/partners/<%=lesson.partner.logo_url%>" alt="">
-            </a>
-        </article>
+        <section id="meta">
+            <section id="time">
+                <p>
+                    <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min
+                </p>
+            </section>
+            <section id="difficulty">
+                <a>
+                    <img src="/img/icons/difficulty/<%=lesson.difficulty%>.png" alt="">
+                </a>
+            </section>
+            <article id="desc">
+                <h4>
+                    Popis
+                </h4>
+                <p>
+                    <%
+                        if (lesson.desc){
+                    %>
+                    <%= lesson.desc %>
+                    <%
+                        } else {
+                    %>
+                    Bez popisu.
+                    <%
+                        }
+                    %>
+                </p>
+            </article>
+        </section>    
+        <section id="meta2">
+            <article id="author">
+                <h4>
+                    Autor:
+                </h4>
+                <p>
+                    <%= lesson.author %>
+                </p>
+            </article>
+            <article id="partner">
+                <h4>
+                    Partner:
+                </h4>
+                <a href="<%=lesson.partner.url%>" class="stuff with-image">
+                    <img src="/img/partners/<%=lesson.partner.logo_url%>" alt="">
+                </a>
+            </article>
+        </section>
+        
         <section id="modules">
             <%
                 for (let module of lesson.modules){
@@ -142,6 +141,7 @@
     </div>
 
     <script src="/js/modal.js"></script>
+    <script src="/js/lesson.js"></script>
 
     </div>
     <script>
