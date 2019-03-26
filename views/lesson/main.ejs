@@ -75,7 +75,7 @@
                         for (let i = 0; i < module.submodules.length; i++) {
                             let submodule = module.submodules[i];
                     %>
-                            <li>
+                            <li class="<%= (i == 0) ? 'selected' : '' %>">
                                 <img src="/img/courses/<%=lesson.id%>/<%=submodule.pictureURL%>" alt="/img/homer.png" onclick="toggleSubmodule('<%=module.id%>_<%=i%>')">
                             </li>
                     <%
@@ -88,7 +88,7 @@
                             let submodule = module.submodules[i];
                     %>
                             <article id="<%=module.id%>_<%=i%>" class="submodule">
-                                <img src="/img/courses/<%=lesson.id%>/<%=submodule.pictureURL%>" alt="/img/homer.png">
+                                <img src="/img/courses/<%=lesson.id%>/<%=submodule.pictureURL%>" alt="/img/homer.png" onclick="fillModalWithImage('/img/courses/<%=lesson.id%>/<%=submodule.pictureURL%>')">
                                 <h3>
                                     <%= submodule.title %>
                                 </h3>
