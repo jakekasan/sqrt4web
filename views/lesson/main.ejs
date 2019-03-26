@@ -16,7 +16,7 @@
         <section id="meta">
             <section id="time">
                 <p>
-                    <%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min
+                    <img src="/img/icons/hodiny.png" alt=""><%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min
                 </p>
             </section>
             <section id="difficulty">
@@ -123,6 +123,9 @@
             <%
                 };
             %>
+        </section>
+        <section>
+            <a href="!" class="button">SPUSTIT KVIZ</a>
         </section>
         
         
