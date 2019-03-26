@@ -488,7 +488,34 @@ article.submodule > ol {
         width: 100%;
     }
 
+    #modules > article {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "title"
+            "icons"
+            "content";
+        grid-gap: 10px;
+    }
+
+    #modules > article > h2 {
+        grid-column: title;
+        grid-row: title;
+    }
+
+    #modules > article > .icons {
+        grid-column: icons;
+        grid-row: icons;
+    }
+
+    article > .submodules {
+        grid-column: content;
+        grid-row: content;
+    }
+
     article.submodule {
+        /* grid-column: content;
+        grid-row: content; */
         grid-template-areas:
             "image"
             "title"
@@ -502,15 +529,9 @@ article.submodule > ol {
         max-width: 80%;
     } */
 
-    #modules > article {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "title"
-            "meta"
-            "icons"
-            "content";
-        grid-gap: 10px;
-    }
+    
+
+
 
     #course {
         grid-template-areas:
