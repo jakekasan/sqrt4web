@@ -183,14 +183,14 @@ p > a {
     width: auto;
 }
 
-p > img {
+/* a > img {
     display: block;
     max-height: 1rem;
     max-width: 1rem;
     width: auto;
     height: auto;
     align: left;
-}
+} */
 
 article > a, section > a {
     display: flex;
@@ -228,6 +228,20 @@ article > a, section > a {
     flex-direction: row;
     justify-content: left;
     align-items: left;
+}
+
+#time > a {
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+}
+
+#time > a > i {
+    height: auto;
+    width: auto;
+    max-height: 1rem;
+    max-width: 1rem;
+    margin: 0px 5px;
 }
 
 #difficulty {
@@ -369,10 +383,6 @@ ul.icons > li {
     width: 30%;
     max-height: 100%;
     margin: 0 5px;
-    /* display:flex; */
-    /* justify-content: space-evenly; */
-    /* align-items: top; */
-    /* padding: 0 10px; */
 }
 
 ul.icons > li:nth-child(1) {
@@ -542,14 +552,6 @@ article.submodule > ol {
         grid-template-rows: auto auto auto;
         grid-gap:25px;
     }
-
-    /* article.submodule > img {
-        max-width: 80%;
-    } */
-
-    
-
-
 
     #course {
         grid-template-areas:
