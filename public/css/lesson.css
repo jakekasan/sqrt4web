@@ -283,7 +283,7 @@ article > a, section > a {
     background-color: inherit;
     grid-gap: 25px;
 }
-
+/* 
 #modules > article {
     width: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
@@ -296,32 +296,65 @@ article > a, section > a {
     grid-template-rows: auto auto auto;
     grid-template-areas:
         "title title"
-        ". icons"
+        "content content"
         "content content";
+} */
+
+#modules > article {
+    width: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    background-color: white;
+    display: grid;
+    padding: 25px;
+    grid-column-gap: 50px;
+    grid-row-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "a b"
+        "c d"
+        "e f"
+        "g h";
 }
 
 #modules > article > aside {
     grid-area: meta;
 }
 
-#modules > article > h2 {
+/* #modules > article > h2 {
     grid-area: title;
+} */
+
+#modules > article > h2 {
+    grid-column: a-start / b-end;
 }
 
-article > ul.icons {
+/* article > ul.icons {
     grid-area: icons;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-content: center;
+} */
+
+article > ul.icons {
+    grid-column: d-start / d-end;
+    grid-row: d-start / d-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    overflow: visible;
+    height: 70px;
 }
 
 ul.icons > li {
-    width: 100px;
+    max-width: 120px;
+    /* height: 70px; */
     display:flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 10px;
+    padding: 0 10px;
 }
 
 ul.icons > li:nth-child(1) {
@@ -356,19 +389,38 @@ li > img.selected {
     opacity: 1;
 }
 
-article > .submodules {
+/* article > .submodules {
     grid-area: content;
+} */
+
+article > .submodules {
+    grid-column: c-start / d-end;
+    grid-row: c-start / g-end;
+    grid-template-columns: [c] [d];
+    grid-template-rows: [c] [e] [g];
 }
 
-
-
-article.submodule {
+/* article.submodule {
     display: none;
     grid-template-areas:
         "image title"
         "image text";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: minmax(50px,auto) auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 10px;
+} */
+
+article.submodule {
+    grid-column: c-start / d-end;
+    grid-row: c-start / e-end;
+    display: none;
+    grid-template-areas:
+        "image ."
+        "image title"
+        "image text";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80px auto auto;
     grid-column-gap: 50px;
     grid-row-gap: 10px;
 }
@@ -397,7 +449,13 @@ article.submodule > h3 {
     text-align: left;
 }
 
-article.submodule > p {
+/* article.submodule > p {
+    grid-area: text;
+    margin: 0;
+    padding: 0;
+} */
+
+article.submodule > ol {
     grid-area: text;
     margin: 0;
     padding: 0;
