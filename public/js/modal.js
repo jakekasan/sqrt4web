@@ -8,7 +8,7 @@ function toggleModal() {
 function fillModalWithImage(imageLink){
     console.log("Loading image link",imageLink);
 
-    if (isMobile){
+    if (isMobile()){
         console.log("Mobile. Cancelling modal.");
         return
     }
