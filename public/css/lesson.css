@@ -275,7 +275,7 @@ article > a, section > a {
         "time difficulty"
         "description description";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: 70px 1fr;
     max-height: 100%;
 }
 
@@ -337,7 +337,7 @@ article > a, section > a {
     display: grid;
     padding: 25px;
     grid-column-gap: 50px;
-    grid-row-gap: 10px;
+    grid-row-gap: 15px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto 50px auto;
     grid-template-areas:
@@ -450,7 +450,7 @@ article.submodule {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 100px 20px auto;
     grid-column-gap: 50px;
-    grid-row-gap: 10px;
+    grid-row-gap: 15px;
 }
 
 /* article > ul {
@@ -558,7 +558,6 @@ article.submodule > ol {
             "title title"
             "picture picture"
             "meta meta"
-            /* "time difficulty" */
             "meta2 meta2"
             "modules modules";
         grid-template-columns: 1fr 1fr;
