@@ -55,6 +55,7 @@ p {
     font-size: 1rem;
     display: flex;
     flex-direction: row;
+    text-align: justify;
 }
 
 ol, ul, li {
