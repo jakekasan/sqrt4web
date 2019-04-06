@@ -35,31 +35,40 @@
                         <i><img src="/img/icons/hodiny.png" alt=""></i><%= lesson.modules.reduce((acc,ele) => { return acc+ele.minutes},0); %> min
                     </a>
                 </li>
+                <li>
+                    <a><%= lesson.modules.length %> modul</a>
+                </li>
                 <li id="difficulty">
                     <a>
                         <img src="/img/icons/difficulty/<%=lesson.difficulty%>.png" alt="">
                     </a>
                 </li>
                 <li>
-                    <a><%= lesson.modules.length %> modul</a>
-                </li>
-                <li>
                     <a>#3DTisk</a>
                 </li>
             </ul>
             <article id="author">
-                <h4>
-                    Autor:
-                </h4>
-                <p>
-                    <%= lesson.author %>
-                </p>
+                <ul>
+                    <li>
+                        <i class="fa fa-user-circle fa-sm">
+                        </i>
+                        <p class="author_name">
+                            <%= lesson.author %>
+                        </p>
+                    </li>
+                </ul>
+                
             </article>
             <section id="partner">
                 <ul>
                     <li>
                         <a href="<%=lesson.partner.url%>" class="stuff with-image">
                             <img src="/img/partners/<%=lesson.partner.logo_url%>" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="stuff with-image">
+                            <img src="/img/icons/delej_co_te_bavi.png">
                         </a>
                     </li>
                 </ul>
