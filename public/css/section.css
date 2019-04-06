@@ -50,3 +50,8 @@ section > article {
     align-content: center;
     text-transform: uppercase;
 }
+
+.section-styling article {
+    align-items: center;
+    justify-content: center; 
+}
