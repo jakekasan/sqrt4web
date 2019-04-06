@@ -3,6 +3,10 @@
 /* Nav Bar */
 /* ####### */
 
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .navbar {
     width:100%;
     /* position:fixed; */
