@@ -32,7 +32,6 @@ class HomeController extends BaseController {
     }
 
     getContent(self){
-        console.log("In get content");
         // temporary data
         let data = {
             title:"Welcome to SQRT4",
