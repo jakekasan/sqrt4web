@@ -9,6 +9,9 @@ let config = {
                 user:"test",
                 password:"password1",
                 address:`mongodb://test:password1@ds235302.mlab.com:35302/sqrt4`
+            },
+            sql:{
+                address:"sqlite:///:memory:"
             }
         },
         debug:true
