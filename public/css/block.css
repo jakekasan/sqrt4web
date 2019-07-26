@@ -11,6 +11,7 @@
     grid-row-gap: 25px;
     grid-column-gap: 2.5%;
     width:auto;
+    overflow: hidden;
 }
 
 .block {
