@@ -289,7 +289,7 @@ article > a, section > a {
 
 #details img {
     max-height: 25px;
-    max-width: 100%;
+    max-width: 80%;
 }
 
 #details * {
@@ -380,6 +380,7 @@ article > a, section > a {
 
 #modules > article {
     width: auto;
+    /* font-size:120%; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     background-color: white;
     display: grid;
@@ -401,6 +402,7 @@ article > a, section > a {
 
 #modules > article > h2 {
     grid-column: a-start / b-end;
+    font-size: 1.8rem;
 }
 
 article > ul.icons {
@@ -488,6 +490,9 @@ article.submodule > img {
 article.submodule > h3 {
     grid-area: title;
     text-align: left;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
 }
 
 /* article.submodule > p {
@@ -500,6 +505,8 @@ article.submodule > ol {
     grid-area: text;
     margin: 0;
     padding: 0;
+    font-size: 1.1rem;
+    font-weight: 100;
 }
 
 @media only screen and (max-width: 1050px){

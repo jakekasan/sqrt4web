@@ -1,0 +1,14 @@
+.message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.message {
+    border-radius: 50px;
+    background-color: white;
+    min-height: 200px;
+    min-width: 500px;
+    padding: 50px;
+}
