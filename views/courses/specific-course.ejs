@@ -3,13 +3,13 @@
 <script src="/js/gallery.js"></script>
 
 <div class="page-content">
-    <div class="course-details" data-id=<%=data.course.id %>>
-        <div class="title"><%= data.course.title %></div>
+    <div class="course-details" data-id=<%=lesson.id %>>
+        <div class="title"><%= lesson.title %></div>
         <div class="picture">
             <%
-                if (data.course.titlePicture){
+                if (lesson.titlePicture){
             %>
-            <img src="/img/courses/<%= data.course.id %>/<%= data.course.titlePicture %>" alt="">
+            <img src="/img/courses/<%= lesson.id %>/<%= lesson.titlePicture %>" alt="">
             <%
                 } else {
             %>
@@ -20,8 +20,8 @@
         </div>
         <div class="description">
             <div class="description-text">
-                <% if (data.course.desc) { %>
-                <%= data.course.desc %>
+                <% if (lesson.desc) { %>
+                <%= lesson.desc %>
                 <% } else { %>
                     No description given...
                 <% } %>
@@ -30,10 +30,10 @@
         
         <%
             //for (let i = 0; i < 7; i++) {
-            for (let module of data.course.modules){
+            for (let module of lesson.modules){
         %>
 
-        <%- include("./course-module.ejs",{module:module,course:data.course}); %>
+        <%- include("./lesson-module.ejs",{module:module,lesson:lesson}); %>
 
         <%
             };

@@ -13,7 +13,6 @@
         <div class="container-content">
             <input type="text" name="title" id="titleInput" value="<%= (course && course.title) ? course.title : '' %>">
         </div>
-        
     </div>
     <div class="edit-text-container">
         <div class="container-title">
@@ -27,7 +26,7 @@
         <div class="container-title">
             Lessons
         </div>
-        <div class="container-list">
+        <div class="container-list" id="lessons">
             <%
             course.lessons.forEach((lesson,i) => {
             %>
@@ -55,13 +54,19 @@
         <div class="container-title">
             Projects
         </div>
-        <div class="container-list">
+        <div class="container-list" id="projects">
             <%
                 for (let project of course.projects){
             %>
             <div class="container-list-item">
-                <input type="hidden" name="projects">
-                <%= JSON.stringify(project) %>
+                <div class="item-title">
+                    <%= project.title %>
+                </div>
+                <div class="item-buttons">
+                    <div class="button">Edit</div>
+                    <div class="button">Delete</div>
+                </div>
+                <input type="hidden" name="projects" value="<%=project.id%>">
             </div>
             <%
                 }

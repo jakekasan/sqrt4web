@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <% include partials/header %>
+        <link rel="stylesheet" href="/css/message.css">
+        <div class="page-content">
+            <div class="message-container">
+                <div class="message">
+                    <%
+                        if (locals.message){
+                    %>
+                    <%= message %>
+                    <%
+                        } else {
+                    %>
+                    No message
+                    <%
+                        }
+                    %>
+                </div>
+            </div>
+        </div>
+        <% include partials/footer %>
+    </body>
+</html>
